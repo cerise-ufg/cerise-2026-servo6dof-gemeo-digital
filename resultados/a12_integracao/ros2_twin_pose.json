@@ -1,0 +1,66 @@
+{
+  "descricao": "no ROS 2 gemeo_twin (predictor=http -> POST /api/prever do servidor do gemeo, PosePredictor na GPU) recebendo /camera_frontal/image do publicador do conjunto de teste; pares casados pelo carimbo da imagem",
+  "duracao_s": 40.0,
+  "msgs_twin": 80,
+  "pares_casados": 79,
+  "taxa_twin_hz": 2.001775167003681,
+  "atraso_imagem_ate_twin_ms": {
+    "n": 79,
+    "media": 255.18120089663734,
+    "mediana": 255.19871711730957,
+    "p95": 281.5258502960205,
+    "max": 292.0379638671875
+  },
+  "latencia_predictor_http_ms": {
+    "n": 80,
+    "media": 89.49189376831055,
+    "mediana": 87.17045974731445,
+    "p95": 99.08796272277831,
+    "max": 105.3958969116211
+  },
+  "erro_efetuador_mm": {
+    "n": 79,
+    "media": 130.5672751090417,
+    "mediana": 76.66390912376788,
+    "p95": 386.76522022101983,
+    "max": 758.613158258416
+  },
+  "abs_err_graus": {
+    "joint_1": {
+      "n": 79,
+      "media": 4.205141824926646,
+      "mediana": 2.4716609613720952,
+      "p95": 12.304376842816513,
+      "max": 26.428987554782537
+    },
+    "joint_2": {
+      "n": 79,
+      "media": 5.295878913033047,
+      "mediana": 2.459312650896909,
+      "p95": 26.40489621590736,
+      "max": 29.09145136309603
+    },
+    "joint_3": {
+      "n": 79,
+      "media": 4.556730860284907,
+      "mediana": 2.9338229106370344,
+      "p95": 13.411129457258916,
+      "max": 28.88619477801119
+    },
+    "joint_4": {
+      "n": 79,
+      "media": 11.034162688835254,
+      "mediana": 5.391284266080169,
+      "p95": 44.991023480292796,
+      "max": 59.51526893079257
+    },
+    "joint_5": {
+      "n": 79,
+      "media": 37.58879706751594,
+      "mediana": 37.84596169430964,
+      "p95": 76.42183750920726,
+      "max": 79.05075364812915
+    }
+  },
+  "mae5_graus": 12.536142270919159
+}

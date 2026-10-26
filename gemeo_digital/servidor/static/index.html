@@ -41,7 +41,7 @@
       <button id="bt-ant" title="quadro anterior">◀</button>
       <button id="bt-prox" title="próximo quadro">▶</button>
       <label>fps
-        <select id="sel-fps"><option>1</option><option selected>2</option><option>5</option><option>10</option></select>
+        <select id="sel-fps"><option>1</option><option selected>2</option><option>5</option><option>10</option><option value="0">máx.</option></select>
       </label>
       <label>câmera
         <select id="sel-camera">
@@ -67,7 +67,8 @@
   <aside class="lateral">
     <div class="cartao">
       <div class="cartao-cab"><h2>Câmera do estúdio</h2><span class="sub" id="img-legenda">—</span></div>
-      <div class="imagem"><img id="img-camera" alt="imagem da câmera do dataset"></div>
+      <div class="imagem"><img id="img-camera" alt="imagem da câmera do dataset"><canvas id="img-kp"></canvas></div>
+      <div class="leg-img"><i class="traco kp"></i>esqueleto 2D previsto pelo modelo de pose (entrada: só a imagem)</div>
     </div>
 
     <div class="cartao">
@@ -81,6 +82,8 @@
         <div><span class="rot">erro máx.</span><span class="val" id="v-max">—</span></div>
         <div><span class="rot">erro efetuador (FK)</span><span class="val" id="v-ee">—</span></div>
         <div><span class="rot">latência predictor</span><span class="val" id="v-lat">—</span></div>
+        <div><span class="rot">ponta a ponta</span><span class="val" id="v-e2e">—</span></div>
+        <div><span class="rot">quadros/s</span><span class="val" id="v-fps">—</span></div>
       </div>
     </div>
 

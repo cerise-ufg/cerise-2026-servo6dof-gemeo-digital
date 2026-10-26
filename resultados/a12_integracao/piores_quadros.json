@@ -1,0 +1,1184 @@
+{
+  "por_erro_efetuador": [
+    {
+      "camera": "camera_frontal",
+      "id": 4599,
+      "idx": 453,
+      "mae5_graus": 50.10587953652193,
+      "mae4_graus": 62.06318765186739,
+      "erro_efetuador_mm": 991.4011547035072,
+      "erros_graus": {
+        "joint_1": 12.23,
+        "joint_2": 111.26,
+        "joint_3": -117.82,
+        "joint_4": -6.95,
+        "joint_5": -2.28
+      },
+      "junta_dominante": "joint_3",
+      "pixels_braco": 93606,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.6320528222391196,
+      "divergencia_real_comandada_graus": 0.052139159356904975,
+      "profundidade_min_braco_m": 1.44,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        191.8,
+        187.9,
+        165.8,
+        124.9,
+        153.5,
+        178.6,
+        212.6
+      ],
+      "gt_graus": {
+        "joint_1": -67.2,
+        "joint_2": -69.7,
+        "joint_3": 58.8,
+        "joint_4": 62.3,
+        "joint_5": 2.3
+      },
+      "pred_graus": {
+        "joint_1": -55.0,
+        "joint_2": 41.6,
+        "joint_3": -59.0,
+        "joint_4": 55.3,
+        "joint_5": -0.0
+      },
+      "explicacao": "ambiguidade de configuracao: erros grandes e de sinais opostos em j2 (+111) e j3 (-118) -> 'cotovelo invertido' com silhueta 2D parecida; keypoint 2D mais errado: ponta_garra (213 px); mesma pose na outra camera: erro do efetuador 910 mm, MAE 19.9 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 4599,
+      "idx": 453,
+      "mae5_graus": 19.93005150105665,
+      "mae4_graus": 23.825958561732808,
+      "erro_efetuador_mm": 910.2960914339221,
+      "erros_graus": {
+        "joint_1": 29.1,
+        "joint_2": 21.06,
+        "joint_3": 5.46,
+        "joint_4": -39.68,
+        "joint_5": -4.35
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 66534,
+      "frac_braco_no_recorte": 0.9347551627739201,
+      "z_min_distal_m": 0.6320528222391196,
+      "divergencia_real_comandada_graus": 0.052139159356904975,
+      "profundidade_min_braco_m": 2.288,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        52.9,
+        86.4,
+        26.0,
+        22.8,
+        59.1,
+        119.3,
+        198.7
+      ],
+      "gt_graus": {
+        "joint_1": -67.2,
+        "joint_2": -69.7,
+        "joint_3": 58.8,
+        "joint_4": 62.3,
+        "joint_5": 2.3
+      },
+      "pred_graus": {
+        "joint_1": -38.1,
+        "joint_2": -48.6,
+        "joint_3": 64.3,
+        "joint_4": 22.6,
+        "joint_5": -2.1
+      },
+      "explicacao": "erro concentrado na joint_4 (-40 graus); 7% dos pixels do braco ficam FORA do recorte fixo da camera; keypoint 2D mais errado: ponta_garra (199 px); mesma pose na outra camera: erro do efetuador 991 mm, MAE 50.1 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 1229,
+      "idx": 463,
+      "mae5_graus": 29.22986102356898,
+      "mae4_graus": 16.11044209424144,
+      "erro_efetuador_mm": 811.2685099099491,
+      "erros_graus": {
+        "joint_1": 19.12,
+        "joint_2": 22.65,
+        "joint_3": 5.84,
+        "joint_4": -16.83,
+        "joint_5": -81.71
+      },
+      "junta_dominante": "joint_2",
+      "pixels_braco": 54957,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.12784825725811527,
+      "divergencia_real_comandada_graus": 1.1928981294623775,
+      "profundidade_min_braco_m": 2.858,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        34.9,
+        70.3,
+        22.6,
+        54.2,
+        159.3,
+        206.6,
+        244.3
+      ],
+      "gt_graus": {
+        "joint_1": -57.2,
+        "joint_2": -63.0,
+        "joint_3": 30.7,
+        "joint_4": 22.0,
+        "joint_5": 79.7
+      },
+      "pred_graus": {
+        "joint_1": -38.1,
+        "joint_2": -40.3,
+        "joint_3": 36.5,
+        "joint_4": 5.2,
+        "joint_5": -2.0
+      },
+      "explicacao": "erro concentrado na joint_2 (+23 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 1 graus); garra/punho rente ao chao (z 0.13 m): oclusao com o piso e sombra; keypoint 2D mais errado: ponta_garra (244 px); mesma pose na outra camera: erro do efetuador 720 mm, MAE 30.1 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 3091,
+      "idx": 208,
+      "mae5_graus": 32.334295945369554,
+      "mae4_graus": 24.534878674851758,
+      "erro_efetuador_mm": 795.2852012233501,
+      "erros_graus": {
+        "joint_1": -26.49,
+        "joint_2": -15.45,
+        "joint_3": -23.32,
+        "joint_4": 32.88,
+        "joint_5": 63.53
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 104343,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.891275961988587,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 1.519,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        36.0,
+        35.5,
+        26.3,
+        30.8,
+        69.6,
+        32.8,
+        41.9
+      ],
+      "gt_graus": {
+        "joint_1": 78.1,
+        "joint_2": 58.3,
+        "joint_3": 63.9,
+        "joint_4": 21.9,
+        "joint_5": -65.6
+      },
+      "pred_graus": {
+        "joint_1": 51.6,
+        "joint_2": 42.8,
+        "joint_3": 40.6,
+        "joint_4": 54.8,
+        "joint_5": -2.0
+      },
+      "explicacao": "erro concentrado na joint_4 (+33 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); keypoint 2D mais errado: junta_4 (70 px); mesma pose na outra camera: erro do efetuador 293 mm, MAE 20.3 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 513,
+      "idx": 206,
+      "mae5_graus": 17.37230479712533,
+      "mae4_graus": 16.37657238865173,
+      "erro_efetuador_mm": 758.613158258416,
+      "erros_graus": {
+        "joint_1": -16.14,
+        "joint_2": -26.3,
+        "joint_3": -2.14,
+        "joint_4": 20.93,
+        "joint_5": 21.36
+      },
+      "junta_dominante": "joint_2",
+      "pixels_braco": 115894,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.8078243065408166,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 1.462,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        48.5,
+        49.5,
+        57.1,
+        21.5,
+        59.6,
+        65.2,
+        84.5
+      ],
+      "gt_graus": {
+        "joint_1": 77.3,
+        "joint_2": 66.8,
+        "joint_3": 65.9,
+        "joint_4": 1.3,
+        "joint_5": -24.4
+      },
+      "pred_graus": {
+        "joint_1": 61.2,
+        "joint_2": 40.5,
+        "joint_3": 63.8,
+        "joint_4": 22.2,
+        "joint_5": -3.0
+      },
+      "explicacao": "erro concentrado na joint_2 (-26 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); keypoint 2D mais errado: ponta_garra (84 px); mesma pose na outra camera: erro do efetuador 199 mm, MAE 8.4 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 22,
+      "idx": 32,
+      "mae5_graus": 14.007531961164293,
+      "mae4_graus": 9.545112608485608,
+      "erro_efetuador_mm": 722.9787679924623,
+      "erros_graus": {
+        "joint_1": 3.94,
+        "joint_2": 29.09,
+        "joint_3": -3.12,
+        "joint_4": 2.03,
+        "joint_5": 31.86
+      },
+      "junta_dominante": "joint_2",
+      "pixels_braco": 77429,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 1.1462636340449583,
+      "divergencia_real_comandada_graus": 13.298923382781537,
+      "profundidade_min_braco_m": 3.179,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        7.0,
+        8.1,
+        8.7,
+        76.6,
+        158.8,
+        215.6,
+        262.2
+      ],
+      "gt_graus": {
+        "joint_1": -24.4,
+        "joint_2": 21.5,
+        "joint_3": 31.4,
+        "joint_4": -8.7,
+        "joint_5": -32.6
+      },
+      "pred_graus": {
+        "joint_1": -20.5,
+        "joint_2": 50.6,
+        "joint_3": 28.3,
+        "joint_4": -6.7,
+        "joint_5": -0.8
+      },
+      "explicacao": "erro concentrado na joint_2 (+29 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 13 graus); keypoint 2D mais errado: ponta_garra (262 px); mesma pose na outra camera: erro do efetuador 113 mm, MAE 9.6 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 1229,
+      "idx": 463,
+      "mae5_graus": 30.053876400445386,
+      "mae4_graus": 17.332785355099336,
+      "erro_efetuador_mm": 720.2745465714479,
+      "erros_graus": {
+        "joint_1": 12.13,
+        "joint_2": 32.51,
+        "joint_3": -15.43,
+        "joint_4": 9.26,
+        "joint_5": -80.94
+      },
+      "junta_dominante": "joint_2",
+      "pixels_braco": 53300,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.12784825725811527,
+      "divergencia_real_comandada_graus": 1.1928981294623775,
+      "profundidade_min_braco_m": 2.458,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        112.3,
+        155.0,
+        68.3,
+        130.6,
+        294.7,
+        471.2,
+        625.2
+      ],
+      "gt_graus": {
+        "joint_1": -57.2,
+        "joint_2": -63.0,
+        "joint_3": 30.7,
+        "joint_4": 22.0,
+        "joint_5": 79.7
+      },
+      "pred_graus": {
+        "joint_1": -45.1,
+        "joint_2": -30.5,
+        "joint_3": 15.3,
+        "joint_4": 31.3,
+        "joint_5": -1.3
+      },
+      "explicacao": "erro concentrado na joint_2 (+33 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 1 graus); garra/punho rente ao chao (z 0.13 m): oclusao com o piso e sombra; keypoint 2D mais errado: ponta_garra (625 px); mesma pose na outra camera: erro do efetuador 811 mm, MAE 29.2 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 1857,
+      "idx": 486,
+      "mae5_graus": 10.821065513373972,
+      "mae4_graus": 13.048982875606036,
+      "erro_efetuador_mm": 711.9156636123281,
+      "erros_graus": {
+        "joint_1": -1.8,
+        "joint_2": 40.44,
+        "joint_3": 2.09,
+        "joint_4": -7.87,
+        "joint_5": 1.91
+      },
+      "junta_dominante": "joint_2",
+      "pixels_braco": 52752,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.48811625513808155,
+      "divergencia_real_comandada_graus": 13.371116064968023,
+      "profundidade_min_braco_m": 3.806,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        7.9,
+        5.3,
+        4.4,
+        118.0,
+        121.5,
+        175.2,
+        213.3
+      ],
+      "gt_graus": {
+        "joint_1": 47.3,
+        "joint_2": -23.4,
+        "joint_3": -33.0,
+        "joint_4": 62.1,
+        "joint_5": -1.7
+      },
+      "pred_graus": {
+        "joint_1": 45.5,
+        "joint_2": 17.0,
+        "joint_3": -30.9,
+        "joint_4": 54.2,
+        "joint_5": 0.2
+      },
+      "explicacao": "erro concentrado na joint_2 (+40 graus); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 13 graus); keypoint 2D mais errado: ponta_garra (213 px); mesma pose na outra camera: erro do efetuador 127 mm, MAE 4.9 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 21,
+      "idx": 499,
+      "mae5_graus": 30.5210750591474,
+      "mae4_graus": 23.34365604242902,
+      "erro_efetuador_mm": 700.9174196198738,
+      "erros_graus": {
+        "joint_1": 39.86,
+        "joint_2": 15.53,
+        "joint_3": -0.59,
+        "joint_4": -37.39,
+        "joint_5": 59.23
+      },
+      "junta_dominante": "joint_1",
+      "pixels_braco": 61847,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 1.0006844283138894,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 2.688,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        29.5,
+        49.3,
+        12.5,
+        18.2,
+        48.7,
+        25.3,
+        82.4
+      ],
+      "gt_graus": {
+        "joint_1": -75.8,
+        "joint_2": -45.6,
+        "joint_3": 77.5,
+        "joint_4": 70.9,
+        "joint_5": -60.3
+      },
+      "pred_graus": {
+        "joint_1": -35.9,
+        "joint_2": -30.1,
+        "joint_3": 76.9,
+        "joint_4": 33.5,
+        "joint_5": -1.0
+      },
+      "explicacao": "erro concentrado na joint_1 (+40 graus); keypoint 2D mais errado: ponta_garra (82 px); mesma pose na outra camera: erro do efetuador 167 mm, MAE 29.5 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 1,
+      "idx": 464,
+      "mae5_graus": 13.310330328103422,
+      "mae4_graus": 15.806352168174211,
+      "erro_efetuador_mm": 629.0004177634909,
+      "erros_graus": {
+        "joint_1": 15.78,
+        "joint_2": 1.92,
+        "joint_3": 14.07,
+        "joint_4": 31.45,
+        "joint_5": 3.33
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 55642,
+      "frac_braco_no_recorte": 0.8815283419000036,
+      "z_min_distal_m": 0.9212659803503428,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 2.043,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        53.7,
+        66.4,
+        34.0,
+        18.5,
+        41.1,
+        45.1,
+        94.1
+      ],
+      "gt_graus": {
+        "joint_1": -66.3,
+        "joint_2": -55.0,
+        "joint_3": 77.7,
+        "joint_4": 6.9,
+        "joint_5": -4.4
+      },
+      "pred_graus": {
+        "joint_1": -50.5,
+        "joint_2": -53.1,
+        "joint_3": 91.8,
+        "joint_4": 38.4,
+        "joint_5": -1.1
+      },
+      "explicacao": "erro concentrado na joint_4 (+31 graus); 12% dos pixels do braco ficam FORA do recorte fixo da camera; keypoint 2D mais errado: ponta_garra (94 px); mesma pose na outra camera: erro do efetuador 113 mm, MAE 7.7 graus"
+    }
+  ],
+  "por_mae_juntas_1a4": [
+    {
+      "camera": "camera_frontal",
+      "id": 4599,
+      "idx": 453,
+      "mae5_graus": 50.10587953652193,
+      "mae4_graus": 62.06318765186739,
+      "erro_efetuador_mm": 991.4011547035072,
+      "erros_graus": {
+        "joint_1": 12.23,
+        "joint_2": 111.26,
+        "joint_3": -117.82,
+        "joint_4": -6.95,
+        "joint_5": -2.28
+      },
+      "junta_dominante": "joint_3",
+      "pixels_braco": 93606,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.6320528222391196,
+      "divergencia_real_comandada_graus": 0.052139159356904975,
+      "profundidade_min_braco_m": 1.44,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        191.8,
+        187.9,
+        165.8,
+        124.9,
+        153.5,
+        178.6,
+        212.6
+      ],
+      "gt_graus": {
+        "joint_1": -67.2,
+        "joint_2": -69.7,
+        "joint_3": 58.8,
+        "joint_4": 62.3,
+        "joint_5": 2.3
+      },
+      "pred_graus": {
+        "joint_1": -55.0,
+        "joint_2": 41.6,
+        "joint_3": -59.0,
+        "joint_4": 55.3,
+        "joint_5": -0.0
+      },
+      "explicacao": "ambiguidade de configuracao: erros grandes e de sinais opostos em j2 (+111) e j3 (-118) -> 'cotovelo invertido' com silhueta 2D parecida; keypoint 2D mais errado: ponta_garra (213 px); mesma pose na outra camera: erro do efetuador 910 mm, MAE 19.9 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 1835,
+      "idx": 435,
+      "mae5_graus": 45.33162490328996,
+      "mae4_graus": 46.45953853736265,
+      "erro_efetuador_mm": 560.2792700579779,
+      "erros_graus": {
+        "joint_1": 43.53,
+        "joint_2": 35.28,
+        "joint_3": 27.67,
+        "joint_4": -79.35,
+        "joint_5": 40.82
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 52151,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.032810056081905625,
+      "divergencia_real_comandada_graus": 22.985347867263236,
+      "profundidade_min_braco_m": 3.55,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        56.1,
+        36.8,
+        38.4,
+        33.5,
+        63.9,
+        75.8,
+        101.8
+      ],
+      "gt_graus": {
+        "joint_1": -74.9,
+        "joint_2": -29.4,
+        "joint_3": -80.8,
+        "joint_4": 88.5,
+        "joint_5": -42.2
+      },
+      "pred_graus": {
+        "joint_1": -31.4,
+        "joint_2": 5.9,
+        "joint_3": -53.1,
+        "joint_4": 9.2,
+        "joint_5": -1.4
+      },
+      "explicacao": "erro concentrado na joint_4 (-79 graus); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 23 graus); garra/punho rente ao chao (z 0.03 m): oclusao com o piso e sombra; keypoint 2D mais errado: ponta_garra (102 px); mesma pose na outra camera: erro do efetuador 426 mm, MAE 33.9 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 2730,
+      "idx": 426,
+      "mae5_graus": 38.02349998883417,
+      "mae4_graus": 32.87223554859253,
+      "erro_efetuador_mm": 352.9071330670836,
+      "erros_graus": {
+        "joint_1": -11.82,
+        "joint_2": 6.56,
+        "joint_3": -21.33,
+        "joint_4": 91.78,
+        "joint_5": 58.63
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 46735,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.8164842366415141,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 3.933,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        12.0,
+        8.5,
+        3.6,
+        2.6,
+        20.4,
+        37.7,
+        54.8
+      ],
+      "gt_graus": {
+        "joint_1": -63.2,
+        "joint_2": 66.0,
+        "joint_3": 55.4,
+        "joint_4": -69.0,
+        "joint_5": -58.9
+      },
+      "pred_graus": {
+        "joint_1": -75.0,
+        "joint_2": 72.5,
+        "joint_3": 34.1,
+        "joint_4": 22.8,
+        "joint_5": -0.3
+      },
+      "explicacao": "erro concentrado na joint_4 (+92 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); keypoint 2D mais errado: ponta_garra (55 px); mesma pose na outra camera: erro do efetuador 165 mm, MAE 32.3 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 1835,
+      "idx": 435,
+      "mae5_graus": 33.94785905992303,
+      "mae4_graus": 31.98500234196272,
+      "erro_efetuador_mm": 425.98715827866727,
+      "erros_graus": {
+        "joint_1": 2.81,
+        "joint_2": 28.06,
+        "joint_3": 28.71,
+        "joint_4": -68.37,
+        "joint_5": 41.8
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 66964,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.032810056081905625,
+      "divergencia_real_comandada_graus": 22.985347867263236,
+      "profundidade_min_braco_m": 2.72,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        26.0,
+        19.5,
+        21.0,
+        29.7,
+        38.5,
+        93.5,
+        138.1
+      ],
+      "gt_graus": {
+        "joint_1": -74.9,
+        "joint_2": -29.4,
+        "joint_3": -80.8,
+        "joint_4": 88.5,
+        "joint_5": -42.2
+      },
+      "pred_graus": {
+        "joint_1": -72.1,
+        "joint_2": -1.3,
+        "joint_3": -52.1,
+        "joint_4": 20.2,
+        "joint_5": -0.4
+      },
+      "explicacao": "erro concentrado na joint_4 (-68 graus); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 23 graus); garra/punho rente ao chao (z 0.03 m): oclusao com o piso e sombra; keypoint 2D mais errado: ponta_garra (138 px); mesma pose na outra camera: erro do efetuador 560 mm, MAE 45.3 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 4737,
+      "idx": 492,
+      "mae5_graus": 32.13743909864901,
+      "mae4_graus": 30.08316416494496,
+      "erro_efetuador_mm": 455.0427098656654,
+      "erros_graus": {
+        "joint_1": -14.27,
+        "joint_2": -14.73,
+        "joint_3": 41.01,
+        "joint_4": -50.32,
+        "joint_5": -40.35
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 68192,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.6617362394358487,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 2.723,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        4.6,
+        6.3,
+        20.4,
+        56.2,
+        143.2,
+        128.0,
+        127.7
+      ],
+      "gt_graus": {
+        "joint_1": -70.0,
+        "joint_2": 80.7,
+        "joint_3": -73.6,
+        "joint_4": 80.0,
+        "joint_5": 41.7
+      },
+      "pred_graus": {
+        "joint_1": -84.3,
+        "joint_2": 66.0,
+        "joint_3": -32.6,
+        "joint_4": 29.7,
+        "joint_5": 1.3
+      },
+      "explicacao": "erro concentrado na joint_4 (-50 graus); keypoint 2D mais errado: junta_4 (143 px); mesma pose na outra camera: erro do efetuador 197 mm, MAE 20.0 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 4526,
+      "idx": 339,
+      "mae5_graus": 30.213783069943865,
+      "mae4_graus": 27.43352359809512,
+      "erro_efetuador_mm": 199.25080560027465,
+      "erros_graus": {
+        "joint_1": -1.02,
+        "joint_2": 2.02,
+        "joint_3": 21.94,
+        "joint_4": -84.75,
+        "joint_5": -41.33
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 67387,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.32477728794762684,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 3.185,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        5.8,
+        6.1,
+        5.6,
+        8.8,
+        85.4,
+        21.4,
+        66.8
+      ],
+      "gt_graus": {
+        "joint_1": 74.3,
+        "joint_2": -50.7,
+        "joint_3": -3.7,
+        "joint_4": 79.0,
+        "joint_5": 39.0
+      },
+      "pred_graus": {
+        "joint_1": 73.3,
+        "joint_2": -48.7,
+        "joint_3": 18.3,
+        "joint_4": -5.7,
+        "joint_5": -2.3
+      },
+      "explicacao": "erro concentrado na joint_4 (-85 graus); keypoint 2D mais errado: junta_4 (85 px); mesma pose na outra camera: erro do efetuador 27 mm, MAE 9.2 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 4399,
+      "idx": 42,
+      "mae5_graus": 21.848010157815573,
+      "mae4_graus": 26.203175372776194,
+      "erro_efetuador_mm": 313.84162748032776,
+      "erros_graus": {
+        "joint_1": -13.87,
+        "joint_2": 7.82,
+        "joint_3": -23.44,
+        "joint_4": 59.68,
+        "joint_5": 4.43
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 44680,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.7208014497761542,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 3.933,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        18.0,
+        10.3,
+        2.4,
+        5.6,
+        19.9,
+        16.6,
+        8.5
+      ],
+      "gt_graus": {
+        "joint_1": -46.5,
+        "joint_2": 75.2,
+        "joint_3": 57.7,
+        "joint_4": -45.0,
+        "joint_5": -5.0
+      },
+      "pred_graus": {
+        "joint_1": -60.3,
+        "joint_2": 83.0,
+        "joint_3": 34.3,
+        "joint_4": 14.7,
+        "joint_5": -0.6
+      },
+      "explicacao": "erro concentrado na joint_4 (+60 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); mesma pose na outra camera: erro do efetuador 127 mm, MAE 11.3 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 2730,
+      "idx": 426,
+      "mae5_graus": 32.280925875770336,
+      "mae4_graus": 25.719924107753293,
+      "erro_efetuador_mm": 164.95398813392353,
+      "erros_graus": {
+        "joint_1": 1.7,
+        "joint_2": 0.85,
+        "joint_3": -22.51,
+        "joint_4": 77.82,
+        "joint_5": 58.52
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 70596,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.8164842366415141,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 3.123,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        7.1,
+        6.3,
+        8.7,
+        7.5,
+        29.3,
+        44.8,
+        53.5
+      ],
+      "gt_graus": {
+        "joint_1": -63.2,
+        "joint_2": 66.0,
+        "joint_3": 55.4,
+        "joint_4": -69.0,
+        "joint_5": -58.9
+      },
+      "pred_graus": {
+        "joint_1": -61.5,
+        "joint_2": 66.8,
+        "joint_3": 32.9,
+        "joint_4": 8.8,
+        "joint_5": -0.4
+      },
+      "explicacao": "erro concentrado na joint_4 (+78 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); keypoint 2D mais errado: ponta_garra (53 px); mesma pose na outra camera: erro do efetuador 353 mm, MAE 38.0 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 1885,
+      "idx": 140,
+      "mae5_graus": 28.976455789637818,
+      "mae4_graus": 24.970657458978728,
+      "erro_efetuador_mm": 104.48201109142207,
+      "erros_graus": {
+        "joint_1": -4.19,
+        "joint_2": 9.53,
+        "joint_3": -29.16,
+        "joint_4": 57.0,
+        "joint_5": 45.0
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 66820,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 1.0853777263303814,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 3.185,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        6.0,
+        5.7,
+        2.3,
+        9.5,
+        60.7,
+        14.1,
+        39.8
+      ],
+      "gt_graus": {
+        "joint_1": 81.0,
+        "joint_2": -33.5,
+        "joint_3": 79.9,
+        "joint_4": -45.4,
+        "joint_5": -47.1
+      },
+      "pred_graus": {
+        "joint_1": 76.8,
+        "joint_2": -24.0,
+        "joint_3": 50.7,
+        "joint_4": 11.6,
+        "joint_5": -2.1
+      },
+      "explicacao": "erro concentrado na joint_4 (+57 graus); keypoint 2D mais errado: junta_4 (61 px); mesma pose na outra camera: erro do efetuador 239 mm, MAE 14.7 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 150,
+      "idx": 410,
+      "mae5_graus": 24.94742711981674,
+      "mae4_graus": 24.92672114152745,
+      "erro_efetuador_mm": 289.00909021616894,
+      "erros_graus": {
+        "joint_1": 4.24,
+        "joint_2": -1.48,
+        "joint_3": -10.85,
+        "joint_4": 83.13,
+        "joint_5": -25.03
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 56460,
+      "frac_braco_no_recorte": 0.8248140276301806,
+      "z_min_distal_m": 0.6719804909254435,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 2.772,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        54.8,
+        47.4,
+        33.5,
+        10.3,
+        87.9,
+        49.5,
+        137.4
+      ],
+      "gt_graus": {
+        "joint_1": 78.9,
+        "joint_2": 79.8,
+        "joint_3": 76.9,
+        "joint_4": -15.1,
+        "joint_5": 21.2
+      },
+      "pred_graus": {
+        "joint_1": 83.2,
+        "joint_2": 78.3,
+        "joint_3": 66.0,
+        "joint_4": 68.0,
+        "joint_5": -3.8
+      },
+      "explicacao": "erro concentrado na joint_4 (+83 graus); 18% dos pixels do braco ficam FORA do recorte fixo da camera; keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); keypoint 2D mais errado: ponta_garra (137 px); mesma pose na outra camera: erro do efetuador 300 mm, MAE 23.4 graus"
+    }
+  ],
+  "por_mae_5_juntas": [
+    {
+      "camera": "camera_frontal",
+      "id": 4599,
+      "idx": 453,
+      "mae5_graus": 50.10587953652193,
+      "mae4_graus": 62.06318765186739,
+      "erro_efetuador_mm": 991.4011547035072,
+      "erros_graus": {
+        "joint_1": 12.23,
+        "joint_2": 111.26,
+        "joint_3": -117.82,
+        "joint_4": -6.95,
+        "joint_5": -2.28
+      },
+      "junta_dominante": "joint_3",
+      "pixels_braco": 93606,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.6320528222391196,
+      "divergencia_real_comandada_graus": 0.052139159356904975,
+      "profundidade_min_braco_m": 1.44,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        191.8,
+        187.9,
+        165.8,
+        124.9,
+        153.5,
+        178.6,
+        212.6
+      ],
+      "gt_graus": {
+        "joint_1": -67.2,
+        "joint_2": -69.7,
+        "joint_3": 58.8,
+        "joint_4": 62.3,
+        "joint_5": 2.3
+      },
+      "pred_graus": {
+        "joint_1": -55.0,
+        "joint_2": 41.6,
+        "joint_3": -59.0,
+        "joint_4": 55.3,
+        "joint_5": -0.0
+      },
+      "explicacao": "ambiguidade de configuracao: erros grandes e de sinais opostos em j2 (+111) e j3 (-118) -> 'cotovelo invertido' com silhueta 2D parecida; keypoint 2D mais errado: ponta_garra (213 px); mesma pose na outra camera: erro do efetuador 910 mm, MAE 19.9 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 1835,
+      "idx": 435,
+      "mae5_graus": 45.33162490328996,
+      "mae4_graus": 46.45953853736265,
+      "erro_efetuador_mm": 560.2792700579779,
+      "erros_graus": {
+        "joint_1": 43.53,
+        "joint_2": 35.28,
+        "joint_3": 27.67,
+        "joint_4": -79.35,
+        "joint_5": 40.82
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 52151,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.032810056081905625,
+      "divergencia_real_comandada_graus": 22.985347867263236,
+      "profundidade_min_braco_m": 3.55,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        56.1,
+        36.8,
+        38.4,
+        33.5,
+        63.9,
+        75.8,
+        101.8
+      ],
+      "gt_graus": {
+        "joint_1": -74.9,
+        "joint_2": -29.4,
+        "joint_3": -80.8,
+        "joint_4": 88.5,
+        "joint_5": -42.2
+      },
+      "pred_graus": {
+        "joint_1": -31.4,
+        "joint_2": 5.9,
+        "joint_3": -53.1,
+        "joint_4": 9.2,
+        "joint_5": -1.4
+      },
+      "explicacao": "erro concentrado na joint_4 (-79 graus); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 23 graus); garra/punho rente ao chao (z 0.03 m): oclusao com o piso e sombra; keypoint 2D mais errado: ponta_garra (102 px); mesma pose na outra camera: erro do efetuador 426 mm, MAE 33.9 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 2730,
+      "idx": 426,
+      "mae5_graus": 38.02349998883417,
+      "mae4_graus": 32.87223554859253,
+      "erro_efetuador_mm": 352.9071330670836,
+      "erros_graus": {
+        "joint_1": -11.82,
+        "joint_2": 6.56,
+        "joint_3": -21.33,
+        "joint_4": 91.78,
+        "joint_5": 58.63
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 46735,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.8164842366415141,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 3.933,
+      "keypoints_na_borda": true,
+      "erro_kp2d_px": [
+        12.0,
+        8.5,
+        3.6,
+        2.6,
+        20.4,
+        37.7,
+        54.8
+      ],
+      "gt_graus": {
+        "joint_1": -63.2,
+        "joint_2": 66.0,
+        "joint_3": 55.4,
+        "joint_4": -69.0,
+        "joint_5": -58.9
+      },
+      "pred_graus": {
+        "joint_1": -75.0,
+        "joint_2": 72.5,
+        "joint_3": 34.1,
+        "joint_4": 22.8,
+        "joint_5": -0.3
+      },
+      "explicacao": "erro concentrado na joint_4 (+92 graus); keypoints verdade na borda/fora da imagem (braco cortado pelo enquadramento); keypoint 2D mais errado: ponta_garra (55 px); mesma pose na outra camera: erro do efetuador 165 mm, MAE 32.3 graus"
+    },
+    {
+      "camera": "camera_frontal",
+      "id": 1835,
+      "idx": 435,
+      "mae5_graus": 33.94785905992303,
+      "mae4_graus": 31.98500234196272,
+      "erro_efetuador_mm": 425.98715827866727,
+      "erros_graus": {
+        "joint_1": 2.81,
+        "joint_2": 28.06,
+        "joint_3": 28.71,
+        "joint_4": -68.37,
+        "joint_5": 41.8
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 66964,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.032810056081905625,
+      "divergencia_real_comandada_graus": 22.985347867263236,
+      "profundidade_min_braco_m": 2.72,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        26.0,
+        19.5,
+        21.0,
+        29.7,
+        38.5,
+        93.5,
+        138.1
+      ],
+      "gt_graus": {
+        "joint_1": -74.9,
+        "joint_2": -29.4,
+        "joint_3": -80.8,
+        "joint_4": 88.5,
+        "joint_5": -42.2
+      },
+      "pred_graus": {
+        "joint_1": -72.1,
+        "joint_2": -1.3,
+        "joint_3": -52.1,
+        "joint_4": 20.2,
+        "joint_5": -0.4
+      },
+      "explicacao": "erro concentrado na joint_4 (-68 graus); pose em contato com o piso no Gazebo (juntas reais diferem das comandadas em ate 23 graus); garra/punho rente ao chao (z 0.03 m): oclusao com o piso e sombra; keypoint 2D mais errado: ponta_garra (138 px); mesma pose na outra camera: erro do efetuador 560 mm, MAE 45.3 graus"
+    },
+    {
+      "camera": "camera_diagonal",
+      "id": 2484,
+      "idx": 434,
+      "mae5_graus": 33.363466256476976,
+      "mae4_graus": 24.866115131216965,
+      "erro_efetuador_mm": 448.339837056645,
+      "erros_graus": {
+        "joint_1": 30.29,
+        "joint_2": 12.24,
+        "joint_3": 20.77,
+        "joint_4": -36.16,
+        "joint_5": 67.35
+      },
+      "junta_dominante": "joint_4",
+      "pixels_braco": 57175,
+      "frac_braco_no_recorte": 1.0,
+      "z_min_distal_m": 0.06898035971090954,
+      "divergencia_real_comandada_graus": 0.0,
+      "profundidade_min_braco_m": 3.544,
+      "keypoints_na_borda": false,
+      "erro_kp2d_px": [
+        27.0,
+        13.4,
+        14.4,
+        8.0,
+        39.5,
+        41.5,
+        53.5
+      ],
+      "gt_graus": {
+        "joint_1": -78.2,
+        "joint_2": -12.1,
+        "joint_3": -76.9,
+        "joint_4": 74.9,
+        "joint_5": -68.4
+      },
+      "pred_graus": {
+        "joint_1": -47.9,
+        "joint_2": 0.1,
+        "joint_3": -56.1,
+        "joint_4": 38.7,
+        "joint_5": -1.1
+      },
+      "explicacao": "erro concentrado na joint_4 (-36 graus); garra/punho rente ao chao (z 0.07 m): oclusao com o piso e sombra; keypoint 2D mais errado: ponta_garra (54 px); mesma pose na outra camera: erro do efetuador 296 mm, MAE 25.2 graus"
+    }
+  ],
+  "correlacoes_amostra": {
+    "n": 200,
+    "corr_spearman_ee_vs_pixels_braco": -0.016188404710117756,
+    "corr_spearman_ee_vs_frac_recorte": 0.02845421135528389,
+    "frac_quadros_braco_fora_recorte_3pct": 0.07,
+    "ee_mediano_mm_braco_fora_recorte": 117.89396739514024,
+    "ee_mediano_mm_braco_dentro_recorte": 78.18493661549397,
+    "corr_spearman_ee_vs_|gt_joint_1|": 0.3593084827120679,
+    "corr_spearman_ee_vs_|gt_joint_2|": 0.1022425560639016,
+    "corr_spearman_ee_vs_|gt_joint_3|": 0.18371259281482039,
+    "corr_spearman_ee_vs_|gt_joint_4|": 0.07197779944498613,
+    "corr_spearman_ee_vs_|gt_joint_5|": 0.08884422110552766,
+    "frac_contato_piso": 0.26,
+    "ee_mediano_mm_contato": 67.48080171147777,
+    "ee_mediano_mm_sem_contato": 87.51791633551255,
+    "frac_keypoints_na_borda": 0.225,
+    "ee_mediano_mm_keypoints_na_borda": 116.96145137268574,
+    "ee_mediano_mm_keypoints_dentro": 70.46837509709019,
+    "frac_garra_rente_chao": 0.08,
+    "ee_mediano_mm_garra_rente_chao": 55.219686642486806,
+    "ee_mediano_mm_garra_alta": 83.30373719506429,
+    "top20_frac_contato_piso": 0.35,
+    "top20_frac_keypoints_na_borda": 0.45,
+    "top20_frac_garra_rente_chao": 0.25,
+    "top20_frac_ambiguidade_cotovelo": 0.05
+  }
+}

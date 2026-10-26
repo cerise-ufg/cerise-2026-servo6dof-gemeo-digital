@@ -1,0 +1,34 @@
+{
+  "url": "http://127.0.0.1:8091",
+  "inicio": "2026-10-26 10:02:47",
+  "sessoes": [
+    {
+      "camera": "camera_frontal",
+      "fps_alvo": "malha fechada",
+      "quadros_alvo": 40,
+      "duracao_s": 91.97931981086731,
+      "gl": "swiftshader",
+      "acks": 40,
+      "quadros_recebidos": 40,
+      "fps_cliente": 0.43488036313217027,
+      "tempo_ate_pronto_s": 2.147031545639038,
+      "recebido_ate_desenhado_ms": {
+        "n": 40,
+        "media": 2312.8824949264526,
+        "mediana": 1909.7001552581787,
+        "p95": 4306.299686431885,
+        "max": 5396.700143814087,
+        "min": 617.9001331329346
+      },
+      "erros_js": [],
+      "console": [
+        "warning: [.WebGL-0x24000cff00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "warning: [.WebGL-0x24000cff00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "warning: [.WebGL-0x24000cff00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "warning: [.WebGL-0x24000cff00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+      ],
+      "webgl": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)"
+    }
+  ],
+  "fim": "2026-10-26 10:04:25"
+}

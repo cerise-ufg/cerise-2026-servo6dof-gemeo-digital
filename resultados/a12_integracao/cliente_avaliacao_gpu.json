@@ -1,0 +1,95 @@
+{
+  "url": "http://127.0.0.1:8091",
+  "inicio": "2026-10-26 10:00:06",
+  "sessoes": [
+    {
+      "camera": "camera_frontal",
+      "fps_alvo": "malha fechada",
+      "quadros_alvo": 500,
+      "duracao_s": 50.81038570404053,
+      "gl": "gpu",
+      "acks": 501,
+      "quadros_recebidos": 501,
+      "fps_cliente": 9.860188877884461,
+      "tempo_ate_pronto_s": 1.0898313522338867,
+      "recebido_ate_desenhado_ms": {
+        "n": 501,
+        "media": 12.532142821900145,
+        "mediana": 14.100074768066406,
+        "p95": 17.300128936767578,
+        "max": 125,
+        "min": 3.0999183654785156
+      },
+      "erros_js": [],
+      "console": [],
+      "webgl": "ANGLE (NVIDIA Corporation, NVIDIA GB10/PCIe, OpenGL ES 3.2)"
+    },
+    {
+      "camera": "camera_diagonal",
+      "fps_alvo": "malha fechada",
+      "quadros_alvo": 500,
+      "duracao_s": 84.17582774162292,
+      "gl": "gpu",
+      "acks": 502,
+      "quadros_recebidos": 502,
+      "fps_cliente": 5.963707319171072,
+      "tempo_ate_pronto_s": 1.00146484375,
+      "recebido_ate_desenhado_ms": {
+        "n": 502,
+        "media": 17.43347141372255,
+        "mediana": 13.99993896484375,
+        "p95": 19.299983978271484,
+        "max": 485.4001998901367,
+        "min": 2.8998851776123047
+      },
+      "erros_js": [],
+      "console": [],
+      "webgl": "ANGLE (NVIDIA Corporation, NVIDIA GB10/PCIe, OpenGL ES 3.2)"
+    },
+    {
+      "camera": "camera_frontal",
+      "fps_alvo": 2.0,
+      "quadros_alvo": 60,
+      "duracao_s": 8.264431476593018,
+      "gl": "gpu",
+      "acks": 60,
+      "quadros_recebidos": 60,
+      "fps_cliente": 7.260027525176455,
+      "tempo_ate_pronto_s": 0.8817729949951172,
+      "recebido_ate_desenhado_ms": {
+        "n": 60,
+        "media": 13.494980335235596,
+        "mediana": 15.199899673461914,
+        "p95": 18.399953842163086,
+        "max": 20.90001106262207,
+        "min": 4.000186920166016
+      },
+      "erros_js": [],
+      "console": [],
+      "webgl": "ANGLE (NVIDIA Corporation, NVIDIA GB10/PCIe, OpenGL ES 3.2)"
+    },
+    {
+      "camera": "camera_frontal",
+      "fps_alvo": 5.0,
+      "quadros_alvo": 60,
+      "duracao_s": 7.768410682678223,
+      "gl": "gpu",
+      "acks": 60,
+      "quadros_recebidos": 60,
+      "fps_cliente": 7.723587545878112,
+      "tempo_ate_pronto_s": 0.7383947372436523,
+      "recebido_ate_desenhado_ms": {
+        "n": 60,
+        "media": 12.165002028147379,
+        "mediana": 12.69996166229248,
+        "p95": 18.09978485107422,
+        "max": 18.800020217895508,
+        "min": 4.199981689453125
+      },
+      "erros_js": [],
+      "console": [],
+      "webgl": "ANGLE (NVIDIA Corporation, NVIDIA GB10/PCIe, OpenGL ES 3.2)"
+    }
+  ],
+  "fim": "2026-10-26 10:02:46"
+}

@@ -1,0 +1,112 @@
+$ ros2 node list
+/gemeo_twin
+/publicar_dataset
+/robot_state_publisher
+/rsp_twin
+/rviz
+/tf_twin
+/transform_listener_impl_b10db7c6b810
+$ ros2 topic hz /twin/joint_states  (10 s)
+average rate: 1.998
+	min: 0.463s max: 0.535s std dev: 0.02157s window: 14
+average rate: 2.004
+	min: 0.463s max: 0.535s std dev: 0.02053s window: 17
+$ ros2 topic echo --once /twin/joint_states
+header:
+  stamp:
+    sec: 1793010396
+    nanosec: 672179912
+  frame_id: ''
+name:
+- joint_1
+- joint_2
+- joint_3
+- joint_4
+- joint_5
+- joint_6
+position:
+- -0.944438099861145
+- -0.9497332572937012
+- 1.293532371520996
+- 0.558492124080658
+- 0.024264931678771973
+- 0.0
+velocity: []
+effort: []
+---
+$ python3 medir_twin_ros.py --duracao 40
+{
+ "descricao": "no ROS 2 gemeo_twin (predictor=http -> POST /api/prever do servidor do gemeo, PosePredictor na GPU) recebendo /camera_frontal/image do publicador do conjunto de teste; pares casados pelo carimbo da imagem",
+ "duracao_s": 40.0,
+ "msgs_twin": 80,
+ "pares_casados": 79,
+ "taxa_twin_hz": 2.001775167003681,
+ "atraso_imagem_ate_twin_ms": {
+  "n": 79,
+  "media": 255.18120089663734,
+  "mediana": 255.19871711730957,
+  "p95": 281.5258502960205,
+  "max": 292.0379638671875
+ },
+ "latencia_predictor_http_ms": {
+  "n": 80,
+  "media": 89.49189376831055,
+  "mediana": 87.17045974731445,
+  "p95": 99.08796272277831,
+  "max": 105.3958969116211
+ },
+ "erro_efetuador_mm": {
+  "n": 79,
+  "media": 130.5672751090417,
+  "mediana": 76.66390912376788,
+  "p95": 386.76522022101983,
+  "max": 758.613158258416
+ },
+ "abs_err_graus": {
+  "joint_1": {
+   "n": 79,
+   "media": 4.205141824926646,
+   "mediana": 2.4716609613720952,
+   "p95": 12.304376842816513,
+   "max": 26.428987554782537
+  },
+  "joint_2": {
+   "n": 79,
+   "media": 5.295878913033047,
+   "mediana": 2.459312650896909,
+   "p95": 26.40489621590736,
+   "max": 29.09145136309603
+  },
+  "joint_3": {
+   "n": 79,
+   "media": 4.556730860284907,
+   "mediana": 2.9338229106370344,
+   "p95": 13.411129457258916,
+   "max": 28.88619477801119
+  },
+  "joint_4": {
+   "n": 79,
+   "media": 11.034162688835254,
+   "mediana": 5.391284266080169,
+   "p95": 44.991023480292796,
+   "max": 59.51526893079257
+  },
+  "joint_5": {
+   "n": 79,
+   "media": 37.58879706751594,
+   "mediana": 37.84596169430964,
+   "p95": 76.42183750920726,
+   "max": 79.05075364812915
+  }
+ },
+ "mae5_graus": 12.536142270919159
+}
+[gemeo_twin_node.py-3] [INFO] [1793010364.356777351] [gemeo_twin]: predictor: HTTP http://127.0.0.1:8091/api/prever
+[gemeo_twin_node.py-3] [INFO] [1793010380.904922982] [gemeo_twin]: 20 quadros -> /twin/joint_states (ultimo: 83.43 ms)
+[gemeo_twin_node.py-3] [INFO] [1793010390.928247681] [gemeo_twin]: 40 quadros -> /twin/joint_states (ultimo: 84.25 ms)
+[gemeo_twin_node.py-3] [INFO] [1793010400.908288872] [gemeo_twin]: 60 quadros -> /twin/joint_states (ultimo: 83.12 ms)
+[gemeo_twin_node.py-3] [INFO] [1793010410.959703877] [gemeo_twin]: 80 quadros -> /twin/joint_states (ultimo: 92.48 ms)
+[gemeo_twin_node.py-3] [INFO] [1793010420.948946454] [gemeo_twin]: 100 quadros -> /twin/joint_states (ultimo: 94.06 ms)
+[gemeo_twin_node.py-3] [INFO] [1793010430.927188557] [gemeo_twin]: 120 quadros -> /twin/joint_states (ultimo: 92.78 ms)
+[INFO] [1793010370.174182799] [publicar_dataset]: split de teste da frente de pose (/pose/dados/final/index.npz)
+[INFO] [1793010370.672184798] [publicar_dataset]: 60 quadros carregados (split teste)

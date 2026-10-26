@@ -1,0 +1,11 @@
+# RViz 2 headless para o gemeo digital (CERISE 2026, Atividade 12): Xvfb (tela virtual, nunca a tela
+# fisica do Spark) + ImageMagick (captura da janela) sobre a imagem de ferramentas cerise26_gemeo.
+#   sudo docker build -f docker/Dockerfile.rviz -t cerise26_gemeo_rviz:latest .
+FROM cerise26_gemeo:latest
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        xvfb x11-utils imagemagick mesa-utils libgl1-mesa-dri \
+    && rm -rf /var/lib/apt/lists/*
+ENV LIBGL_ALWAYS_SOFTWARE=1 QT_X11_NO_MITSHM=1
+WORKDIR /repo
+CMD ["bash"]

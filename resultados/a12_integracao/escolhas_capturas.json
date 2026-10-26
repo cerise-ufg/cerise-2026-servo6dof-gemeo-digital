@@ -1,0 +1,52 @@
+{
+  "baixo_erro": {
+    "camera": "camera_frontal",
+    "id": 4311,
+    "idx": 17,
+    "mae5_graus": 3.275540024985024,
+    "mae4_graus": 0.36878251477877094,
+    "erro_efetuador_mm": 15.378591070332014
+  },
+  "falha": {
+    "camera": "camera_frontal",
+    "id": 4599,
+    "idx": 453,
+    "mae5_graus": 50.10587953652193,
+    "mae4_graus": 62.06318765186739,
+    "erro_efetuador_mm": 991.4011547035072
+  },
+  "capturas": [
+    {
+      "arquivo": "a12i_gemeo_baixo_erro_lado.png",
+      "idx": 17,
+      "camera": "camera_frontal",
+      "modo": "lado",
+      "vista": "livre",
+      "n_quadros": 500
+    },
+    {
+      "arquivo": "a12i_gemeo_baixo_erro_sobreposto.png",
+      "idx": 17,
+      "camera": "camera_frontal",
+      "modo": "sobreposto",
+      "vista": "camera",
+      "n_quadros": 500
+    },
+    {
+      "arquivo": "a12i_gemeo_falha_lado.png",
+      "idx": 453,
+      "camera": "camera_frontal",
+      "modo": "lado",
+      "vista": "livre",
+      "n_quadros": 500
+    },
+    {
+      "arquivo": "a12i_gemeo_falha_sobreposto.png",
+      "idx": 453,
+      "camera": "camera_frontal",
+      "modo": "sobreposto",
+      "vista": "camera",
+      "n_quadros": 500
+    }
+  ]
+}

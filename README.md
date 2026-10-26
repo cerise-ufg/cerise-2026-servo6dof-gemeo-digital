@@ -6,8 +6,12 @@ Repositório da frente **Gêmeo Digital (base)** do Plano de Trabalho CERISE/EMC
   sintéticas RGB, profundidade e segmentação, com os ângulos de junta como rótulo), gerado no Gazebo;
 - **Objetivo 4, Atividade 11**: modelo digital do braço em ambiente virtual (características físicas e
   cinemáticas, cinemática direta validada, espaço de trabalho, MoveIt 2);
-- **Objetivo 4, Atividade 12 (infraestrutura)**: servidor do gêmeo digital (FastAPI + WebSocket +
-  three.js) com `Predictor` plugável, à espera do modelo de estimação de pose da frente de visão.
+- **Objetivo 4, Atividade 12**: servidor do gêmeo digital (FastAPI + WebSocket + three.js) com
+  `Predictor` plugável, **integrado ao modelo de estimação de pose** da frente POSE
+  ([cerise-2026-pose-servo6dof](https://github.com/EduardoCaixeta/cerise-2026-pose-servo6dof)): o braço
+  "gêmeo" segue as juntas previstas **só a partir da imagem** e é avaliado contra a verdade-base no
+  conjunto de teste; também roda em ROS 2 (nó imagem → `/twin/joint_states` + RViz). Seção de relatório:
+  `RELATORIO_SECAO_A12.md`.
 
 O braço e o pacote ROS 2 original (`servo6dof_*`) são do Prof. Dr. Alisson Assis Cardoso. A execução
 roda em ROS 2 Humble + Ignition Gazebo Fortress, em containers no DGX Spark (arm64, GPU GB10).
@@ -24,8 +28,10 @@ dataset_tools/                geração (gerar_plano.py, gerar_hd_spark.sh, fina
 modelo_digital/               URDF gerado, cinematica.py (FK numpy + câmera pinhole), tabelas, árvore,
                               validação FK x TF, espaço de trabalho, renders, IoU modelo x imagens,
                               moveit_headless/
-gemeo_digital/                servidor/ (FastAPI, predictors.py, static/ three.js + urdf-loader),
-                              ros2/ (nó imagem -> /twin/joint_states, launch, RViz), capturas/ (Playwright)
+gemeo_digital/                servidor/ (FastAPI, predictors.py, static/ three.js r160 + urdf-loader 0.13.1
+                              em static/vendor), ros2/ (nó imagem -> /twin/joint_states, launch, RViz
+                              headless), capturas/ (Playwright), integracao/ (avaliação do gêmeo com o
+                              modelo de pose: driver Playwright, análise, figuras)
 amostra_dataset/              8 poses do split de teste (48 PNGs + JSONs, ~4 MB)
 docs/                         README e guia MoveIt originais, slides, DATASET.md (datasheet)
 evidencias/                   figuras e prints usados no relatório
@@ -69,6 +75,31 @@ imagem da frente de pose: `IMAGEM=cerise26_pose:latest GPU=1 bash gemeo_digital/
 (o script instala fastapi/uvicorn se faltarem). Alternativa desacoplada: `GEMEO_PREDICTOR_URL=<url>` e
 modo `http` (POST JSON `{"camera", "png_b64"}`).
 
+### Integração com o modelo de pose e avaliação (A12)
+
+```bash
+# servidor em modo pose (imagem da frente POSE com torch, GPU; ~3,2 GB de GPU reservados pelo torch)
+IMAGEM=cerise26_pose:latest GPU=1 N_QUADROS=0 LOGS=$HOME/cerise2026/gemeo/integracao/logs \
+  bash gemeo_digital/subir_servidor.sh pose
+# avaliação pelo navegador (Chromium headless; WebGL na GPU via ANGLE/EGL ou GL=swiftshader na CPU)
+GL=gpu bash gemeo_digital/integracao/rodar_playwright.sh avaliar      # teste inteiro, 2 câmeras + fps fixos
+bash gemeo_digital/integracao/rodar_playwright.sh capturas             # quadros de baixo erro e de falha
+bash gemeo_digital/integracao/rodar_playwright.sh varredura --inicio 0 --n 72 --modo lado --vista livre --pasta /integ/varredura
+# análise (métricas, piores quadros, figuras) no container de ferramentas
+EXTRA="-v $HOME/cerise2026/gemeo/integracao:/integ -v $HOME/cerise2026/pose:/pose:ro" \
+  bash scripts/rodar_container.sh analise "python3 gemeo_digital/integracao/analisar_gemeo.py"
+# ROS 2: nó do gêmeo com predictor=http (POST /api/prever) + RViz em Xvfb, com captura
+bash gemeo_digital/ros2/rodar_rviz_pose.sh
+```
+
+- A sequência do servidor usa o **mesmo split de teste da frente de pose** (80/10/10 por pose, semente
+  2026, lido de `~/cerise2026/pose/dados/final/index.npz`): 500 poses × 2 câmeras, nenhuma vista no treino.
+- O WebSocket aceita `fps=0` (malha fechada: o próximo quadro só sai quando o front-end confirma que
+  desenhou o anterior) e o front-end devolve um `ack` com o instante em que o gêmeo atualizado está nos
+  pixels do canvas → latência ponta a ponta medida, gravada por quadro em JSONL (`GEMEO_LOG_DIR`).
+- `POST /api/prever` expõe o predictor para outros clientes (o nó ROS 2 usa isso); `GET /api/recursos`
+  mostra a memória de GPU do torch, RSS e cgroup.
+
 ## Resultados principais (medidos em 26/10/2026)
 
 | Item | Resultado |
@@ -86,8 +117,19 @@ modo `http` (POST JSON `{"camera", "png_b64"}`).
 | MoveIt 2 headless (OMPL RRTConnect, hardware falso) | 5/5 objetivos executados; 50/50 planejamentos com sucesso, 12,9 a 17,0 ms em média por objetivo |
 | Nó ROS 2 do gêmeo | imagem → `/twin/joint_states` → TF `twin/`: erro 4,6e-16 m com oráculo |
 | Front-end | 2 × 12 malhas STL carregadas, sem erros, verificado por Playwright (pixels e estado JS) |
+| **A12 – gêmeo com o modelo de pose** (teste, 500 poses × 2 câmeras = 1.000 quadros, só imagem) | erro médio das juntas 1–4: 5,41° (j1 4,19 · j2 3,04 · j3 3,91 · j4 10,52); j5 (rotação da garra) 41,7°; média das 5 juntas 12,68° — idêntica à avaliação offline da frente POSE |
+| A12 – erro do efetuador (FK das juntas previstas × verdade) | mediana 76 mm, média 107 mm, p95 275 mm, máx. 991 mm; 64,5 % dos quadros abaixo de 100 mm |
+| A12 – latência imagem → predição → gêmeo desenhado | mediana 99,6 ms (p95 217 ms); modelo 77,7 ms; render no navegador (WebGL na GPU) 14,1 ms |
+| A12 – FPS sustentado | 9,8 (malha fechada, GPU livre) e 5,9 (GPU disputada); taxas-alvo 2/5/10 mantidas (2,00/5,00/9,97); SwiftShader (CPU) 0,42 |
+| A12 – memória | pico 2,94 GB alocados / 3,18 GB reservados de GPU (torch), teto da frente 4 GB |
+| A12 – ROS 2 + RViz headless | `/twin/joint_states` a 2,00 Hz, 79/80 pares casados; atraso imagem → gêmeo 255 ms (mediana); erro das juntas compatível com o do servidor |
 
-Detalhes do dataset em `docs/DATASET.md` (datasheet) e `resultados/dataset_*.json`; seção de relatório em `RELATORIO_SECAO.md`.
+Detalhes do dataset em `docs/DATASET.md` (datasheet) e `resultados/dataset_*.json`; seções de relatório em
+`RELATORIO_SECAO.md` (A7, A11, infraestrutura da A12) e `RELATORIO_SECAO_A12.md` (integração e avaliação
+do gêmeo com o modelo de pose; medições em `resultados/a12_integracao/`).
+
+Bibliotecas de terceiros em `gemeo_digital/servidor/static/vendor/` (versões em `VERSOES.txt`): three.js
+r160 (MIT, licença incluída) e urdf-loader 0.13.1 de G. Johnson (Apache-2.0).
 
 ## Segurança
 

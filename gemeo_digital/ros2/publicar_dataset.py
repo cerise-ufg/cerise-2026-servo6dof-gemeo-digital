@@ -16,6 +16,9 @@ from rclpy.qos import QoSHistoryPolicy, QoSProfile, QoSReliabilityPolicy
 from sensor_msgs.msg import Image, JointState
 
 QOS_SENSOR = QoSProfile(reliability=QoSReliabilityPolicy.BEST_EFFORT, history=QoSHistoryPolicy.KEEP_LAST, depth=1)
+# imagens 1280x720 rgb8 (2,7 MB) em BEST_EFFORT perdem fragmentos no DDS e quase nenhuma chega; "confiavel"
+# (RELIABLE, fila 1) entrega todas quando publicador e assinante usam o mesmo perfil
+QOS_CONFIAVEL = QoSProfile(reliability=QoSReliabilityPolicy.RELIABLE, history=QoSHistoryPolicy.KEEP_LAST, depth=1)
 
 
 class Publicador(Node):
@@ -25,10 +28,20 @@ class Publicador(Node):
         self.declare_parameter("camera", "camera_frontal")
         self.declare_parameter("taxa", 2.0)
         self.declare_parameter("n", 40)
+        self.declare_parameter("qos_imagem", "sensor")   # sensor | confiavel
+        # split de teste da frente de pose (semente 2026) quando o index.npz estiver montado; senao id % 10 == 9
+        self.declare_parameter("pose_index", "/pose/dados/final/index.npz")
         ds = self.get_parameter("dataset").value
         self.cam = self.get_parameter("camera").value
         ids = sorted(int(os.path.basename(p)[:6]) for p in glob.glob(os.path.join(ds, "[0-9]" * 6 + ".json")))
-        ids = [i for i in ids if i % 10 == 9][: int(self.get_parameter("n").value)]  # split de teste
+        pidx = self.get_parameter("pose_index").value
+        if pidx and os.path.exists(pidx):
+            teste = set(int(i) for i in np.load(pidx)["teste_ids"])
+            ids = [i for i in ids if i in teste]
+            self.get_logger().info("split de teste da frente de pose (%s)" % pidx)
+        else:
+            ids = [i for i in ids if i % 10 == 9]
+        ids = ids[: int(self.get_parameter("n").value)]
         self.quadros = []
         for i in ids:
             meta = json.load(open(os.path.join(ds, "%06d.json" % i)))
@@ -36,7 +49,8 @@ class Publicador(Node):
             q = dict(meta["juntas_reais"])
             q["joint_6"] = meta["garra_comandada"]["joint_6"]
             self.quadros.append((i, rgb, q))
-        self.pub_img = self.create_publisher(Image, "/%s/image" % self.cam, QOS_SENSOR)
+        qos = QOS_CONFIAVEL if self.get_parameter("qos_imagem").value == "confiavel" else QOS_SENSOR
+        self.pub_img = self.create_publisher(Image, "/%s/image" % self.cam, qos)
         self.pub_js = self.create_publisher(JointState, "/joint_states", 10)
         self.k = 0
         self.create_timer(1.0 / float(self.get_parameter("taxa").value), self.tick)

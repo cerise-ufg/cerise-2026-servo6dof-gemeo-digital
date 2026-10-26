@@ -107,22 +107,37 @@ class PosePredictorAdapter(Predictor):
         for k in ("ckpt", "device", "da_pesos"):
             if k in info and k not in kwargs:
                 kwargs[k] = info[k]
+        # o READY.json traz o caminho do host (ckpt) e o do container (ckpt_no_container); aqui a pasta
+        # da pose esta montada em <pasta>: usa o que existir, ou remapeia ".../cerise2026/pose/..." -> <pasta>/...
+        if "ckpt" in kwargs and not os.path.exists(kwargs["ckpt"]):
+            cands = [info.get("ckpt_no_container", "")]
+            for marca in ("/cerise2026/pose/", "/workspace/pose/"):
+                if marca in kwargs["ckpt"]:
+                    cands.append(os.path.join(pasta, kwargs["ckpt"].split(marca, 1)[1]))
+            for c in cands:
+                if c and os.path.exists(c):
+                    kwargs["ckpt"] = c
+                    break
         t0 = time.time()
         self.modelo = mod.PosePredictor(**kwargs)
         self.t_carga = time.time() - t0
         self.graus = str(info.get("unidade", "rad")).lower().startswith("grau")
-        self.nome = "PosePredictor (%s)" % info.get("modelo", info.get("nome", "frente de pose"))
+        self.nome = "PosePredictor (%s)" % info.get("modelo", info.get("nome", "HPE + Depth Anything V2, frente POSE"))
         self.ultima_latencia_ms = None
+        self.ultima_saida_extra = None
 
     def predict(self, rgb, camera):
         # a frente de pose nomeia as cameras "frontal"/"diagonal"; o servidor usa "camera_frontal"
         curto = camera.replace("camera_", "")
         try:
             out = self.modelo.predict(rgb, camera=curto)
-        except KeyError:
+        except (KeyError, AssertionError):
             out = self.modelo.predict(rgb, camera=camera)
-        if isinstance(out, dict) and "latency_ms" in out:
-            self.ultima_latencia_ms = out["latency_ms"]
+        if isinstance(out, dict):
+            self.ultima_latencia_ms = out.get("latency_ms")
+            # keypoints 2D previstos (px da imagem de entrada) -> desenhados sobre a imagem no front-end
+            self.ultima_saida_extra = {"keypoints_2d": [[round(float(u), 1), round(float(v), 1)]
+                                                        for u, v in out.get("keypoints_2d", [])]}
         return normalizar_saida(out, graus=self.graus)
 
 
@@ -132,17 +147,21 @@ class HttpPredictor(Predictor):
     def __init__(self, url):
         self.url = url
         self.nome = "HTTP " + url
+        self.ultima_latencia_ms = None
 
     def predict(self, rgb, camera):
         import base64
         import urllib.request
         from PIL import Image
         buf = io.BytesIO()
-        Image.fromarray(rgb).save(buf, format="PNG")
+        Image.fromarray(rgb).save(buf, format="PNG", compress_level=1)
         corpo = json.dumps({"camera": camera, "png_b64": base64.b64encode(buf.getvalue()).decode()}).encode()
         req = urllib.request.Request(self.url, data=corpo, headers={"Content-Type": "application/json"})
         with urllib.request.urlopen(req, timeout=10) as r:
-            return normalizar_saida(json.loads(r.read()))
+            out = json.loads(r.read())
+        if isinstance(out, dict):
+            self.ultima_latencia_ms = out.get("latency_ms")
+        return normalizar_saida(out)
 
 
 def carregar_predictor(modo=None, pasta_pose=None, url=None):

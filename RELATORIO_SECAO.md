@@ -322,8 +322,10 @@ erro do efetuador passam então a medir o modelo real.
 
 ## 5. Próximos passos
 
-1. Integrar o `PosePredictor` assim que a frente de pose publicar `READY.json`, medir o erro por junta e
-   do efetuador na sequência de teste e repetir as capturas.
+1. ~~Integrar o `PosePredictor` assim que a frente de pose publicar `READY.json`, medir o erro por junta e
+   do efetuador na sequência de teste e repetir as capturas.~~ **Feito em 26/10 (06h40–07h30):** ver
+   `RELATORIO_SECAO_A12.md` (integração, erro por junta e do efetuador, latência ponta a ponta, FPS,
+   casos de falha, ROS 2 + RViz).
 2. Regerar ou filtrar as poses do plano que atravessam o chão, ou incluir o chão como objeto de colisão
    no planejamento, para que juntas comandadas e reais coincidam; manter as juntas reais como rótulo.
 3. Corrigir o rótulo de segmentação do braço (por exemplo, `Label` no SDF gerado em vez do URDF) e

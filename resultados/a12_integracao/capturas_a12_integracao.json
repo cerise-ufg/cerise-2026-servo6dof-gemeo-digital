@@ -1,0 +1,182 @@
+{
+  "a12i_gemeo_baixo_erro_lado.png": {
+    "pedido": {
+      "arquivo": "a12i_gemeo_baixo_erro_lado.png",
+      "idx": 17,
+      "camera": "camera_frontal",
+      "modo": "lado",
+      "vista": "livre",
+      "n_quadros": 500
+    },
+    "estado": {
+      "ultimo": {
+        "idx": 17,
+        "id": 4311,
+        "mae": 3.275540024985024
+      },
+      "efetuador": {
+        "ref": [
+          0.5342063090106045,
+          0.6080577241150129,
+          0.49609342547768126
+        ],
+        "gemeo": [
+          0.5369982178275489,
+          0.5959031147049267,
+          0.48709499347234886
+        ],
+        "servidor_gt": [
+          0.534206,
+          0.608058,
+          0.496093
+        ],
+        "servidor_pred": [
+          0.536998,
+          0.595903,
+          0.487095
+        ]
+      },
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": []
+    },
+    "console": []
+  },
+  "a12i_gemeo_baixo_erro_sobreposto.png": {
+    "pedido": {
+      "arquivo": "a12i_gemeo_baixo_erro_sobreposto.png",
+      "idx": 17,
+      "camera": "camera_frontal",
+      "modo": "sobreposto",
+      "vista": "camera",
+      "n_quadros": 500
+    },
+    "estado": {
+      "ultimo": {
+        "idx": 17,
+        "id": 4311,
+        "mae": 3.275540024985024
+      },
+      "efetuador": {
+        "ref": [
+          0.5342063090106045,
+          0.6080577241150129,
+          0.49609342547768126
+        ],
+        "gemeo": [
+          0.5369982178275489,
+          0.5959031147049264,
+          0.48709499347234886
+        ],
+        "servidor_gt": [
+          0.534206,
+          0.608058,
+          0.496093
+        ],
+        "servidor_pred": [
+          0.536998,
+          0.595903,
+          0.487095
+        ]
+      },
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": []
+    },
+    "console": []
+  },
+  "a12i_gemeo_falha_lado.png": {
+    "pedido": {
+      "arquivo": "a12i_gemeo_falha_lado.png",
+      "idx": 453,
+      "camera": "camera_frontal",
+      "modo": "lado",
+      "vista": "livre",
+      "n_quadros": 500
+    },
+    "estado": {
+      "ultimo": {
+        "idx": 453,
+        "id": 4599,
+        "mae": 50.10587953652193
+      },
+      "efetuador": {
+        "ref": [
+          1.4414850577835239,
+          0.34367306854472135,
+          0.9135575125731487
+        ],
+        "gemeo": [
+          0.4920709610897859,
+          0.07835215474037183,
+          1.0188852641141646
+        ],
+        "servidor_gt": [
+          1.441485,
+          0.343673,
+          0.913558
+        ],
+        "servidor_pred": [
+          0.492071,
+          0.078352,
+          1.018885
+        ]
+      },
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": []
+    },
+    "console": []
+  },
+  "a12i_gemeo_falha_sobreposto.png": {
+    "pedido": {
+      "arquivo": "a12i_gemeo_falha_sobreposto.png",
+      "idx": 453,
+      "camera": "camera_frontal",
+      "modo": "sobreposto",
+      "vista": "camera",
+      "n_quadros": 500
+    },
+    "estado": {
+      "ultimo": {
+        "idx": 453,
+        "id": 4599,
+        "mae": 50.10587953652193
+      },
+      "efetuador": {
+        "ref": [
+          1.4414850577835239,
+          0.34367306854472135,
+          0.9135575125731487
+        ],
+        "gemeo": [
+          0.4920709610897859,
+          0.0783521547403718,
+          1.0188852641141646
+        ],
+        "servidor_gt": [
+          1.441485,
+          0.343673,
+          0.913558
+        ],
+        "servidor_pred": [
+          0.492071,
+          0.078352,
+          1.018885
+        ]
+      },
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": []
+    },
+    "console": []
+  }
+}

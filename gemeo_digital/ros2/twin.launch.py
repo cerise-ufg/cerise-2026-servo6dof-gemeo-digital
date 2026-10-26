@@ -31,6 +31,7 @@ def gerar(context):
                         "--child-frame-id", "twin/world"]),
         Node(executable=os.path.join(AQUI, "gemeo_twin_node.py"), name="gemeo_twin", output="screen",
              parameters=[{"predictor": lc("predictor"), "camera_topic": lc("camera_topic"),
+                          "qos_imagem": lc("qos_imagem"),
                           "camera": lc("camera_topic").strip("/").split("/")[0]}]),
         Node(package="rviz2", executable="rviz2", arguments=["-d", os.path.join(AQUI, "gemeo.rviz")],
              condition=IfCondition(lc("rviz"))),
@@ -44,5 +45,6 @@ def generate_launch_description():
         DeclareLaunchArgument("camera_topic", default_value="/camera_frontal/image"),
         DeclareLaunchArgument("offset_y", default_value="3.0"),
         DeclareLaunchArgument("rviz", default_value="false"),
+        DeclareLaunchArgument("qos_imagem", default_value="sensor"),
         OpaqueFunction(function=gerar),
     ])

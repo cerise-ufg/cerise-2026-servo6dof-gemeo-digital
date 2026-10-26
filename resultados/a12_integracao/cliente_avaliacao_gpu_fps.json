@@ -1,0 +1,73 @@
+{
+  "url": "http://127.0.0.1:8091",
+  "inicio": "2026-10-26 10:12:39",
+  "sessoes": [
+    {
+      "camera": "camera_frontal",
+      "fps_alvo": 2.0,
+      "quadros_alvo": 60,
+      "duracao_s": 29.275693655014038,
+      "gl": "gpu",
+      "acks": 60,
+      "quadros_recebidos": 60,
+      "fps_cliente": 2.049481754626976,
+      "tempo_ate_pronto_s": 1.107203483581543,
+      "recebido_ate_desenhado_ms": {
+        "n": 60,
+        "media": 10.036679108937582,
+        "mediana": 9.400010108947754,
+        "p95": 16.99995994567871,
+        "max": 17.499923706054688,
+        "min": 3.599882125854492
+      },
+      "erros_js": [],
+      "console": [],
+      "webgl": "ANGLE (NVIDIA Corporation, NVIDIA GB10/PCIe, OpenGL ES 3.2)"
+    },
+    {
+      "camera": "camera_frontal",
+      "fps_alvo": 5.0,
+      "quadros_alvo": 60,
+      "duracao_s": 11.515673875808716,
+      "gl": "gpu",
+      "acks": 60,
+      "quadros_recebidos": 60,
+      "fps_cliente": 5.210289961931243,
+      "tempo_ate_pronto_s": 0.8830583095550537,
+      "recebido_ate_desenhado_ms": {
+        "n": 60,
+        "media": 10.656678676605225,
+        "mediana": 10.400056838989258,
+        "p95": 14.90020751953125,
+        "max": 16.99995994567871,
+        "min": 3.6001205444335938
+      },
+      "erros_js": [],
+      "console": [],
+      "webgl": "ANGLE (NVIDIA Corporation, NVIDIA GB10/PCIe, OpenGL ES 3.2)"
+    },
+    {
+      "camera": "camera_frontal",
+      "fps_alvo": 10.0,
+      "quadros_alvo": 60,
+      "duracao_s": 5.507661581039429,
+      "gl": "gpu",
+      "acks": 60,
+      "quadros_recebidos": 60,
+      "fps_cliente": 10.893915524249866,
+      "tempo_ate_pronto_s": 0.7020978927612305,
+      "recebido_ate_desenhado_ms": {
+        "n": 60,
+        "media": 8.203323682149252,
+        "mediana": 6.800174713134766,
+        "p95": 15.299797058105469,
+        "max": 16.99995994567871,
+        "min": 3.0999183654785156
+      },
+      "erros_js": [],
+      "console": [],
+      "webgl": "ANGLE (NVIDIA Corporation, NVIDIA GB10/PCIe, OpenGL ES 3.2)"
+    }
+  ],
+  "fim": "2026-10-26 10:13:32"
+}

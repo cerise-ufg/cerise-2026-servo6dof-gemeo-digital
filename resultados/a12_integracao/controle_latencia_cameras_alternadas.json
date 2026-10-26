@@ -1,0 +1,34 @@
+{
+  "descricao": "120 chamadas /api/quadro alternando frontal/diagonal (60 cada), predictor PosePredictor; mede se a diferenca de latencia entre as sessoes vem da camera ou da carga da GPU no momento",
+  "data": "2026-10-26 07:20:28",
+  "util_gpu_amostras_pct": [
+    4,
+    71,
+    73,
+    73,
+    79,
+    77,
+    81,
+    81,
+    60,
+    82,
+    82,
+    82
+  ],
+  "camera_frontal": {
+    "n": 60,
+    "mediana_ms": 65.20190450828522,
+    "media_ms": 65.24416381726041,
+    "p95_ms": 66.8023710604757,
+    "min_ms": 63.58543806709349,
+    "max_ms": 67.21649691462517
+  },
+  "camera_diagonal": {
+    "n": 60,
+    "mediana_ms": 64.58355416543782,
+    "media_ms": 64.64609617056946,
+    "p95_ms": 66.1229018587619,
+    "min_ms": 62.453633174300194,
+    "max_ms": 66.69515604153275
+  }
+}

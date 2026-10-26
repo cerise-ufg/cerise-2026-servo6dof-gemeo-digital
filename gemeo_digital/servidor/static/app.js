@@ -7,8 +7,11 @@ import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRe
 import URDFLoader from 'urdf-loader';
 
 const ESTADO = window.__gemeo = {
-  pronto: false, robos: 0, malhas: { ref: 0, gemeo: 0 }, erros: [], quadros: 0, ultimo: null, ws: 'fechado',
+  pronto: false, robos: 0, malhas: { ref: 0, gemeo: 0 }, erros: [], quadros: 0, acks: 0, ultimo: null, ws: 'fechado',
+  render_ms: [], t_acks: [],
 };
+// relogio de parede com resolucao sub-ms (mesma base do time.time() do servidor quando no mesmo host)
+const agora = () => (performance.timeOrigin + performance.now()) / 1000;
 const JUNTAS = ['joint_1', 'joint_2', 'joint_3', 'joint_4', 'joint_5', 'joint_6'];
 const SEPARACAO = 3.0;            // m, distancia (eixo y do ROS) no modo lado a lado
 const graus = r => r * 180 / Math.PI;
@@ -226,8 +229,28 @@ function montarTabela() {
 
 const fmt = (v, nd = 1) => (v === null || v === undefined || Number.isNaN(v)) ? '—' : v.toFixed(nd);
 
+// esqueleto 2D previsto pelo modelo de pose (keypoints da imagem 1280x720) sobre a imagem da camera
+function desenharKeypoints(kp) {
+  const c = $('img-kp');
+  if (!c) return;
+  const W = c.clientWidth, H = c.clientHeight, dpr = window.devicePixelRatio || 1;
+  c.width = W * dpr; c.height = H * dpr;
+  const g = c.getContext('2d');
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.clearRect(0, 0, W, H);
+  if (!kp || !kp.length) return;
+  const sx = W / 1280, sy = H / 720;
+  g.lineWidth = 3; g.strokeStyle = 'rgba(27,175,122,0.95)'; g.lineJoin = 'round';
+  g.beginPath();
+  kp.forEach(([u, v], i) => (i ? g.lineTo(u * sx, v * sy) : g.moveTo(u * sx, v * sy)));
+  g.stroke();
+  g.fillStyle = '#ffd34d';
+  for (const [u, v] of kp) { g.beginPath(); g.arc(u * sx, v * sy, 3.5, 0, 7); g.fill(); }
+}
+
 function atualizarPainel(q) {
   $('img-camera').src = q.imagem;
+  desenharKeypoints(q.kp2d_pred);
   $('img-legenda').textContent = `pose ${String(q.id).padStart(6, '0')} · ${q.camera.replace('_', ' ')}`;
   $('chip-quadro').textContent = `quadro ${q.idx + 1}/${q.total} · id ${q.id}`;
   $('chip-predictor').textContent = 'predictor: ' + q.predictor;
@@ -235,13 +258,19 @@ function atualizarPainel(q) {
     $('gt-' + j).textContent = fmt(graus(q.gt[j]));
     $('pr-' + j).textContent = fmt(graus(q.pred[j]));
     const e = q.erro_graus[j];
-    $('er-' + j).textContent = (e >= 0 ? '+' : '') + fmt(e);
-    $('bar-' + j).style.width = Math.min(100, Math.abs(e) / 10 * 100) + '%';
+    $('er-' + j).textContent = (e === undefined) ? '—' : (e >= 0 ? '+' : '') + fmt(e);
+    $('bar-' + j).style.width = (e === undefined) ? '0%' : Math.min(100, Math.abs(e) / 10 * 100) + '%';
   }
+  if (!('joint_6' in q.pred)) $('pr-joint_6').textContent = 'n/e';
   $('v-mae').textContent = fmt(q.mae_graus, 2) + '°';
   $('v-max').textContent = fmt(q.max_graus, 2) + '°';
   $('v-ee').textContent = fmt(100 * q.erro_efetuador_m, 1) + ' cm';
   $('v-lat').textContent = fmt(q.latencia_predictor_ms, 1) + ' ms';
+  if ($('v-e2e')) $('v-e2e').textContent = q.e2e_ultimo_ms ? fmt(q.e2e_ultimo_ms, 0) + ' ms' : '—';
+  if ($('v-fps')) {
+    const t = ESTADO.t_acks, n = t.length;
+    $('v-fps').textContent = n > 2 ? fmt((n - 1) / (t[n - 1] - t[0]), 2) : '—';
+  }
 }
 
 // ---------------------------------------------------------------- grafico de erro
@@ -313,14 +342,15 @@ let idxAtual = 0;
 function enviar(o) { if (ws && ws.readyState === 1) ws.send(JSON.stringify(o)); }
 
 function conectar() {
-  const url = (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws';
+  // estado inicial na URL do WebSocket: o primeiro quadro ja sai com a camera/fps/indice certos
+  const qs = new URLSearchParams({ camera: $('sel-camera').value, fps: $('sel-fps').value,
+                                   idx: String(idxAtual), pausado: rodando ? '0' : '1' });
+  const url = (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws?' + qs;
   ws = new WebSocket(url);
   ws.onopen = () => {
     ESTADO.ws = 'aberto';
     $('chip-conexao').className = 'chip on';
     $('chip-conexao').lastElementChild.textContent = 'conectado';
-    enviar({ cmd: 'fps', valor: Number($('sel-fps').value) });
-    enviar({ cmd: 'camera', valor: $('sel-camera').value });
   };
   ws.onclose = () => {
     ESTADO.ws = 'fechado';
@@ -329,6 +359,7 @@ function conectar() {
     setTimeout(conectar, 2000);
   };
   ws.onmessage = ev => {
+    const tRec = agora();
     const q = JSON.parse(ev.data);
     if (q.tipo !== 'quadro') { ESTADO.erros.push(q.mensagem || 'mensagem desconhecida'); return; }
     idxAtual = q.idx;
@@ -345,8 +376,24 @@ function conectar() {
       if (HIST.length > 600) HIST.shift();
     }
     desenharGrafico();
+    // confirmacao: o callback roda no proximo frame de animacao, DEPOIS do render de animar()
+    // (registrado antes); readPixels forca o termino do desenho -> instante em que o gemeo
+    // atualizado esta nos pixels do canvas
+    requestAnimationFrame(() => {
+      const gl = renderer.getContext();
+      gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, PIXEL);
+      const tRen = agora();
+      ESTADO.acks++;
+      ESTADO.render_ms.push(1000 * (tRen - tRec));
+      if (ESTADO.render_ms.length > 2000) ESTADO.render_ms.shift();
+      ESTADO.t_acks.push(tRen);
+      if (ESTADO.t_acks.length > 30) ESTADO.t_acks.shift();
+      enviar({ cmd: 'ack', seq: q.seq, t_cli_recebido: tRec, t_cli_render: tRen });
+    });
   };
 }
+const PIXEL = new Uint8Array(4);
+window.__gemeoCmd = enviar;   // usado pelos scripts de captura (Playwright)
 
 $('bt-play').onclick = () => {
   rodando = !rodando;
@@ -361,10 +408,18 @@ $('sel-modo').onchange = aplicarModo;
 $('sel-vista').onchange = aplicarVista;
 
 // parametros de URL (usados nas capturas): ?modo=sobreposto&vista=camera&camera=camera_diagonal&fps=5
+// ?ir=<indice inicial> &pausar=1 (congela no quadro indicado)
 const P = new URLSearchParams(location.search);
-for (const [k, id] of [['modo', 'sel-modo'], ['vista', 'sel-vista'], ['camera', 'sel-camera'], ['fps', 'sel-fps']]) {
+if (P.get('fps') !== null) {   // aceita qualquer taxa (ex.: 2.0, 7.5): cria a opcao se nao existir
+  const v = String(Number(P.get('fps')));
+  if (![...$('sel-fps').options].some(o => o.value === v)) $('sel-fps').add(new Option(v === '0' ? 'máx.' : v, v));
+  $('sel-fps').value = v;
+}
+for (const [k, id] of [['modo', 'sel-modo'], ['vista', 'sel-vista'], ['camera', 'sel-camera']]) {
   if (P.get(k)) $(id).value = P.get(k);
 }
+if (P.get('ir')) idxAtual = Number(P.get('ir'));
+if (P.get('pausar') === '1') { rodando = false; $('bt-play').textContent = '▶ continuar'; }
 
 async function iniciar() {
   montarTabela();

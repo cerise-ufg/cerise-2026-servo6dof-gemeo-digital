@@ -4,4 +4,6 @@
 *.stl binary
 *.STL binary
 *.pptx binary
-*.npz binary
+*.npz binary*.gif binary
+*.mp4 binary
+*.gz binary

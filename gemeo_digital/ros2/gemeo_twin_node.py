@@ -30,6 +30,9 @@ sys.path.insert(0, os.path.join(AQUI, "..", "servidor"))
 import predictors  # noqa: E402
 
 QOS_SENSOR = QoSProfile(reliability=QoSReliabilityPolicy.BEST_EFFORT, history=QoSHistoryPolicy.KEEP_LAST, depth=1)
+# imagens 1280x720 rgb8 (2,7 MB) em BEST_EFFORT perdem fragmentos no DDS e quase nenhuma chega; "confiavel"
+# (RELIABLE, fila 1) entrega todas quando publicador e assinante usam o mesmo perfil
+QOS_CONFIAVEL = QoSProfile(reliability=QoSReliabilityPolicy.RELIABLE, history=QoSHistoryPolicy.KEEP_LAST, depth=1)
 
 
 def img_para_rgb(msg):
@@ -50,6 +53,10 @@ class GemeoTwin(Node):
         self.declare_parameter("camera", "camera_frontal")
         self.declare_parameter("predictor", "auto")
         self.declare_parameter("pose_dir", os.path.expanduser("~/cerise2026/pose"))
+        self.declare_parameter("qos_imagem", "sensor")   # sensor | confiavel
+        # o modelo de pose nao estima a garra (joint_6): valor fixo so para completar a arvore TF do gemeo
+        self.declare_parameter("garra_padrao", 0.0)
+        self.garra_padrao = float(self.get_parameter("garra_padrao").value)
         self.camera = self.get_parameter("camera").value
         self.pred, aviso = predictors.carregar_predictor(self.get_parameter("predictor").value,
                                                          self.get_parameter("pose_dir").value)
@@ -59,7 +66,8 @@ class GemeoTwin(Node):
         self.ref = None
         self.pub = self.create_publisher(JointState, "/twin/joint_states", 10)
         self.pub_lat = self.create_publisher(Float32, "/twin/latencia_ms", 10)
-        self.create_subscription(Image, self.get_parameter("camera_topic").value, self.cb_img, QOS_SENSOR)
+        qos = QOS_CONFIAVEL if self.get_parameter("qos_imagem").value == "confiavel" else QOS_SENSOR
+        self.create_subscription(Image, self.get_parameter("camera_topic").value, self.cb_img, qos)
         if getattr(self.pred, "usa_meta", False):
             self.create_subscription(JointState, "/joint_states", self.cb_ref, 10)
         self.n = 0
@@ -80,6 +88,7 @@ class GemeoTwin(Node):
         lat = 1000 * (time.perf_counter() - t0)
         js = JointState()
         js.header.stamp = msg.header.stamp
+        q.setdefault("joint_6", self.garra_padrao)
         js.name = list(q.keys())
         js.position = [float(v) for v in q.values()]
         self.pub.publish(js)
