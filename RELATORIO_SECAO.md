@@ -3,7 +3,9 @@
 **Atividades do Plano de Trabalho:** Objetivo 3, Atividade 7 (dataset estruturado e documentado);
 Objetivo 4, Atividade 11 (modelo digital do braço robótico em ambiente virtual); Objetivo 4,
 Atividade 12 (sistema de gêmeo digital, parte de infraestrutura).
-**Repositório:** `cerise-2026-servo6dof-gemeo-digital` (organização CERISE no GitHub)
+**Repositório:** `cerise-2026-servo6dof-gemeo-digital` (organização CERISE no GitHub; a criação do
+repositório remoto e o *push* ficaram pendentes de autorização do Eduardo, concedida em 26/10/2026, quando
+o repositório foi publicado na organização `cerise-ufg`)
 **Ambiente de execução:** DGX Spark (NVIDIA GB10, arm64, Ubuntu 24.04), containers Docker com ROS 2
 Humble e Ignition Gazebo Fortress; data das execuções: 26/10/2026.
 

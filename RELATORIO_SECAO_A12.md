@@ -5,7 +5,9 @@ de pose ao ambiente virtual do braço robótico servo6dof. **Resultado esperado:
 reproduzir o comportamento do braço a partir dos dados capturados.
 
 Repositório: `cerise-2026-servo6dof-gemeo-digital` (organização CERISE no GitHub, branch `main`). O
-código da integração está em `gemeo_digital/servidor`, `gemeo_digital/integracao` e `gemeo_digital/ros2`.
+código da integração está em `gemeo_digital/servidor`, `gemeo_digital/integracao` e `gemeo_digital/ros2`. A
+criação do repositório remoto e o *push* dependeram de autorização do Eduardo, concedida em 26/10/2026; até
+então, o código ficou commitado apenas no espelho local.
 Modelo de pose: repositório `cerise-2026-pose-servo6dof`, da mesma organização (Atividades 8 e 9).
 Medições: `resultados/a12_integracao/`. Execução em 26/10/2026, das 06h40 às 07h30 (horário de Brasília),
 no DGX Spark (NVIDIA GB10, arm64).
