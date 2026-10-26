@@ -3,9 +3,7 @@
 **Atividades do Plano de Trabalho:** Objetivo 3, Atividade 7 (dataset estruturado e documentado);
 Objetivo 4, Atividade 11 (modelo digital do braço robótico em ambiente virtual); Objetivo 4,
 Atividade 12 (sistema de gêmeo digital, parte de infraestrutura).
-**Repositório:** <https://github.com/EduardoCaixeta/cerise-2026-servo6dof-gemeo-digital> (privado; o
-código está commitado no espelho local `E:\CERISE\FRENTES\ROBOTICA\SERVO6DOF_GEMEO`, e a criação do
-repositório remoto e o *push* ficaram pendentes de autorização do Eduardo)
+**Repositório:** `cerise-2026-servo6dof-gemeo-digital` (organização CERISE no GitHub)
 **Ambiente de execução:** DGX Spark (NVIDIA GB10, arm64, Ubuntu 24.04), containers Docker com ROS 2
 Humble e Ignition Gazebo Fortress; data das execuções: 26/10/2026.
 
@@ -27,7 +25,7 @@ fica para a etapa seguinte, e o ponto de encaixe já está implementado e testad
 
 O pacote ROS 2 do braço (`servo6dof_description`, `servo6dof_controller`, `servo6dof_moveit` e
 `servo6dof_camera`), fornecido pelo Prof. Dr. Alisson Assis Cardoso e adaptado para o estúdio
-fotográfico no Gazebo, foi copiado, sem alterações, para o repositório da frente, junto com os
+fotográfico no Gazebo, foi copiado, sem alterações, para este repositório, junto com os
 scripts de geração do dataset e a documentação original. O braço tem cinco juntas de revolução
 (`joint_1` a `joint_5`) e uma junta de garra (`joint_6`); as demais juntas da garra são `mimic` de
 `joint_6`. Todo o processamento roda em containers com prefixo `cerise26_gemeo`. A imagem
@@ -298,7 +296,9 @@ erro do efetuador passam então a medir o modelo real.
 - **Rótulos do dataset.** As juntas comandadas não são verdade-base em 34,1 % das poses (principalmente
   pelo contato com o chão); deve-se usar `juntas_reais`. Cerca de 2 % das imagens (estimativa em 1.000
   poses) têm silhueta incompatível com as juntas registradas e devem ser filtradas por IoU (o script
-  `validar_projecao.py --n 5000` gera a lista completa).
+  `validar_projecao.py --n 5000` gera a lista completa). Essa execução sobre as 5.000 poses (10.000
+  imagens) foi feita em seguida e está em `resultados/validacao_projecao_n5000.csv`: IoU médio de 0,949
+  (frontal) e 0,937 (diagonal), com 247 imagens (2,47 %) abaixo de 0,8.
 - **Domínio sintético.** Iluminação, materiais e fundo do estúdio são fixos e simplificados, e as malhas
   estão em escala 6. A transferência para o braço físico exigirá randomização de domínio ou ajuste fino
   com imagens reais.
@@ -318,7 +318,7 @@ erro do efetuador passam então a medir o modelo real.
   preditor sintético. O desempenho do gêmeo com estimação de pose real depende do modelo da outra
   frente.
 - **Acesso.** O servidor está restrito ao loopback do Spark e é acessado por túnel SSH local. A exposição
-  pública é decisão pendente do Eduardo e não foi feita.
+  pública é uma decisão pendente e não foi feita.
 
 ## 5. Próximos passos
 

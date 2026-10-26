@@ -4,11 +4,9 @@
 de pose ao ambiente virtual do braço robótico servo6dof. **Resultado esperado:** um gêmeo digital capaz de
 reproduzir o comportamento do braço a partir dos dados capturados.
 
-Repositório: <https://github.com/EduardoCaixeta/cerise-2026-servo6dof-gemeo-digital> (privado). O código
-da integração está em `gemeo_digital/servidor`, `gemeo_digital/integracao` e `gemeo_digital/ros2`. A
-criação do repositório remoto e o *push* dependem de autorização do Eduardo; até lá, o código está
-commitado no espelho local `E:\CERISE\FRENTES\ROBOTICA\SERVO6DOF_GEMEO` (branch `main`).
-Modelo de pose: <https://github.com/EduardoCaixeta/cerise-2026-pose-servo6dof> (Atividades 8 e 9).
+Repositório: `cerise-2026-servo6dof-gemeo-digital` (organização CERISE no GitHub, branch `main`). O
+código da integração está em `gemeo_digital/servidor`, `gemeo_digital/integracao` e `gemeo_digital/ros2`.
+Modelo de pose: repositório `cerise-2026-pose-servo6dof`, da mesma organização (Atividades 8 e 9).
 Medições: `resultados/a12_integracao/`. Execução em 26/10/2026, das 06h40 às 07h30 (horário de Brasília),
 no DGX Spark (NVIDIA GB10, arm64).
 
@@ -150,7 +148,7 @@ foi de 65,2 ms (frontal) e 64,6 ms (diagonal)
 (`resultados/a12_integracao/controle_latencia_cameras_alternadas.json`). A GPU do Spark é compartilhada
 com os serviços de produção (vLLM) e com outras frentes, o que explica a distribuição bimodal da
 latência (modos perto de 100 ms e de 200 ms). A memória de GPU do modelo teve pico de 2,94 GB alocados e
-3,18 GB reservados pelo torch, abaixo do teto de 4 GB da frente. O contêiner usou 3,1–5,2 GB de RAM
+3,18 GB reservados pelo torch, abaixo do teto de 4 GB reservado para esta atividade. O contêiner usou 3,1–5,2 GB de RAM
 (cgroup). Com rasterização por software (SwiftShader), o desenho de cada quadro a 1600×1000 leva cerca
 de 1,9 s: o gêmeo precisa de um navegador com WebGL acelerado.
 
@@ -262,7 +260,7 @@ uma segunda vista.
 3. Adicionar keypoints nas pinças da garra para observar j5 e j6 (pendência da frente de pose).
 4. Desempenho: Depth Anything V2 Small/Base ou TensorRT para o modelo, `image_transport` comprimido no
    ROS 2 e pipelining no servidor (calcular o quadro k+1 enquanto o k é desenhado).
-5. Decisão do Eduardo sobre expor o visualizador. Hoje ele é acessível só por túnel SSH local
+5. Decisão, ainda pendente, sobre expor o visualizador. Hoje ele é acessível só por túnel SSH local
    (`ssh -N -L 127.0.0.1:18091:localhost:8091 spark-bridge` → <http://127.0.0.1:18091>).
 
 ## 7. Reprodutibilidade

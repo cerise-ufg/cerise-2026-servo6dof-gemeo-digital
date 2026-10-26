@@ -72,7 +72,7 @@ Não há pré-processamento além da conversão no momento da gravação:
 - **anotação** (`NNNNNN.json`): `id`, `pose`, `juntas_comandadas` e `juntas_reais` (rad, 4–5 casas),
   `garra_comandada.joint_6` (rad), `juntas_graus` (das comandadas) e `cameras` (arquivo, tipo, largura e
   altura de cada imagem);
-- **índice** (`dataset_meta/index.csv`, gerado por `indexar.py`): uma linha por pose com ângulos, *split*,
+- **índice** (`resultados/dataset_meta/index.csv`, gerado por `indexar.py`): uma linha por pose com ângulos, *split*,
   e arquivo, bytes e mtime de cada imagem;
 - **intrínsecos** (pinhole, sem distorção): fx = fy = 640 / tan(30°) ≈ 1108,5 px, cx = 640, cy = 360.
   A convenção da câmera do Gazebo é x para a frente, y para a esquerda e z para cima;
@@ -96,9 +96,13 @@ generalização entre câmeras, recomenda-se também treinar numa câmera e test
 
 ## 7. Distribuição, licença e manutenção
 
-- **Onde está:** dataset completo no DGX Spark em `~/braco/dataset` (somente leitura para as frentes);
-  metadados em `~/cerise2026/gemeo/dataset_meta`; amostra de 8 poses do *split* de teste em
-  `amostra_dataset/` deste repositório.
+- **Onde está:** dataset completo nos Releases deste repositório (`dataset_cinza.part01.tar` e
+  `.part02.tar`, com SHA-256 e instruções em `RELEASES.md`); na execução, ficou no DGX Spark em
+  `~/braco/dataset` (hoje `~/braco/dataset_cinza`). Metadados (`index.csv`, integridade por imagem) em
+  `resultados/dataset_meta/`; amostra de 8 poses do *split* de teste em `amostra_dataset/`.
+- **Variante laranja:** as mesmas 5.000 poses renderizadas de novo com o braço em laranja
+  (`dataset_laranja.part01.tar` e `.part02.tar`; procedimento em `dataset_tools/variante_laranja/`). As
+  estatísticas desta ficha referem-se à versão cinza, usada no relatório.
 - **Licença:** uso interno do projeto CERISE/EMC/UFG até deliberação dos coordenadores (proposta: CC BY 4.0
   para os dados sintéticos, mantendo os créditos do modelo do braço ao Prof. Alisson).
 - **Manutenção:** regenerável a partir de `plano_poses.json` com `gerar_hd_spark.sh`; a retomada
@@ -113,7 +117,8 @@ generalização entre câmeras, recomenda-se também treinar numa câmera e test
 2. **Cerca de 2 % de imagens com rótulo suspeito:** em 1.000 poses avaliadas, 2,05 % das imagens têm IoU
    abaixo de 0,8 entre a silhueta do modelo (com as juntas reais) e a máscara do Gazebo, ou seja, o braço
    na imagem não corresponde às juntas registradas (provável captura antes do assentamento ou contato).
-   Recomenda-se filtrar com `modelo_digital/validar_projecao.py --n 5000`.
+   Recomenda-se filtrar com `modelo_digital/validar_projecao.py --n 5000`; essa execução, sobre as 5.000
+   poses, está em `resultados/validacao_projecao_n5000.csv` (247 de 10.000 imagens, 2,47 %, abaixo de 0,8).
 3. **Segmentação:** o braço tem rótulo 0, o mesmo de regiões sem objeto (céu na câmera diagonal, 0,16 % dos
    pixels). Use rótulo 0 com profundidade > 0. Não há rótulos por elo.
 4. **Garra:** o Gazebo Fortress não aplica o `mimic` do URDF; os dedos da garra nas imagens não seguem
