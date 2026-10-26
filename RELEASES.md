@@ -27,8 +27,8 @@ números do relatório; a **laranja** é uma segunda renderização das mesmas 5
 ## Como baixar, conferir e extrair
 
 ```bash
-# baixar (GitHub CLI; troque <org> pelo nome da organização)
-gh release download dados-2026-10-26 -R <org>/cerise-2026-servo6dof-gemeo-digital -D dados
+# baixar (GitHub CLI; troque cerise-ufg pelo nome da organização)
+gh release download dados-2026-10-26 -R cerise-ufg/cerise-2026-servo6dof-gemeo-digital -D dados
 cd dados
 
 # conferir a integridade dos arquivos baixados
