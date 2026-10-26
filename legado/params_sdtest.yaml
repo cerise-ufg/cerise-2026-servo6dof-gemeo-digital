@@ -1,0 +1,12 @@
+fotografo_servo6dof:
+  ros__parameters:
+    saida: /mnt/e/cerise/braco/dataset_sdtest
+    n_aleatorias: 10
+    duracao: 3.0
+    assentamento: 0.3
+    tol_junta: 0.06
+    timeout_mov: 30.0
+    use_sim_time: true
+    cameras:
+      - /camera_frontal/image
+      - /camera_diagonal/image

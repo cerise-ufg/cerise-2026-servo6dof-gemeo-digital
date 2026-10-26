@@ -1,0 +1,16 @@
+fotografo_servo6dof:
+  ros__parameters:
+    saida: /mnt/e/cerise/braco/dataset_3wtest
+    n_aleatorias: 4
+    semente: 1001
+    indice_inicial: 4
+    duracao: 0.8
+    assentamento: 0.2
+    use_sim_time: true
+    cameras:
+      - /camera_frontal/image
+      - /camera_frontal/depth
+      - /camera_frontal/segmentation/labels_map
+      - /camera_diagonal/image
+      - /camera_diagonal/depth
+      - /camera_diagonal/segmentation/labels_map

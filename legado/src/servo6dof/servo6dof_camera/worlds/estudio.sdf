@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<!--
+  "Estudio fotografico" para o braco servo6dof.
+
+  Contem:
+    - os plugins de sistema do Ignition Gazebo (Fortress), incluindo o
+      "Sensors", que e' o que efetivamente RENDERIZA as cameras. Sem ele
+      a camera existe no mundo mas nunca publica imagem.
+    - chao + ciclorama (fundo) em cinza medio, para o braco (branco)
+      aparecer recortado na foto
+    - iluminacao contida: com luz demais o braco branco satura e vira
+      uma silhueta chapada, sem relevo
+    - duas cameras fixas MIRADAS no centro do braco (aprox. 0, 0.4, 0.9)
+
+  Nota sobre <render_engine>ogre</render_engine>:
+    o padrao seria "ogre2", mais bonito, mas ele exige acesso a GPU via
+    /dev/dri/renderD128. No WSL o usuario costuma nao estar no grupo
+    "render", a renderizacao cai para software e o ogre2 aborta em
+    GL3PlusTextureGpu::copyTo. O ogre 1.x funciona por software.
+    Para usar ogre2 (mais rapido e bonito):
+        sudo usermod -aG render $USER    # e reiniciar o WSL
+-->
+<sdf version="1.8">
+  <world name="estudio">
+
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system"
+            name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-user-commands-system"
+            name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system"
+            name="ignition::gazebo::systems::SceneBroadcaster"/>
+
+    <!-- ESTE e' o plugin que faz as cameras renderizarem -->
+    <plugin filename="ignition-gazebo-sensors-system"
+            name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre</render_engine>
+    </plugin>
+
+    <scene>
+      <ambient>0.30 0.30 0.32 1</ambient>
+      <background>0.30 0.33 0.38 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <light type="directional" name="chave">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 12 0 0 0</pose>
+      <diffuse>0.55 0.55 0.55 1</diffuse>
+      <specular>0.08 0.08 0.08 1</specular>
+      <direction>-0.5 0.35 -0.8</direction>
+    </light>
+
+    <light type="directional" name="preenchimento">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 8 0 0 0</pose>
+      <diffuse>0.18 0.18 0.20 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <direction>0.6 -0.4 -0.5</direction>
+    </light>
+
+    <!-- chao: cinza escuro, para contrastar com o braco branco -->
+    <model name="chao">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>40 40</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>40 40</size></plane></geometry>
+          <material>
+            <ambient>0.18 0.19 0.21 1</ambient>
+            <diffuse>0.26 0.27 0.30 1</diffuse>
+            <specular>0.02 0.02 0.02 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ciclorama: parede de fundo em cinza medio -->
+    <model name="fundo">
+      <static>true</static>
+      <pose>-3.5 0 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.2 16 6</size></box></geometry>
+          <material>
+            <ambient>0.30 0.32 0.36 1</ambient>
+            <diffuse>0.40 0.42 0.47 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- =========================================================
+         CAMERA 1: frontal
+         posicao (3.2, 0.4, 1.6) mirando (0, 0.4, 0.9)
+           yaw   = atan2(dy, dx) = atan2(0, -3.2)      = 3.14159
+           pitch = -atan2(dz, dist_horiz) = -atan2(-0.7, 3.2) = 0.215
+         ========================================================= -->
+    <model name="camera_frontal">
+      <static>true</static>
+      <pose>3.2 0.4 1.6 0 0.215 3.14159</pose>
+      <link name="link">
+        <visual name="corpo">
+          <geometry><box><size>0.12 0.12 0.12</size></box></geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="cam" type="camera">
+          <pose>0 0 0 0 0 0</pose>
+          <camera>
+            <horizontal_fov>1.0472</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip><near>0.1</near><far>100</far></clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>3</update_rate>
+          <visualize>true</visualize>
+          <topic>camera_frontal/image</topic>
+        </sensor>
+      </link>
+    </model>
+
+    <!-- =========================================================
+         CAMERA 2: diagonal alta
+         posicao (2.6, 2.6, 2.4) mirando (0, 0.4, 0.9)
+           d = (-2.6, -2.2, -1.5), dist_horiz = 3.406
+           yaw   = atan2(-2.2, -2.6) = -2.439
+           pitch = -atan2(-1.5, 3.406) = 0.414
+         ========================================================= -->
+    <model name="camera_diagonal">
+      <static>true</static>
+      <pose>2.6 2.6 2.4 0 0.414 -2.439</pose>
+      <link name="link">
+        <visual name="corpo">
+          <geometry><box><size>0.12 0.12 0.12</size></box></geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="cam" type="camera">
+          <pose>0 0 0 0 0 0</pose>
+          <camera>
+            <horizontal_fov>1.0472</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip><near>0.1</near><far>100</far></clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>3</update_rate>
+          <visualize>true</visualize>
+          <topic>camera_diagonal/image</topic>
+        </sensor>
+      </link>
+    </model>
+
+  </world>
+</sdf>

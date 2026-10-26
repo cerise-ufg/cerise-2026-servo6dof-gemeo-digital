@@ -1,0 +1,39 @@
+# Poses que o braco vai assumir para ser fotografado.
+#
+# arm  = [joint_1, joint_2, joint_3, joint_4, joint_5]   (rad, limite +-pi/2)
+# gripper = joint_6                                      (rad, limite -0.698 .. +0.524)
+#
+# Pode adicionar/remover poses a vontade: o script le esta lista.
+
+poses:
+  - nome: home
+    arm: [0.0, 0.0, 0.0, 0.0, 0.0]
+    gripper: 0.0
+
+  - nome: recolhido
+    arm: [0.0, -1.20, 1.20, 0.0, 0.0]
+    gripper: -0.60
+
+  - nome: estendido_frente
+    arm: [0.0, 0.90, -0.60, 0.0, 0.30]
+    gripper: 0.45
+
+  - nome: giro_esquerda
+    arm: [1.20, 0.55, -0.35, 0.40, 0.0]
+    gripper: -0.30
+
+  - nome: giro_direita
+    arm: [-1.20, 0.55, -0.35, -0.40, 0.0]
+    gripper: -0.30
+
+  - nome: alcance_alto
+    arm: [0.35, -0.70, 0.95, 0.60, -0.45]
+    gripper: 0.20
+
+  - nome: alcance_baixo
+    arm: [-0.60, 1.30, -0.90, 0.0, 0.55]
+    gripper: -0.60
+
+  - nome: torcao
+    arm: [0.80, -0.40, 0.70, -1.20, 0.90]
+    gripper: 0.45

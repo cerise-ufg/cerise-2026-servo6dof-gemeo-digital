@@ -1,0 +1,30 @@
+# Ponte entre o MoveIt e os controladores do ros2_control.
+# Corrigido em relacao ao original:
+#   - "moveit_controller_manage"   -> moveit_controller_manager   (faltava o "r")
+#   - "follow_joint trajectory"    -> follow_joint_trajectory     (tinha espaco no lugar do "_")
+# Com qualquer um desses dois errados o MoveIt planeja mas NAO executa.
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - arm_controller
+    - gripper_controller
+
+  arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+
+  gripper_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint_6
