@@ -1,0 +1,116 @@
+{
+  "n_poses": 1000,
+  "n_imagens": 2000,
+  "poses_disponiveis": 5000,
+  "camera_frontal": {
+    "iou_media": 0.9496095650537265,
+    "iou_mediana": 0.9648374168298511,
+    "iou_p5": 0.8961603689423726,
+    "iou_min": 0.33909623047057524,
+    "precisao_media": 0.9610180731506941,
+    "revocacao_media": 0.9854640534427596
+  },
+  "camera_diagonal": {
+    "iou_media": 0.9377184630899194,
+    "iou_mediana": 0.9510482997566347,
+    "iou_p5": 0.8890194560753263,
+    "iou_min": 0.34152672994240285,
+    "precisao_media": 0.9520874340469699,
+    "revocacao_media": 0.9817777252340898
+  },
+  "iou_media_malha_acima_do_chao": 0.9431218910371459,
+  "iou_media_malha_cruza_chao": 0.9455973386840735,
+  "frac_poses_malha_cruza_chao": 0.219,
+  "limiar_iou_consistente": 0.8,
+  "frac_imagens_iou_real_abaixo_limiar": 0.0205,
+  "imagens_iou_real_baixo_mas_comandado_alto": 1,
+  "exemplos_iou_baixo": [
+    {
+      "id": 4359,
+      "camera": "camera_frontal",
+      "iou": 0.33909623047057524,
+      "iou_com_juntas_comandadas": 0.3539113147203734,
+      "dif_real_cmd_rad": 0.0719
+    },
+    {
+      "id": 4142,
+      "camera": "camera_diagonal",
+      "iou": 0.34152672994240285,
+      "iou_com_juntas_comandadas": 0.34178136178985025,
+      "dif_real_cmd_rad": 0.0841
+    },
+    {
+      "id": 1451,
+      "camera": "camera_frontal",
+      "iou": 0.3946184239408795,
+      "iou_com_juntas_comandadas": 0.3956226953729035,
+      "dif_real_cmd_rad": 0.0189
+    },
+    {
+      "id": 4491,
+      "camera": "camera_diagonal",
+      "iou": 0.39666755650471613,
+      "iou_com_juntas_comandadas": 0.37337517309152635,
+      "dif_real_cmd_rad": 0.137
+    },
+    {
+      "id": 4667,
+      "camera": "camera_diagonal",
+      "iou": 0.4144992187106205,
+      "iou_com_juntas_comandadas": 0.4634769497109988,
+      "dif_real_cmd_rad": 0.4224
+    },
+    {
+      "id": 3887,
+      "camera": "camera_diagonal",
+      "iou": 0.4318804793511995,
+      "iou_com_juntas_comandadas": 0.5321938287595782,
+      "dif_real_cmd_rad": 0.0858
+    },
+    {
+      "id": 1732,
+      "camera": "camera_frontal",
+      "iou": 0.4449526327384887,
+      "iou_com_juntas_comandadas": 0.5353090687271248,
+      "dif_real_cmd_rad": 0.123
+    },
+    {
+      "id": 1644,
+      "camera": "camera_diagonal",
+      "iou": 0.46924390979170555,
+      "iou_com_juntas_comandadas": 0.3211272577513679,
+      "dif_real_cmd_rad": 0.923
+    },
+    {
+      "id": 4142,
+      "camera": "camera_frontal",
+      "iou": 0.47845114496224267,
+      "iou_com_juntas_comandadas": 0.45738153888523386,
+      "dif_real_cmd_rad": 0.0841
+    },
+    {
+      "id": 3977,
+      "camera": "camera_frontal",
+      "iou": 0.47856460522490346,
+      "iou_com_juntas_comandadas": "",
+      "dif_real_cmd_rad": 0.0001
+    },
+    {
+      "id": 1011,
+      "camera": "camera_diagonal",
+      "iou": 0.5156357510617601,
+      "iou_com_juntas_comandadas": "",
+      "dif_real_cmd_rad": 0.0
+    },
+    {
+      "id": 1660,
+      "camera": "camera_diagonal",
+      "iou": 0.5293190249072602,
+      "iou_com_juntas_comandadas": 0.4309906115644468,
+      "dif_real_cmd_rad": 0.1011
+    }
+  ],
+  "imagens_de_poses_divergentes": 670,
+  "iou_medio_divergentes_real": 0.930163183904397,
+  "iou_medio_divergentes_comandado": 0.5467907101735644
+}

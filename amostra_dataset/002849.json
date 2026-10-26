@@ -1,0 +1,66 @@
+{
+  "id": 2849,
+  "pose": "p002849",
+  "juntas_comandadas": {
+    "joint_1": -0.4217,
+    "joint_2": 0.7412,
+    "joint_3": -0.3518,
+    "joint_4": -0.9789,
+    "joint_5": 0.3223
+  },
+  "juntas_reais": {
+    "joint_1": -0.4217,
+    "joint_2": 0.7412,
+    "joint_3": -0.3518,
+    "joint_4": -0.9789,
+    "joint_5": 0.3223
+  },
+  "garra_comandada": {
+    "joint_6": -0.2317
+  },
+  "juntas_graus": {
+    "joint_1": -24.16,
+    "joint_2": 42.47,
+    "joint_3": -20.16,
+    "joint_4": -56.09,
+    "joint_5": 18.47
+  },
+  "cameras": {
+    "camera_frontal_image": {
+      "arquivo": "002849_camera_frontal_image.png",
+      "tipo": "cor",
+      "largura": 1280,
+      "altura": 720
+    },
+    "camera_frontal_depth": {
+      "arquivo": "002849_camera_frontal_depth.png",
+      "tipo": "profundidade",
+      "largura": 1280,
+      "altura": 720
+    },
+    "camera_frontal_segmentation_labels_map": {
+      "arquivo": "002849_camera_frontal_segmentation_labels_map.png",
+      "tipo": "cor",
+      "largura": 1280,
+      "altura": 720
+    },
+    "camera_diagonal_image": {
+      "arquivo": "002849_camera_diagonal_image.png",
+      "tipo": "cor",
+      "largura": 1280,
+      "altura": 720
+    },
+    "camera_diagonal_depth": {
+      "arquivo": "002849_camera_diagonal_depth.png",
+      "tipo": "profundidade",
+      "largura": 1280,
+      "altura": 720
+    },
+    "camera_diagonal_segmentation_labels_map": {
+      "arquivo": "002849_camera_diagonal_segmentation_labels_map.png",
+      "tipo": "cor",
+      "largura": 1280,
+      "altura": 720
+    }
+  }
+}

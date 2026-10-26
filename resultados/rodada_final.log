@@ -1,0 +1,277 @@
++ bash dataset_tools/analise/rodar_analise.sh 0
+{
+ "dataset": "/dataset",
+ "gerado_em": "2026-10-26 07:20:35",
+ "n_poses_json": 5000,
+ "n_poses_indexadas": 5000,
+ "erros_json": [],
+ "n_png": 30000,
+ "n_png_referenciados": 30000,
+ "png_orfaos": 0,
+ "outros_arquivos": [
+  "poses_registradas_w0.csv",
+  "poses_registradas_w1.csv",
+  "poses_registradas_w2.csv",
+  "poses_registradas_w3.csv",
+  "poses_registradas_w4.csv",
+  "poses_registradas_w5.csv",
+  "poses_registradas_w6.csv",
+  "poses_registradas_w7.csv"
+ ],
+ "poses_com_arquivo_faltando": 0,
+ "faltantes_no_plano": 0,
+ "bytes_total": 2507418296,
+ "splits": {
+  "treino": 4000,
+  "validacao": 500,
+  "teste": 500
+ },
+ "tempo_s": 0.5
+}
+{
+ "n_poses_verificadas": 5000,
+ "n_imagens_verificadas": 30000,
+ "n_existem": 30000,
+ "n_decodificam": 30000,
+ "n_problemas": 0,
+ "n_quadros_rgb_duplicados_entre_poses": 0,
+ "dimensoes": [
+  "1280x720"
+ ],
+ "modos_por_modalidade": {
+  "image": [
+   "RGB"
+  ],
+  "depth": [
+   "I"
+  ],
+  "segmentation_labels_map": [
+   "RGB"
+  ]
+ },
+ "combinacoes_de_rotulos_segmentacao": {
+  "0 1 2": 10000
+ },
+ "tempo_s": 86.0
+}
+{
+ "n_poses": 5000,
+ "tamanho_total_gb": 2.50741339,
+ "tamanho_por_modalidade_bytes": {
+  "RGB": 1095329635,
+  "profundidade": 1296828769,
+  "segmentacao": 107537080
+ },
+ "splits": {
+  "treino": 4000,
+  "validacao": 500,
+  "teste": 500
+ },
+ "cobertura_pares_media": 1.0,
+ "correlacao_max_abs_fora_diagonal": 0.023708765412435936,
+ "dif_real_comandada_rad": {
+  "max": 2.8186999999999998,
+  "media": 0.07042424879999999,
+  "frac_poses_dif>0.01": 0.341
+ }
+}
+/repo/dataset_tools/analise/estatisticas.py:167: MatplotlibDeprecationWarning: Auto-removal of grids by pcolor() and pcolormesh() is deprecated since 3.5 and will be removed two minor releases later; please call grid(False) first.
+  fig.colorbar(im, ax=ax, fraction=0.046, pad=0.03)
+figura: evidencias/a7_grade_amostras.png [114, 3352, 4024, 4040]
+amostra: 8 poses, 4.2 MB em /repo/amostra_dataset
+{
+ "n_poses": 5000,
+ "primeira_pose": "2026-10-26T00:41:38.243287-03:00",
+ "ultima_pose": "2026-10-26T04:19:45.856258-03:00",
+ "duracao_h": 3.6354480475849575,
+ "vazao_media_poses_s": 0.38204063727757936,
+ "vazao_janela5min_poses_min": {
+  "mediana": 17.5,
+  "max": 45.0,
+  "min_regime": 0.0
+ },
+ "s_por_pose_por_worker_mediano": 12.783538937568665,
+ "rondas": [
+  {
+   "hora_utc": "07:02:59",
+   "faltam": 253
+  },
+  {
+   "hora_utc": "07:17:06",
+   "faltam": 15
+  },
+  {
+   "hora_utc": "07:19:46",
+   "faltam": 0
+  }
+ ]
+}
++ bash scripts/rodar_container.sh rvc 'python3 dataset_tools/analise/real_vs_comandado.py --meta /dataset_meta'
+{
+ "n_poses": 5000,
+ "limiar_rad": 0.01,
+ "frac_poses_divergentes": 0.341,
+ "por_junta_frac_divergente": {
+  "joint_1": 0.1982,
+  "joint_2": 0.2692,
+  "joint_3": 0.2192,
+  "joint_4": 0.0308,
+  "joint_5": 0.0012
+ },
+ "por_junta_dif_media_rad": {
+  "joint_1": 0.092889648,
+  "joint_2": 0.12395011399999999,
+  "joint_3": 0.10788588199999999,
+  "joint_4": 0.027096435999999995,
+  "joint_5": 0.00029916399999999993
+ },
+ "dif_max_rad": 2.8186999999999998,
+ "dif_p95_rad": 1.146364000000001,
+ "frac_comandadas_atravessam_chao": 0.1968,
+ "frac_divergentes_entre_as_que_atravessam_chao": 1.0,
+ "frac_divergentes_entre_as_acima_do_chao": 0.17953187250996017,
+ "z_min_real_m_das_divergentes": {
+  "media": 0.2889128230240505,
+  "p5": 0.17209749195381813
+ },
+ "frac_reais_abaixo_de_-5cm": 0.0
+}
++ bash scripts/rodar_container.sh iou 'python3 modelo_digital/validar_projecao.py --n 1000 --proc 6'
+{
+ "n_poses": 1000,
+ "n_imagens": 2000,
+ "poses_disponiveis": 5000,
+ "camera_frontal": {
+  "iou_media": 0.9496095650537265,
+  "iou_mediana": 0.9648374168298511,
+  "iou_p5": 0.8961603689423726,
+  "iou_min": 0.33909623047057524,
+  "precisao_media": 0.9610180731506941,
+  "revocacao_media": 0.9854640534427596
+ },
+ "camera_diagonal": {
+  "iou_media": 0.9377184630899194,
+  "iou_mediana": 0.9510482997566347,
+  "iou_p5": 0.8890194560753263,
+  "iou_min": 0.34152672994240285,
+  "precisao_media": 0.9520874340469699,
+  "revocacao_media": 0.9817777252340898
+ },
+ "iou_media_malha_acima_do_chao": 0.9431218910371459,
+ "iou_media_malha_cruza_chao": 0.9455973386840735,
+ "frac_poses_malha_cruza_chao": 0.219,
+ "limiar_iou_consistente": 0.8,
+ "frac_imagens_iou_real_abaixo_limiar": 0.0205,
+ "imagens_iou_real_baixo_mas_comandado_alto": 1,
+ "exemplos_iou_baixo": [
+  {
+   "id": 4359,
+   "camera": "camera_frontal",
+   "iou": 0.33909623047057524,
+   "iou_com_juntas_comandadas": 0.3539113147203734,
+   "dif_real_cmd_rad": 0.0719
+  },
+  {
+   "id": 4142,
+   "camera": "camera_diagonal",
+   "iou": 0.34152672994240285,
+   "iou_com_juntas_comandadas": 0.34178136178985025,
+   "dif_real_cmd_rad": 0.0841
+  },
+  {
+   "id": 1451,
+   "camera": "camera_frontal",
+   "iou": 0.3946184239408795,
+   "iou_com_juntas_comandadas": 0.3956226953729035,
+   "dif_real_cmd_rad": 0.0189
+  },
+  {
+   "id": 4491,
+   "camera": "camera_diagonal",
+   "iou": 0.39666755650471613,
+   "iou_com_juntas_comandadas": 0.37337517309152635,
+   "dif_real_cmd_rad": 0.137
+  },
+  {
+   "id": 4667,
+   "camera": "camera_diagonal",
+   "iou": 0.4144992187106205,
+   "iou_com_juntas_comandadas": 0.4634769497109988,
+   "dif_real_cmd_rad": 0.4224
+  },
+  {
+   "id": 3887,
+   "camera": "camera_diagonal",
+   "iou": 0.4318804793511995,
+   "iou_com_juntas_comandadas": 0.5321938287595782,
+   "dif_real_cmd_rad": 0.0858
+  },
+  {
+   "id": 1732,
+   "camera": "camera_frontal",
+   "iou": 0.4449526327384887,
+   "iou_com_juntas_comandadas": 0.5353090687271248,
+   "dif_real_cmd_rad": 0.123
+  },
+  {
+   "id": 1644,
+   "camera": "camera_diagonal",
+   "iou": 0.46924390979170555,
+   "iou_com_juntas_comandadas": 0.3211272577513679,
+   "dif_real_cmd_rad": 0.923
+  },
+  {
+   "id": 4142,
+   "camera": "camera_frontal",
+   "iou": 0.47845114496224267,
+   "iou_com_juntas_comandadas": 0.45738153888523386,
+   "dif_real_cmd_rad": 0.0841
+  },
+  {
+   "id": 3977,
+   "camera": "camera_frontal",
+   "iou": 0.47856460522490346,
+   "iou_com_juntas_comandadas": "",
+   "dif_real_cmd_rad": 0.0001
+  },
+  {
+   "id": 1011,
+   "camera": "camera_diagonal",
+   "iou": 0.5156357510617601,
+   "iou_com_juntas_comandadas": "",
+   "dif_real_cmd_rad": 0.0
+  },
+  {
+   "id": 1660,
+   "camera": "camera_diagonal",
+   "iou": 0.5293190249072602,
+   "iou_com_juntas_comandadas": 0.4309906115644468,
+   "dif_real_cmd_rad": 0.1011
+  }
+ ],
+ "imagens_de_poses_divergentes": 670,
+ "iou_medio_divergentes_real": 0.930163183904397,
+ "iou_medio_divergentes_comandado": 0.5467907101735644
+}
++ bash scripts/rodar_container.sh rend 'python3 modelo_digital/render_modelo.py --so sobreposicao --ids 1 2 7'
+figura: /repo/evidencias/a11_sobreposicao_modelo_dataset.png
++ bash gemeo_digital/capturas/sessao_capturas.sh
+3fb5d9715654f1a7f3ce9ba160919b287e786af826992cca65c92d9129a273e0
+aguardando o servidor...
+{"ok":true,"quadros":150,"predictor":"ground_truth (oraculo)"}
+servidor: http://127.0.0.1:8091  (container cerise26_gemeo, so loopback do Spark)
+lado -> a12_gemeo_lado_a_lado.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.012 verde 0.018 | fk js-py {'ref_vs_servidor_m': 7.297455220334968e-07, 'gemeo_vs_servidor_m': 7.297455218946824e-07} | quadros 8 | erros [] | OK
+sobreposto -> a12_gemeo_sobreposto_vista_camera.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.037 verde 0.062 | fk js-py {'ref_vs_servidor_m': 7.536581170460782e-07, 'gemeo_vs_servidor_m': 7.536581170460782e-07} | quadros 9 | erros [] | OK
+diagonal -> a12_gemeo_sobreposto_camera_diagonal.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.034 verde 0.036 | fk js-py {'ref_vs_servidor_m': 7.536581170460782e-07, 'gemeo_vs_servidor_m': 7.536581170460782e-07} | quadros 9 | erros [] | OK
+4e7ae226d64d2a431db27a8e2697f5b384c16c06f035b379d6c0b853eb83d79b
+aguardando o servidor...
+{"ok":true,"quadros":150,"predictor":"demo: GT + ruido gaussiano (sigma 4.0 graus)"}
+servidor: http://127.0.0.1:8091  (container cerise26_gemeo, so loopback do Spark)
+ruido -> a12_gemeo_demo_predictor_ruido.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.006 verde 0.014 | fk js-py {'ref_vs_servidor_m': 4.2765669755422635e-07, 'gemeo_vs_servidor_m': 7.637128498072222e-07} | quadros 86 | erros [] | OK
+ruido_sobreposto -> a12_gemeo_demo_ruido_sobreposto.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.013 verde 0.015 | fk js-py {'ref_vs_servidor_m': 4.2765669755422635e-07, 'gemeo_vs_servidor_m': 2.7096890400220164e-07} | quadros 86 | erros [] | OK
+6f2289d37dd0bffcd2f877446a353da8df7235f9a3a31446658e828db115ae12
+aguardando o servidor...
+{"ok":true,"quadros":150,"predictor":"ground_truth (oraculo)"}
+servidor: http://127.0.0.1:8091  (container cerise26_gemeo, so loopback do Spark)
++ echo FINAL_OK
+FINAL_OK

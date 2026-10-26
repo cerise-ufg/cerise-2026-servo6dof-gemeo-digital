@@ -1,0 +1,27 @@
+$ sudo docker ps -a --filter name=braco_gen --format '{{.Names}} {{.Status}}'
+braco_gen Exited (0)          # geracao concluida 04:19:46 (gen_main.log: === COMPLETO ===)
+
+$ bash scripts/rodar_container.sh idx 'python3 dataset_tools/analise/indexar.py --dataset /dataset --saida /dataset_meta'
+  n_poses_json                 5000
+  n_poses_indexadas            5000
+  n_png                        30000
+  n_png_referenciados          30000
+  png_orfaos                   0
+  poses_com_arquivo_faltando   0
+  faltantes_no_plano           0
+  bytes_total                  2507418296
+  splits                       {"treino": 4000, "validacao": 500, "teste": 500}
+  tempo_s                      0.5
+
+$ bash scripts/rodar_container.sh integ 'python3 dataset_tools/analise/integridade.py --dataset /dataset --meta /dataset_meta --proc 6 --amostra 0'
+  n_poses_verificadas                    5000
+  n_imagens_verificadas                  30000
+  n_existem                              30000
+  n_decodificam                          30000
+  n_problemas                            0
+  n_quadros_rgb_duplicados_entre_poses   0
+  dimensoes                              ["1280x720"]
+  modos_por_modalidade                   {"image": ["RGB"], "depth": ["I"], "segmentation_labels_map": ["RGB"]}
+  combinacoes_de_rotulos_segmentacao     {"0 1 2": 10000}
+  tempo_s                                86.0
+  pixels do braco (media, min-max)       frontal 8.8% (5.4-14.0) | diagonal 6.0% (3.7-8.9)

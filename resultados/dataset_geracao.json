@@ -1,57 +1,65 @@
 {
-  "n_poses": 3594,
+  "n_poses": 5000,
   "primeira_pose": "2026-10-26T00:41:38.243287-03:00",
-  "ultima_pose": "2026-10-26T02:21:46.849705-03:00",
-  "duracao_h": 1.669057338502672,
-  "vazao_media_poses_s": 0.5981420232266844,
-  "vazao_media_poses_min": 35.88852139360107,
+  "ultima_pose": "2026-10-26T04:19:45.856258-03:00",
+  "duracao_h": 3.6354480475849575,
+  "vazao_media_poses_s": 0.38204063727757936,
+  "vazao_media_poses_min": 22.922438236654763,
   "vazao_janela5min_poses_min": {
-    "mediana": 38.6,
+    "mediana": 17.5,
     "max": 45.0,
-    "min_regime": 12.8
+    "min_regime": 0.0
   },
-  "imagens_por_s": 3.5888521393601067,
+  "imagens_por_s": 2.2922438236654763,
   "workers": 8,
   "por_worker": {
     "0": {
-      "poses": 448,
-      "intervalo_mediano_s": 11.53179383277893
+      "poses": 625,
+      "intervalo_mediano_s": 13.042433619499207
     },
     "1": {
-      "poses": 454,
-      "intervalo_mediano_s": 11.408993005752563
+      "poses": 625,
+      "intervalo_mediano_s": 12.476083636283875
     },
     "2": {
-      "poses": 451,
-      "intervalo_mediano_s": 11.425046443939209
+      "poses": 625,
+      "intervalo_mediano_s": 12.781218647956848
     },
     "3": {
-      "poses": 448,
-      "intervalo_mediano_s": 11.265660047531128
+      "poses": 625,
+      "intervalo_mediano_s": 12.84855830669403
     },
     "4": {
-      "poses": 455,
-      "intervalo_mediano_s": 11.496025562286377
+      "poses": 625,
+      "intervalo_mediano_s": 12.794332385063171
     },
     "5": {
-      "poses": 442,
-      "intervalo_mediano_s": 11.26912522315979
+      "poses": 625,
+      "intervalo_mediano_s": 12.619449019432068
     },
     "6": {
-      "poses": 452,
-      "intervalo_mediano_s": 11.474786281585693
+      "poses": 625,
+      "intervalo_mediano_s": 12.751258373260498
     },
     "7": {
-      "poses": 444,
-      "intervalo_mediano_s": 11.343836545944214
+      "poses": 625,
+      "intervalo_mediano_s": 12.785859227180481
     }
   },
-  "s_por_pose_por_worker_mediano": 11.417019724845886,
-  "inicio_log": "Mon Oct 26 03:40:33 UTC 2026",
+  "s_por_pose_por_worker_mediano": 12.783538937568665,
+  "inicio_log": "Mon Oct 26 07:02:59 UTC 2026",
   "rondas": [
     {
-      "hora_utc": "03:40:33",
-      "faltam": 5000
+      "hora_utc": "07:02:59",
+      "faltam": 253
+    },
+    {
+      "hora_utc": "07:17:06",
+      "faltam": 15
+    },
+    {
+      "hora_utc": "07:19:46",
+      "faltam": 0
     }
   ],
   "avisos_logs_workers": {
@@ -59,56 +67,56 @@
       "erro_residual": 0,
       "sem_quadro": 0,
       "pulando": 0,
-      "FIM": 0,
+      "FIM": 1,
       "linhas_ERROR": 0
     },
     "w1.log": {
       "erro_residual": 0,
       "sem_quadro": 0,
       "pulando": 0,
-      "FIM": 0,
+      "FIM": 1,
       "linhas_ERROR": 0
     },
     "w2.log": {
-      "erro_residual": 0,
-      "sem_quadro": 0,
-      "pulando": 0,
-      "FIM": 0,
-      "linhas_ERROR": 0
-    },
-    "w3.log": {
-      "erro_residual": 0,
-      "sem_quadro": 0,
-      "pulando": 0,
-      "FIM": 0,
-      "linhas_ERROR": 0
-    },
-    "w4.log": {
-      "erro_residual": 0,
-      "sem_quadro": 0,
-      "pulando": 0,
-      "FIM": 0,
-      "linhas_ERROR": 0
-    },
-    "w5.log": {
       "erro_residual": 1,
       "sem_quadro": 0,
       "pulando": 0,
-      "FIM": 0,
+      "FIM": 1,
+      "linhas_ERROR": 0
+    },
+    "w3.log": {
+      "erro_residual": 1,
+      "sem_quadro": 0,
+      "pulando": 0,
+      "FIM": 1,
+      "linhas_ERROR": 0
+    },
+    "w4.log": {
+      "erro_residual": 1,
+      "sem_quadro": 0,
+      "pulando": 0,
+      "FIM": 1,
+      "linhas_ERROR": 0
+    },
+    "w5.log": {
+      "erro_residual": 0,
+      "sem_quadro": 0,
+      "pulando": 0,
+      "FIM": 1,
       "linhas_ERROR": 0
     },
     "w6.log": {
       "erro_residual": 0,
       "sem_quadro": 0,
       "pulando": 0,
-      "FIM": 0,
+      "FIM": 1,
       "linhas_ERROR": 0
     },
     "w7.log": {
-      "erro_residual": 0,
+      "erro_residual": 1,
       "sem_quadro": 0,
       "pulando": 0,
-      "FIM": 0,
+      "FIM": 1,
       "linhas_ERROR": 0
     }
   }

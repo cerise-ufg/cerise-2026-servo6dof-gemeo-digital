@@ -16,7 +16,24 @@ arquivos em 26/10/2026 pelos scripts de `dataset_tools/analise/`; os valores bru
 
 ## 2. Composição
 
-⟨COMPOSICAO⟩
+- **Instâncias:** 5.000 poses do braço servo6dof (ids 000001 a 005000), cada uma com 6 imagens
+  1280×720 e 1 anotação JSON. Total: **30.000 imagens** (10.000 RGB, 10.000 de profundidade e 10.000 de
+  segmentação; 15.000 por câmera) e **2,51 GB** (RGB 1,10 GB; profundidade 1,30 GB; segmentação 0,11 GB;
+  JSON 7,7 MB; 0,50 MB por pose).
+- **Rótulos por pose:** 5 ângulos de junta do braço (rad), comandados e reais, e o ângulo comandado da garra.
+  Da segmentação deriva a máscara do braço; da profundidade, a geometria por pixel; da FK do modelo
+  digital, as poses 3D dos elos e a projeção 2D de pontos-chave.
+- **Distribuição dos ângulos comandados:** uniforme em [−81°; 81°] nas juntas do braço (desvio-padrão
+  medido de 45,9° a 46,7°, contra 46,8° teóricos) e em [−36,5°; 26,5°] na garra; correlação máxima entre
+  juntas |r| = 0,024; 100 % das células 20×20 cobertas em todos os pares de juntas.
+- **Conteúdo das imagens:** um único braço sobre chão cinza e fundo liso, iluminação fixa, sem oclusores.
+  O braço ocupa em média 8,8 % da imagem frontal (5,4 % a 14,0 %) e 6,0 % da diagonal (3,7 % a 8,9 %).
+  Profundidade mínima por imagem: 1,22 a 3,02 m (frontal) e 2,00 a 3,43 m (diagonal).
+- **Integridade (verificação completa):** 30.000 de 30.000 arquivos existem e decodificam, todos em
+  1280×720 e no modo esperado; as 10.000 máscaras contêm exatamente os rótulos {0, 1, 2}; nenhum quadro
+  RGB duplicado entre poses; nenhum PNG órfão; nenhuma pose do plano faltando.
+- **Arquivos auxiliares na pasta:** `poses_registradas_w0..7.csv` (registro por worker do script de
+  captura).
 
 ## 3. Processo de coleta (geração)
 
@@ -37,7 +54,11 @@ arquivos em 26/10/2026 pelos scripts de `dataset_tools/analise/`; os valores bru
   (`ROS_DOMAIN_ID` 90–97, `IGN_PARTITION` próprio); o worker *w* faz as poses com `id % 8 == w`. Ao fim de
   cada rodada, o script recalcula o que falta no disco e repete até zerar. `dataset_tools/finalizar.sh`
   corrige o dono dos arquivos e religa os serviços de produção do Spark ao término.
-- **Período e vazão.** ⟨GERACAO⟩
+- **Período e vazão.** primeira pose às 00:41:38 e última às 04:19:45 de 26/10/2026 (3,64 h; média de 0,38 pose/s,
+  ou 2,3 imagens/s). Em regime, cada worker levou em mediana 12,8 s por pose (cerca de 0,63 pose/s com 8
+  workers), com pico de 45 poses/min em janelas de 5 min; a vazão caiu à metade quando o host passou a
+  ser compartilhado com jobs de outras frentes. A primeira rodada gravou 4.747 poses; a segunda
+  (04:02:59) completou as 253 faltantes, e cada worker terminou com 625 poses.
 
 ## 4. Pré-processamento e formato
 
@@ -60,7 +81,7 @@ Não há pré-processamento além da conversão no momento da gravação:
 ## 5. Splits recomendados
 
 Divisão determinística por id, independente da ordem de geração: `id % 10` de 0 a 7 → **treino**,
-8 → **validação**, 9 → **teste**. ⟨SPLITS⟩ O servidor do gêmeo digital usa o *split* de teste. Como as
+8 → **validação**, 9 → **teste**. Resultado: **4.000 / 500 / 500** poses (24.000 / 3.000 / 3.000 imagens). O servidor do gêmeo digital usa o *split* de teste. Como as
 poses foram sorteadas de forma independente e uniforme, não há vazamento temporal; para avaliar a
 generalização entre câmeras, recomenda-se também treinar numa câmera e testar na outra.
 
@@ -85,4 +106,20 @@ generalização entre câmeras, recomenda-se também treinar numa câmera e test
 
 ## 8. Limitações conhecidas
 
-⟨LIMITACOES⟩
+1. **Juntas comandadas ≠ reais em 34,1 % das poses** (> 0,01 rad em alguma junta, sobretudo `joint_1` a
+   `joint_3`). 19,7 % das configurações do plano atravessariam o chão, e todas elas divergem, porque o
+   braço é barrado pelo chão. **Use `juntas_reais` como rótulo.** Medido pela silhueta: IoU médio de 0,930
+   com as juntas reais contra 0,547 com as comandadas nas poses divergentes.
+2. **Cerca de 2 % de imagens com rótulo suspeito:** em 1.000 poses avaliadas, 2,05 % das imagens têm IoU
+   abaixo de 0,8 entre a silhueta do modelo (com as juntas reais) e a máscara do Gazebo, ou seja, o braço
+   na imagem não corresponde às juntas registradas (provável captura antes do assentamento ou contato).
+   Recomenda-se filtrar com `modelo_digital/validar_projecao.py --n 5000`.
+3. **Segmentação:** o braço tem rótulo 0, o mesmo de regiões sem objeto (céu na câmera diagonal, 0,16 % dos
+   pixels). Use rótulo 0 com profundidade > 0. Não há rótulos por elo.
+4. **Garra:** o Gazebo Fortress não aplica o `mimic` do URDF; os dedos da garra nas imagens não seguem
+   exatamente o modelo cinemático (só `joint_6` e `joint_7` são acionadas). O ângulo da garra no JSON é
+   o comandado, sem leitura real.
+5. **Domínio:** cena fixa (duas câmeras, luz, fundo e materiais constantes) e malhas em escala 6; sem ruído
+   de sensor nem borrão de movimento. O uso em imagens reais exige randomização de domínio ou ajuste fino.
+6. **Dinâmica:** o URDF tem inércias de preenchimento; as poses são quasi-estáticas (assentamento de
+   0,5 s em tempo simulado).

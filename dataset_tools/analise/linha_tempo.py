@@ -111,8 +111,9 @@ def main():
     tb = [dt.datetime.fromtimestamp(x + jan / 2, FUSO) for x in bordas[:-1]]
     ax.bar(tb, vaz, width=jan / 86400 * 0.85, color=estilo.CATEG[0])
     ax.axhline(res["vazao_media_poses_min"], color=estilo.CATEG[1], lw=1.5)
-    ax.text(tb[0], res["vazao_media_poses_min"], " media %.1f poses/min" % res["vazao_media_poses_min"],
-            va="bottom", fontsize=8, color=estilo.TEXTO2)
+    ax.text(tb[-1], res["vazao_media_poses_min"], "media %.1f poses/min " % res["vazao_media_poses_min"],
+            va="bottom", ha="right", fontsize=8, color=estilo.TEXTO,
+            bbox=dict(facecolor=estilo.SUPERFICIE, edgecolor="none", pad=1.5, alpha=0.9))
     ax.set_ylabel("poses/min (janelas de 5 min)")
     ax.set_title("Vazao da geracao (%d workers Gazebo)" % a.workers, loc="left")
     for ax in axs[:2]:

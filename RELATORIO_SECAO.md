@@ -3,7 +3,9 @@
 **Atividades do Plano de Trabalho:** Objetivo 3, Atividade 7 (dataset estruturado e documentado);
 Objetivo 4, Atividade 11 (modelo digital do braço robótico em ambiente virtual); Objetivo 4,
 Atividade 12 (sistema de gêmeo digital, parte de infraestrutura).
-**Repositório:** <https://github.com/EduardoCaixeta/cerise-2026-servo6dof-gemeo-digital> (privado)
+**Repositório:** <https://github.com/EduardoCaixeta/cerise-2026-servo6dof-gemeo-digital> (privado; o
+código está commitado no espelho local `E:\CERISE\FRENTES\ROBOTICA\SERVO6DOF_GEMEO`, e a criação do
+repositório remoto e o *push* ficaram pendentes de autorização do Eduardo)
 **Ambiente de execução:** DGX Spark (NVIDIA GB10, arm64, Ubuntu 24.04), containers Docker com ROS 2
 Humble e Ignition Gazebo Fortress; data das execuções: 26/10/2026.
 
@@ -109,7 +111,74 @@ implementado o nó `gemeo_twin_node` (imagem → `Predictor` → `/twin/joint_st
 
 ### 3.1 Dataset (A7)
 
-⟨A7_RESULTADOS⟩
+**Composição e volume.** A geração terminou com as **5.000 poses** do plano, o que dá **30.000
+imagens** (10.000 de cada modalidade, metade por câmera) e **2,51 GB** no total: 1,10 GB de RGB, 1,30 GB
+de profundidade, 0,11 GB de segmentação e 7,7 MB de JSON, ou 0,50 MB por pose. Os PNGs de profundidade
+da câmera diagonal são os mais pesados (206 KB em média, contra 47 KB na frontal) porque o campo de
+visão inclui o chão até cerca de 16 m, com gradiente contínuo. O *split* determinístico por id resultou
+em 4.000 poses de treino, 500 de validação e 500 de teste.
+
+| Modalidade | Câmera frontal | Câmera diagonal | Total |
+|---|---|---|---|
+| RGB (PNG 8 bits, 1280×720) | 0,60 GB (116 KB/img) | 0,50 GB (98 KB/img) | 1,10 GB |
+| Profundidade (PNG inteiro, mm) | 0,24 GB (47 KB/img) | 1,05 GB (206 KB/img) | 1,30 GB |
+| Segmentação (rótulos 0/1/2) | 0,05 GB (10 KB/img) | 0,05 GB (11 KB/img) | 0,11 GB |
+
+![Figura: Amostras do dataset nas duas câmeras: RGB, profundidade colorizada e segmentação (laranja: rótulo 0, braço)](evidencias/a7_grade_amostras.png)
+
+**Integridade.** O índice consolidado tem as 5.000 poses, com 30.000 PNGs referenciados, nenhum órfão,
+nenhum faltante e nenhuma pose do plano sem arquivo. A verificação completa (decodificação integral das
+30.000 imagens, em 86 s com 6 processos) não encontrou nenhum problema:
+
+- todas as imagens têm 1280×720, no modo esperado (RGB, inteiro de 32 bits para profundidade e RGB com
+  R = G = B para a segmentação);
+- todas as 10.000 máscaras contêm exatamente os rótulos {0, 1, 2};
+- não há nenhum quadro RGB duplicado entre poses diferentes, indicador de que não houve captura de quadro
+  "velho".
+
+O braço ocupa em média 8,8 % da imagem frontal (5,4 % a 14,0 %) e 6,0 % da diagonal (3,7 % a 8,9 %). A
+câmera frontal não tem pixels sem retorno de profundidade; a diagonal tem 0,16 % (céu acima do fundo).
+
+![Figura: Print do terminal com o índice e a verificação de integridade do dataset completo](evidencias/term_a7_integridade.png)
+
+**Distribuição e cobertura.** Os ângulos comandados ocupam exatamente a faixa do plano
+([−81,0°; 81,0°] nas cinco juntas do braço e [−36,5°; 26,5°] na garra), com média próxima de zero e
+desvio-padrão entre 45,9° e 46,7°, compatível com a distribuição uniforme (46,8°). Todos os 10 pares de
+juntas cobrem 100 % das células de uma grade 20×20 (8,1° por célula), a maior correlação de Pearson entre
+juntas é |r| = 0,024 e a distância média ao vizinho mais próximo no espaço 5D normalizado (0,1265) é
+praticamente igual à de uma amostra uniforme do mesmo tamanho (0,1262).
+
+![Figura: Histogramas dos ângulos comandados frente aos limites do URDF e à folga de 5 % do plano](evidencias/a7_histogramas_angulos.png)
+
+![Figura: Cobertura do espaço de juntas por pares e matriz de correlação entre juntas](evidencias/a7_cobertura_correlacao.png)
+
+**Juntas reais × comandadas.** Em 34,1 % das poses, ao menos uma junta real difere da comandada por
+mais de 0,01 rad, concentradas em `joint_1` a `joint_3` (19,8 %, 26,9 % e 21,9 % das poses), com 3,1 % em
+`joint_4` e 0,1 % em `joint_5`. A análise pela FK do modelo digital explica a maior parte dos casos:
+
+- 19,7 % das configurações comandadas levariam algum elo ou a ponta da garra abaixo do chão, e **100 %
+  delas divergem**, enquanto nenhuma configuração real fica abaixo de −5 cm. O braço é barrado pelo chão,
+  e o JSON registra onde ele parou;
+- entre as poses comandadas acima do chão, 18,0 % também divergem, o que é compatível com movimento não
+  concluído ou contato durante a trajetória.
+
+As imagens confirmam que o rótulo correto é a junta real: nas 670 imagens de poses divergentes avaliadas,
+o IoU médio da silhueta do modelo com a máscara do Gazebo foi de 0,930 usando as juntas reais e de 0,547
+usando as comandadas.
+
+![Figura: Divergência entre juntas reais e comandadas por junta e em função da altura mínima do braço na configuração comandada](evidencias/a7_real_vs_comandado.png)
+
+**Linha do tempo e vazão.** A primeira pose foi gravada às 00:41:38 e a última às 04:19:45 (3,64 h de
+parede, média de 0,38 pose/s, ou 2,3 imagens/s, com 8 workers). A mediana do intervalo entre poses de um
+mesmo worker foi de 12,8 s, cerca de 0,63 pose/s em regime com os 8 workers. Nas primeiras 1,3 h, as
+janelas de 5 min chegaram a 45 poses/min. A vazão caiu depois para 12 a 26 poses/min, com o host
+compartilhado com jobs de outras frentes (load average medido entre 28 e 46 nesse período). A primeira
+rodada (iniciada às 00:40:33) gravou 4.747 poses, e alguns Gazebos degradaram no fim (capturas puladas
+por falta de quadro, cerca de 20 min sem novas poses). Uma segunda rodada, iniciada às 04:02:59 pela
+própria lógica de retomada, completou as 253 poses faltantes (253 → 15 → 0) às 04:19:46. Cada worker
+terminou com exatamente 625 poses.
+
+![Figura: Poses acumuladas, vazão em janelas de 5 minutos e poses por worker durante a geração no DGX Spark](evidencias/a7_linha_tempo_geracao.png)
 
 ### 3.2 Modelo digital (A11)
 
@@ -138,12 +207,12 @@ calibrado. As tabelas completas estão em `resultados/modelo_juntas.md` e `resul
 **Validação da cinemática direta.** Nas 3.300 comparações (300 configurações × 11 links), a FK própria
 coincidiu com o TF do `robot_state_publisher` com erro máximo de posição de 1,9×10⁻¹⁵ m e de orientação
 de 4,2×10⁻⁸ rad, ou seja, no nível do arredondamento numérico, inclusive nos links mimic da garra. A
-FK do front-end (three.js/urdf-loader) coincidiu com a do servidor com diferença de até 4,6×10⁻⁷ m, a
+FK do front-end (three.js/urdf-loader) coincidiu com a do servidor com diferença de até 7,6×10⁻⁷ m, a
 precisão de float32.
 
 ![Figura: Erro da cinemática direta própria em relação ao TF do robot_state_publisher, por link (300 configurações)](evidencias/a11_validacao_fk_tf.png)
 
-**Espaço de trabalho.** Com 100 mil configurações (FK vetorizada em cerca de 0,4 s), a ponta da garra
+**Espaço de trabalho.** Com 100 mil configurações (FK vetorizada em 0,3 a 0,6 s), a ponta da garra
 alcança até 2,05 m de distância horizontal do eixo de `joint_1`, com z entre −0,82 e 2,58 m. O fecho
 convexo tem 27,8 m³ e o volume efetivamente ocupado, medido em voxels de 5 cm, é de 7,9 m³. Cerca de
 20 % das configurações dentro dos limites levariam a garra abaixo do plano do chão. Essa propriedade
@@ -153,11 +222,18 @@ do modelo explica parte das divergências entre juntas comandadas e reais observ
 
 **Modelo × imagens do simulador.** A projeção das malhas, posicionadas pela FK com as juntas registradas
 no JSON, sobre as imagens do Gazebo coincide visualmente com o braço renderizado. Isso valida, ao mesmo
-tempo, o modelo cinemático, o modelo de câmera e os rótulos do dataset. ⟨IOU_RESULTADOS⟩
+tempo, o modelo cinemático, o modelo de câmera e os rótulos do dataset. Em 1.000 poses sorteadas (2.000 imagens), o IoU entre a silhueta projetada do modelo e a máscara do
+braço (rótulo 0 com profundidade válida) foi de 0,950 em média na câmera frontal (mediana 0,965,
+percentil 5 de 0,896; precisão 0,961 e revocação 0,985) e de 0,938 na diagonal (mediana 0,951,
+percentil 5 de 0,889). A diferença residual concentra-se na garra, cuja geometria no Gazebo não segue
+o mimic do URDF (seção 4). Em 2,05 % das imagens (41 de 2.000), o IoU ficou abaixo de 0,8: o braço na
+imagem aparece numa configuração diferente tanto das juntas reais quanto das comandadas (só 1 desses
+casos é consistente com as comandadas), o que indica rótulo suspeito. Esses casos devem ser filtrados
+para treino; a lista da amostra está em `resultados/validacao_projecao_n1000.csv`.
 
 ![Figura: Modelo digital (verde translúcido) e cadeia cinemática (laranja) projetados sobre imagens do dataset nas duas câmeras](evidencias/a11_sobreposicao_modelo_dataset.png)
 
-![Figura: IoU entre a silhueta do modelo digital e a máscara de segmentação do Gazebo, com o caso mediano e o pior caso](evidencias/a11_iou_silhueta.png)
+![Figura: IoU entre a silhueta do modelo digital e a máscara de segmentação do Gazebo, com o caso mediano e o pior caso](evidencias/a11_iou_silhueta_n1000.png)
 
 **MoveIt 2 headless.** A configuração do MoveIt 2 do pacote define o grupo `arm` (cadeia base_link →
 base_garra) e o grupo `gripper` (`joint_6`), os estados nomeados `home`, `recolhido` e `estendido`
@@ -188,10 +264,13 @@ da região de tolerância esférica de 2 cm especificada no pedido.
 O servidor responde em `/saude`, `/api/info`, `/api/quadro/{idx}` e `/ws` e serve o URDF e as malhas do
 pacote de descrição. Em todos os cenários capturados, os dois robôs carregaram 12 malhas cada, sem
 erros de carregamento, e o WebSocket entregou quadros continuamente (a 2 e 10 quadros/s). O WebGL rodou
-em SwiftShader, por software, e a página ficou pronta entre 1 e 2 s em cenário isolado. Com o preditor
-oráculo, o erro exibido é nulo, como esperado. Com o preditor de demonstração (ruído gaussiano de 4°
-por junta, sem nenhum modelo envolvido), o painel mostra erro médio de alguns graus por quadro e erros
-do efetuador da ordem de centímetros a decímetros, o que exercita o gráfico e a tabela. ⟨A12_EXTRA⟩
+em SwiftShader, por software, e a página ficou pronta (URDF e 24 malhas carregados) entre 0,84 e 1,01 s
+nas capturas finais. Com o preditor oráculo, o erro exibido é nulo, como esperado. Com o preditor de
+demonstração (ruído gaussiano de 4° por junta, sem nenhum modelo envolvido), o painel mostra erro médio
+de alguns graus por quadro e erros do efetuador da ordem de centímetros a decímetros, o que exercita o
+gráfico e a tabela.
+
+![Figura: Print do terminal do servidor do gêmeo: container publicado só no loopback do Spark, saúde, metadados e um quadro](evidencias/term_a12_servidor.png)
 
 ![Figura: Front-end do gêmeo digital (three.js + urdf-loader): braço de referência e gêmeo digital lado a lado, imagem da câmera, ângulos por junta e gráfico de erro](evidencias/a12_gemeo_lado_a_lado.png)
 
@@ -216,7 +295,16 @@ erro do efetuador passam então a medir o modelo real.
 
 ## 4. Limitações
 
-⟨LIMITACOES_A7⟩
+- **Rótulos do dataset.** As juntas comandadas não são verdade-base em 34,1 % das poses (principalmente
+  pelo contato com o chão); deve-se usar `juntas_reais`. Cerca de 2 % das imagens (estimativa em 1.000
+  poses) têm silhueta incompatível com as juntas registradas e devem ser filtradas por IoU (o script
+  `validar_projecao.py --n 5000` gera a lista completa).
+- **Domínio sintético.** Iluminação, materiais e fundo do estúdio são fixos e simplificados, e as malhas
+  estão em escala 6. A transferência para o braço físico exigirá randomização de domínio ou ajuste fino
+  com imagens reais.
+- **Logs da geração.** O reinício para a segunda rodada sobrescreveu `gen_main.log` e `gen_logs/`; a
+  linha do tempo foi reconstruída pelos mtimes dos arquivos, e os eventos da primeira rodada vêm das
+  observações feitas durante a execução.
 - **Dinâmica não calibrada.** O URDF tem massas simbólicas e inércias de preenchimento (1 kg·m²);
   servem para cinemática e visualização, não para simulação dinâmica fiel.
 - **Garra no Gazebo.** O Fortress não implementa `mimic` do URDF; só `joint_6` e `joint_7` são

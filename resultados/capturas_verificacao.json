@@ -2,7 +2,7 @@
   "lado": {
     "arquivo": "a12_gemeo_lado_a_lado.png",
     "url": "http://127.0.0.1:8091/?modo=lado&vista=livre&camera=camera_frontal&fps=2",
-    "tempo_ate_pronto_s": 0.96,
+    "tempo_ate_pronto_s": 1.01,
     "estado_js": {
       "pronto": true,
       "robos": 2,
@@ -11,13 +11,39 @@
         "gemeo": 12
       },
       "erros": [],
-      "quadros": 9,
+      "quadros": 8,
       "ultimo": {
-        "idx": 7,
-        "id": 1649,
+        "idx": 6,
+        "id": 3399,
         "mae": 0
       },
-      "ws": "aberto"
+      "ws": "aberto",
+      "efetuador": {
+        "ref": [
+          0.7220645834731934,
+          0.6768644562109973,
+          0.40327338846553545
+        ],
+        "gemeo": [
+          0.7220645834731934,
+          0.6768644562109971,
+          0.40327338846553545
+        ],
+        "servidor_gt": [
+          0.722065,
+          0.676864,
+          0.403273
+        ],
+        "servidor_pred": [
+          0.722065,
+          0.676864,
+          0.403273
+        ]
+      }
+    },
+    "fk_threejs_vs_python": {
+      "ref_vs_servidor_m": 7.297455220334968e-07,
+      "gemeo_vs_servidor_m": 7.297455218946824e-07
     },
     "webgl": {
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
@@ -26,9 +52,9 @@
     "canvas": {
       "largura": 1128,
       "altura": 924,
-      "frac_pixels_aluminio": 0.006326563507414572,
-      "frac_pixels_verde_gemeo": 0.014868479629117927,
-      "cores_distintas": 550
+      "frac_pixels_aluminio": 0.011907640232108318,
+      "frac_pixels_verde_gemeo": 0.01803847747996684,
+      "cores_distintas": 617
     },
     "console": [],
     "malhas_visiveis": true
@@ -36,7 +62,7 @@
   "sobreposto": {
     "arquivo": "a12_gemeo_sobreposto_vista_camera.png",
     "url": "http://127.0.0.1:8091/?modo=sobreposto&vista=camera&camera=camera_frontal&fps=2",
-    "tempo_ate_pronto_s": 1.77,
+    "tempo_ate_pronto_s": 0.87,
     "estado_js": {
       "pronto": true,
       "robos": 2,
@@ -48,10 +74,36 @@
       "quadros": 9,
       "ultimo": {
         "idx": 7,
-        "id": 1649,
+        "id": 4839,
         "mae": 0
       },
-      "ws": "aberto"
+      "ws": "aberto",
+      "efetuador": {
+        "ref": [
+          0.7093865161531347,
+          0.016135290273299754,
+          0.5386924996340459
+        ],
+        "gemeo": [
+          0.7093865161531347,
+          0.016135290273299754,
+          0.5386924996340459
+        ],
+        "servidor_gt": [
+          0.709387,
+          0.016135,
+          0.538692
+        ],
+        "servidor_pred": [
+          0.709387,
+          0.016135,
+          0.538692
+        ]
+      }
+    },
+    "fk_threejs_vs_python": {
+      "ref_vs_servidor_m": 7.536581170460782e-07,
+      "gemeo_vs_servidor_m": 7.536581170460782e-07
     },
     "webgl": {
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
@@ -60,9 +112,9 @@
     "canvas": {
       "largura": 1128,
       "altura": 924,
-      "frac_pixels_aluminio": 0.018742708237389088,
-      "frac_pixels_verde_gemeo": 0.03477691044180406,
-      "cores_distintas": 484
+      "frac_pixels_aluminio": 0.03740866107887385,
+      "frac_pixels_verde_gemeo": 0.06158852967363606,
+      "cores_distintas": 726
     },
     "console": [],
     "malhas_visiveis": true
@@ -70,7 +122,7 @@
   "diagonal": {
     "arquivo": "a12_gemeo_sobreposto_camera_diagonal.png",
     "url": "http://127.0.0.1:8091/?modo=sobreposto&vista=camera&camera=camera_diagonal&fps=2",
-    "tempo_ate_pronto_s": 1.69,
+    "tempo_ate_pronto_s": 0.84,
     "estado_js": {
       "pronto": true,
       "robos": 2,
@@ -82,10 +134,36 @@
       "quadros": 9,
       "ultimo": {
         "idx": 7,
-        "id": 1649,
+        "id": 4839,
         "mae": 0
       },
-      "ws": "aberto"
+      "ws": "aberto",
+      "efetuador": {
+        "ref": [
+          0.7093865161531347,
+          0.016135290273299754,
+          0.5386924996340459
+        ],
+        "gemeo": [
+          0.7093865161531347,
+          0.016135290273299754,
+          0.5386924996340459
+        ],
+        "servidor_gt": [
+          0.709387,
+          0.016135,
+          0.538692
+        ],
+        "servidor_pred": [
+          0.709387,
+          0.016135,
+          0.538692
+        ]
+      }
+    },
+    "fk_threejs_vs_python": {
+      "ref_vs_servidor_m": 7.536581170460782e-07,
+      "gemeo_vs_servidor_m": 7.536581170460782e-07
     },
     "webgl": {
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
@@ -94,9 +172,9 @@
     "canvas": {
       "largura": 1128,
       "altura": 924,
-      "frac_pixels_aluminio": 0.01752517576985662,
-      "frac_pixels_verde_gemeo": 0.022835689723987595,
-      "cores_distintas": 396
+      "frac_pixels_aluminio": 0.033979613766847806,
+      "frac_pixels_verde_gemeo": 0.03600499677627337,
+      "cores_distintas": 538
     },
     "console": [],
     "malhas_visiveis": true
@@ -104,7 +182,7 @@
   "ruido": {
     "arquivo": "a12_gemeo_demo_predictor_ruido.png",
     "url": "http://127.0.0.1:8091/?modo=lado&vista=livre&camera=camera_frontal&fps=10",
-    "tempo_ate_pronto_s": 9.38,
+    "tempo_ate_pronto_s": 0.91,
     "estado_js": {
       "pronto": true,
       "robos": 2,
@@ -113,13 +191,39 @@
         "gemeo": 12
       },
       "erros": [],
-      "quadros": 89,
+      "quadros": 86,
       "ultimo": {
-        "idx": 87,
-        "id": 2149,
-        "mae": 2.3028346581857853
+        "idx": 84,
+        "id": 1999,
+        "mae": 1.9268758169970794
       },
-      "ws": "aberto"
+      "ws": "aberto",
+      "efetuador": {
+        "ref": [
+          -0.3258980614552808,
+          1.2160975797487308,
+          1.2663700500236967
+        ],
+        "gemeo": [
+          -0.2967684082386178,
+          1.223530523356363,
+          1.2366115647881077
+        ],
+        "servidor_gt": [
+          -0.325898,
+          1.216098,
+          1.26637
+        ],
+        "servidor_pred": [
+          -0.296768,
+          1.223531,
+          1.236612
+        ]
+      }
+    },
+    "fk_threejs_vs_python": {
+      "ref_vs_servidor_m": 4.2765669755422635e-07,
+      "gemeo_vs_servidor_m": 7.637128498072222e-07
     },
     "webgl": {
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
@@ -128,9 +232,9 @@
     "canvas": {
       "largura": 1128,
       "altura": 924,
-      "frac_pixels_aluminio": 0.006257483651100672,
-      "frac_pixels_verde_gemeo": 0.014099966227625802,
-      "cores_distintas": 546
+      "frac_pixels_aluminio": 0.0062354164747781765,
+      "frac_pixels_verde_gemeo": 0.013583786190169169,
+      "cores_distintas": 532
     },
     "console": [],
     "malhas_visiveis": true
@@ -138,7 +242,7 @@
   "ruido_sobreposto": {
     "arquivo": "a12_gemeo_demo_ruido_sobreposto.png",
     "url": "http://127.0.0.1:8091/?modo=sobreposto&vista=livre&camera=camera_diagonal&fps=10",
-    "tempo_ate_pronto_s": 8.05,
+    "tempo_ate_pronto_s": 0.85,
     "estado_js": {
       "pronto": true,
       "robos": 2,
@@ -147,39 +251,39 @@
         "gemeo": 12
       },
       "erros": [],
-      "quadros": 90,
+      "quadros": 86,
       "ultimo": {
-        "idx": 88,
-        "id": 579,
-        "mae": 3.287298968184731
+        "idx": 84,
+        "id": 1999,
+        "mae": 4.9725219107354715
       },
       "ws": "aberto",
       "efetuador": {
         "ref": [
-          0.6181096861695545,
-          0.387140009805207,
-          0.5524091132875594
+          -0.3258980614552808,
+          1.2160975797487308,
+          1.2663700500236967
         ],
         "gemeo": [
-          0.5409142426994137,
-          0.3717103401088737,
-          0.46152380159733214
+          -0.3246158444861471,
+          1.295661025008061,
+          0.9641072204862476
         ],
         "servidor_gt": [
-          0.61811,
-          0.38714,
-          0.552409
+          -0.325898,
+          1.216098,
+          1.26637
         ],
         "servidor_pred": [
-          0.540914,
-          0.37171,
-          0.461524
+          -0.324616,
+          1.295661,
+          0.964107
         ]
       }
     },
     "fk_threejs_vs_python": {
-      "ref_vs_servidor_m": 3.3379598817216076e-07,
-      "gemeo_vs_servidor_m": 4.6253720931394715e-07
+      "ref_vs_servidor_m": 4.2765669755422635e-07,
+      "gemeo_vs_servidor_m": 2.7096890400220164e-07
     },
     "webgl": {
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
@@ -188,9 +292,9 @@
     "canvas": {
       "largura": 1128,
       "altura": 924,
-      "frac_pixels_aluminio": 0.009822771790856897,
-      "frac_pixels_verde_gemeo": 0.017978032605692182,
-      "cores_distintas": 516
+      "frac_pixels_aluminio": 0.012945756961714409,
+      "frac_pixels_verde_gemeo": 0.015479644469006171,
+      "cores_distintas": 479
     },
     "console": [],
     "malhas_visiveis": true

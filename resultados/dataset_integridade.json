@@ -1,9 +1,9 @@
 {
-  "n_poses_verificadas": 200,
-  "n_imagens_verificadas": 1200,
-  "modo": "amostra de 200 poses",
-  "n_existem": 1200,
-  "n_decodificam": 1200,
+  "n_poses_verificadas": 5000,
+  "n_imagens_verificadas": 30000,
+  "modo": "todas",
+  "n_existem": 30000,
+  "n_decodificam": 30000,
   "n_problemas": 0,
   "problemas_exemplos": [],
   "n_quadros_rgb_duplicados_entre_poses": 0,
@@ -23,31 +23,31 @@
     ]
   },
   "combinacoes_de_rotulos_segmentacao": {
-    "0 1 2": 400
+    "0 1 2": 10000
   },
   "frac_braco_por_camera": {
     "camera_frontal": {
-      "media": 0.0889162,
-      "min": 0.06234,
-      "max": 0.12322,
-      "p5": 0.07113900000000001,
-      "p95": 0.10933299999999996
+      "media": 0.087985948,
+      "min": 0.05391,
+      "max": 0.13989,
+      "p5": 0.069689,
+      "p95": 0.1113415
     },
     "camera_diagonal": {
-      "media": 0.060197799999999996,
-      "min": 0.04021,
-      "max": 0.08571,
-      "p5": 0.048405,
-      "p95": 0.0743355
+      "media": 0.060474978,
+      "min": 0.03665,
+      "max": 0.08938,
+      "p5": 0.0476995,
+      "p95": 0.0750205
     }
   },
   "profundidade_mm_por_camera": {
     "camera_frontal": {
       "min": {
-        "media": 2671.04,
+        "media": 2709.3328,
         "min": 1217.0,
         "max": 3017.0,
-        "p5": 1978.5,
+        "p5": 1991.95,
         "p95": 3017.0
       },
       "frac_sem_retorno": {
@@ -60,15 +60,15 @@
     },
     "camera_diagonal": {
       "min": {
-        "media": 3174.615,
-        "min": 2055.0,
+        "media": 3212.972,
+        "min": 2002.0,
         "max": 3432.0,
-        "p5": 2321.45,
+        "p5": 2502.0,
         "p95": 3432.0
       },
       "frac_sem_retorno": {
-        "media": 0.00161005,
-        "min": 0.00073,
+        "media": 0.00161597,
+        "min": 0.00058,
         "max": 0.00162,
         "p5": 0.00162,
         "p95": 0.00162
@@ -77,20 +77,20 @@
   },
   "rgb_desvio_por_camera": {
     "camera_frontal": {
-      "media": 14.52,
-      "min": 10.06,
-      "max": 20.62,
-      "p5": 12.299000000000001,
-      "p95": 17.622
+      "media": 14.457097999999998,
+      "min": 8.64,
+      "max": 22.54,
+      "p5": 12.3,
+      "p95": 17.52
     },
     "camera_diagonal": {
-      "media": 12.416550000000003,
-      "min": 9.53,
-      "max": 16.65,
-      "p5": 10.719000000000001,
-      "p95": 14.065499999999998
+      "media": 12.436862,
+      "min": 8.54,
+      "max": 17.36,
+      "p5": 10.94,
+      "p95": 14.49
     }
   },
-  "tempo_s": 6.9,
+  "tempo_s": 86.0,
   "processos": 6
 }

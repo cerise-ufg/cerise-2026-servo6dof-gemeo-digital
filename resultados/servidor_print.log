@@ -1,0 +1,36 @@
+$ sudo docker ps --filter name=cerise26_gemeo --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}"
+NAMES            IMAGE                   PORTS                      STATUS
+cerise26_gemeo   cerise26_gemeo:latest   127.0.0.1:8091->8091/tcp   Up 2 seconds
+
+$ curl -s http://127.0.0.1:8091/saude
+{"ok":true,"quadros":150,"predictor":"ground_truth (oraculo)"}
+
+$ curl -s http://127.0.0.1:8091/api/info | python3 -m json.tool | head -12
+{
+    "predictor": "ground_truth (oraculo)",
+    "aviso_predictor": "PosePredictor indisponivel (modelo de pose ainda nao publicado: falta /pose/READY.json): usando ground truth",
+    "n_quadros": 150,
+    "split": "teste",
+    "ids": [
+        3359,
+        1659,
+        1609,
+        2929,
+        2449,
+        569,
+
+$ curl -s "http://127.0.0.1:8091/api/quadro/0?camera=camera_frontal" | python3 -c (resumo sem a imagem)
+{
+ "idx": 0,
+ "total": 150,
+ "id": 3359,
+ "camera": "camera_frontal",
+ "imagem": "data:image/jpeg;base64,/9j/4AAQSkZJRgABA...",
+ "mae_graus": 0.0,
+ "erro_efetuador_m": 0.0,
+ "latencia_predictor_ms": 0.062465667724609375,
+ "predictor": "ground_truth (oraculo)"
+}
+
+$ ss -ltnp | grep 8091   # publicado so no loopback
+LISTEN 0      4096       127.0.0.1:8091       0.0.0.0:*          

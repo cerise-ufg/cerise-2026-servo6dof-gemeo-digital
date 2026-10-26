@@ -73,15 +73,21 @@ modo `http` (POST JSON `{"camera", "png_b64"}`).
 
 | Item | Resultado |
 |---|---|
+| Dataset | 5.000 poses, 30.000 imagens 1280×720 (RGB, profundidade, segmentação × 2 câmeras), 2,51 GB; splits 4.000/500/500 |
+| Integridade (todas as 30.000 imagens) | 0 problemas, 0 órfãos, 0 faltantes, 0 quadros duplicados; rótulos {0,1,2} em todas as máscaras |
+| Cobertura do espaço de juntas | 100 % das células 20×20 em todos os pares; correlação máx. entre juntas 0,024 |
+| Juntas reais × comandadas | 34,1 % das poses divergem (> 0,01 rad), 100 % das que atravessariam o chão; usar `juntas_reais` |
+| Geração | 3,64 h no DGX Spark, 8 workers Gazebo, 12,8 s/pose por worker (mediana) |
+| Modelo × imagens (IoU silhueta, 1.000 poses) | 0,950 (frontal) e 0,938 (diagonal); 2,05 % das imagens abaixo de 0,8 |
 | URDF | 13 links, 12 juntas (11 de revolução, 1 fixa), 5 GDL no braço + 1 na garra, 5 juntas mimic |
 | FK própria × TF do `robot_state_publisher` | 300 configurações × 11 links: erro máx. 1,9e-15 m e 4,2e-8 rad |
-| FK do front-end (three.js/urdf-loader) × FK Python | ≤ 4,6e-7 m (precisão float32) |
+| FK do front-end (three.js/urdf-loader) × FK Python | ≤ 7,6e-7 m (precisão float32) |
 | Espaço de trabalho (100 mil configurações) | alcance horizontal máx. 2,05 m; z da ponta da garra em [-0,82; 2,58] m; 20 % das configurações levariam a garra abaixo do chão |
 | MoveIt 2 headless (OMPL RRTConnect, hardware falso) | 5/5 objetivos executados; 50/50 planejamentos com sucesso, 12,9 a 17,0 ms em média por objetivo |
 | Nó ROS 2 do gêmeo | imagem → `/twin/joint_states` → TF `twin/`: erro 4,6e-16 m com oráculo |
 | Front-end | 2 × 12 malhas STL carregadas, sem erros, verificado por Playwright (pixels e estado JS) |
 
-Os números do dataset (A7) estão em `docs/DATASET.md` e em `resultados/dataset_*.json`.
+Detalhes do dataset em `docs/DATASET.md` (datasheet) e `resultados/dataset_*.json`; seção de relatório em `RELATORIO_SECAO.md`.
 
 ## Segurança
 

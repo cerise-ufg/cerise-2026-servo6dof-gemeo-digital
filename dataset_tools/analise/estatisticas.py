@@ -128,14 +128,14 @@ def main():
     axs[1, 0].set_ylabel("poses")
     fig.suptitle("Distribuicao dos angulos no dataset (%d poses) frente aos limites do URDF" % n,
                  x=0.01, ha="left", fontsize=12, fontweight="semibold")
-    fig.text(0.01, 0.925, "linhas vermelhas = limites do URDF; faixas salmao = folga de 5%% excluida pelo plano; "
+    fig.text(0.01, 0.925, "linhas vermelhas = limites do URDF; faixas salmao = folga de 5% excluida pelo plano; "
              "tracejado = contagem esperada para amostragem uniforme", fontsize=9, color=estilo.TEXTO2)
     fig.tight_layout(rect=(0, 0, 1, 0.92))
     fig.savefig(os.path.join(RAIZ, "evidencias", "a7_histogramas_angulos.png"))
     plt.close(fig)
 
     # 2) cobertura (pares) + correlacao
-    fig = plt.figure(figsize=(13, 5.2))
+    fig = plt.figure(figsize=(13, 4.7))
     gs = fig.add_gridspec(2, 6, width_ratios=[1, 1, 1, 1, 0.15, 2.2])
     pares = [(0, 1), (1, 2), (2, 3), (3, 4), (0, 4), (1, 3), (0, 2), (2, 4)]
     for t, (i, k) in enumerate(pares):
@@ -167,7 +167,7 @@ def main():
     fig.colorbar(im, ax=ax, fraction=0.046, pad=0.03)
     fig.suptitle("Cobertura do espaco de juntas: pares de juntas (densidade) e correlacoes", x=0.01, ha="left",
                  fontsize=12, fontweight="semibold")
-    fig.text(0.01, 0.91, "cobertura media da grade 20x20 (celulas de 8,1 graus) nos 10 pares: %.1f%% | correlacao max. |r| = %.3f | "
+    fig.text(0.01, 0.905, "cobertura media da grade 20x20 (celulas de 8,1 graus) nos 10 pares: %.1f%% | correlacao max. |r| = %.3f | "
              "dist. media ao vizinho mais proximo (5D normalizado): %.3f (uniforme: %.3f)"
              % (100 * res["cobertura_pares_media"], res["correlacao_max_abs_fora_diagonal"], d_nn.mean(), d_u.mean()),
              fontsize=9, color=estilo.TEXTO2)
