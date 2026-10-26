@@ -23,6 +23,8 @@ arm64). As seções de relatório estão em `RELATORIO_SECAO.md` (A7, A11 e infr
 `RELATORIO_SECAO_A12.md` (integração e avaliação do gêmeo com o modelo de pose); a ficha do dataset, em
 `docs/DATASET.md`.
 
+**Roteiro de implementação:** passo a passo para outra pessoa reproduzir o dataset, o modelo digital e o gêmeo digital em [`ROTEIRO.md`](ROTEIRO.md).
+
 ## Estrutura
 
 ```
