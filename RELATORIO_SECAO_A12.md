@@ -4,8 +4,10 @@
 de pose ao ambiente virtual do braço robótico servo6dof. **Resultado esperado:** um gêmeo digital capaz de
 reproduzir o comportamento do braço a partir dos dados capturados.
 
-Repositório: <https://github.com/EduardoCaixeta/cerise-2026-servo6dof-gemeo-digital> (privado; o código
-da integração está em `gemeo_digital/servidor`, `gemeo_digital/integracao` e `gemeo_digital/ros2`).
+Repositório: <https://github.com/EduardoCaixeta/cerise-2026-servo6dof-gemeo-digital> (privado). O código
+da integração está em `gemeo_digital/servidor`, `gemeo_digital/integracao` e `gemeo_digital/ros2`. A
+criação do repositório remoto e o *push* dependem de autorização do Eduardo; até lá, o código está
+commitado no espelho local `E:\CERISE\FRENTES\ROBOTICA\SERVO6DOF_GEMEO` (branch `main`).
 Modelo de pose: <https://github.com/EduardoCaixeta/cerise-2026-pose-servo6dof> (Atividades 8 e 9).
 Medições: `resultados/a12_integracao/`. Execução em 26/10/2026, das 06h40 às 07h30 (horário de Brasília),
 no DGX Spark (NVIDIA GB10, arm64).
