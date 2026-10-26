@@ -1,0 +1,218 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-26-15-37-22-849252-5c1a8004f963-4096
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [robot_state_publisher-1]: process started with pid [4099]
+[INFO] [ign gazebo-2]: process started with pid [4101]
+[INFO] [create-3]: process started with pid [4103]
+[INFO] [parameter_bridge-4]: process started with pid [4106]
+[INFO] [image_bridge-5]: process started with pid [4108]
+[create-3] [INFO] [1793029043.022103394] [ros_gz_sim]: Requesting list of world names.
+[parameter_bridge-4] [INFO] [1793029043.023639801] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[robot_state_publisher-1] [INFO] [1793029043.042189509] [robot_state_publisher]: got segment base_garra
+[robot_state_publisher-1] [INFO] [1793029043.042259702] [robot_state_publisher]: got segment base_link
+[robot_state_publisher-1] [INFO] [1793029043.042263878] [robot_state_publisher]: got segment garra_elo1
+[robot_state_publisher-1] [INFO] [1793029043.042266150] [robot_state_publisher]: got segment garra_elo2
+[robot_state_publisher-1] [INFO] [1793029043.042268230] [robot_state_publisher]: got segment garra_elo2a
+[robot_state_publisher-1] [INFO] [1793029043.042270374] [robot_state_publisher]: got segment garra_elo2b
+[robot_state_publisher-1] [INFO] [1793029043.042272470] [robot_state_publisher]: got segment garra_elo3a
+[robot_state_publisher-1] [INFO] [1793029043.042274582] [robot_state_publisher]: got segment garra_elo3b
+[robot_state_publisher-1] [INFO] [1793029043.042276614] [robot_state_publisher]: got segment primeiro_elo
+[robot_state_publisher-1] [INFO] [1793029043.042278614] [robot_state_publisher]: got segment quarto_elo
+[robot_state_publisher-1] [INFO] [1793029043.042280790] [robot_state_publisher]: got segment segundo_elo
+[robot_state_publisher-1] [INFO] [1793029043.042282758] [robot_state_publisher]: got segment terceiro_elo
+[robot_state_publisher-1] [INFO] [1793029043.042284790] [robot_state_publisher]: got segment world
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mIgnition Gazebo Server v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mLoading SDF world file[[0m[1;32m/ws/install/servo6dof_camera/share/servo6dof_camera/worlds/estudio_hd.sdf[0m[1;32m].[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing entity system service on [[0m[1;32m/[0m[1;32mentity/system/add[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;36m[Dbg] [Physics.cc:804] [0m[1;36mLoaded [[0m[1;36mignition::physics::dartsim::Plugin[0m[1;36m] from library [[0m[1;36m/usr/lib/aarch64-linux-gnu/ign-physics-5/engine-plugins/libignition-physics-dartsim-plugin.so[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SystemManager.cc:73] [0m[1;36mLoaded system [[0m[1;36mignition::gazebo::systems::Physics[0m[1;36m] for entity [[0m[1;36m1[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mCreate service on [[0m[1;32m/world/estudio_hd/create[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mRemove service on [[0m[1;32m/world/estudio_hd/remove[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/estudio_hd/set_pose[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/estudio_hd/set_pose_vector[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mLight configuration service on [[0m[1;32m/world/estudio_hd/light_config[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPhysics service on [[0m[1;32m/world/estudio_hd/set_physics[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mSphericalCoordinates service on [[0m[1;32m/world/estudio_hd/set_spherical_coordinates[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mEnable collision service on [[0m[1;32m/world/estudio_hd/enable_collision[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mDisable collision service on [[0m[1;32m/world/estudio_hd/disable_collision[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/estudio_hd/visual_config[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/estudio_hd/wheel_slip[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;36m[Dbg] [SystemManager.cc:73] [0m[1;36mLoaded system [[0m[1;36mignition::gazebo::systems::UserCommands[0m[1;36m] for entity [[0m[1;36m1[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SystemManager.cc:73] [0m[1;36mLoaded system [[0m[1;36mignition::gazebo::systems::SceneBroadcaster[0m[1;36m] for entity [[0m[1;36m1[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:506] [0m[1;36mConfiguring Sensors system[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:431] [0m[1;36mSensorsPrivate::Run[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SystemManager.cc:73] [0m[1;36mLoaded system [[0m[1;36mignition::gazebo::systems::Sensors[0m[1;36m] for entity [[0m[1;36m1[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:411] [0m[1;36mSensorsPrivate::RenderThread started[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:258] [0m[1;36mWaiting for init[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SystemManager.cc:73] [0m[1;36mLoaded system [[0m[1;36mignition::gazebo::systems::Label[0m[1;36m] for entity [[0m[1;36m6[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SystemManager.cc:73] [0m[1;36mLoaded system [[0m[1;36mignition::gazebo::systems::Label[0m[1;36m] for entity [[0m[1;36m10[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mLoaded level [[0m[1;32m3[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing world controls on [[0m[1;32m/world/estudio_hd[0m[1;32m/control], [[0m[1;32m/world/estudio_hd[0m[1;32m/control/state] and [[0m[1;32m/world/estudio_hd[0m[1;32m/playback/control][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing GUI information on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mgui/info[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mWorld [[0m[1;32mestudio_hd[0m[1;32m] initialized with [[0m[1;32m1ms[0m[1;32m] physics profile.[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing world SDF generation service on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mgenerate_world_sdf[0m[1;32m][0m[1;32m[0m
+[create-3] [INFO] [1793029043.783916936] [ros_gz_sim]: Waiting messages on topic [robot_description].
+[create-3] [INFO] [1793029043.795585929] [ros_gz_sim]: Requested creation of entity.
+[create-3] [INFO] [1793029043.795627433] [ros_gz_sim]: OK creation of entity.
+[INFO] [create-3]: process has finished cleanly [pid 4103]
+[INFO] [spawner-6]: process started with pid [4196]
+[spawner-6] [INFO] [1793029044.015397203] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[ign gazebo-2] [INFO] [1793029045.254962626] [GazeboSimROS2ControlPlugin]: robot_param_node is robot_state_publisher
+[ign gazebo-2] [INFO] [1793029045.254985730] [GazeboSimROS2ControlPlugin]: robot_param_node is robot_description
+[ign gazebo-2] [INFO] [1793029045.270544050] [gz_ros2_control]: connected to service!! robot_state_publisher asking for robot_description
+[ign gazebo-2] [INFO] [1793029045.270898723] [gz_ros2_control]: Received URDF from param server
+[ign gazebo-2] [INFO] [1793029045.271386597] [gz_ros2_control]: [gz_ros2_control] Fixed joint ['virtual_joint'] (Entity='64') is skipped.
+[ign gazebo-2] [INFO] [1793029045.273180109] [gz_ros2_control]: The position_proportional_gain has been set to: 0.1
+[ign gazebo-2] [INFO] [1793029045.273211293] [gz_ros2_control]: Loading joint: joint_1
+[ign gazebo-2] [INFO] [1793029045.273216989] [gz_ros2_control]: 	State:
+[ign gazebo-2] [INFO] [1793029045.273220189] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273223149] [gz_ros2_control]: 	Command:
+[ign gazebo-2] [INFO] [1793029045.273225693] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273232029] [gz_ros2_control]: Loading joint: joint_2
+[ign gazebo-2] [INFO] [1793029045.273235181] [gz_ros2_control]: 	State:
+[ign gazebo-2] [INFO] [1793029045.273237293] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273239805] [gz_ros2_control]: 	Command:
+[ign gazebo-2] [INFO] [1793029045.273242189] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273247757] [gz_ros2_control]: Loading joint: joint_3
+[ign gazebo-2] [INFO] [1793029045.273250285] [gz_ros2_control]: 	State:
+[ign gazebo-2] [INFO] [1793029045.273252877] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273255565] [gz_ros2_control]: 	Command:
+[ign gazebo-2] [INFO] [1793029045.273258093] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273262925] [gz_ros2_control]: Loading joint: joint_4
+[ign gazebo-2] [INFO] [1793029045.273265501] [gz_ros2_control]: 	State:
+[ign gazebo-2] [INFO] [1793029045.273267981] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273270541] [gz_ros2_control]: 	Command:
+[ign gazebo-2] [INFO] [1793029045.273273101] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273277917] [gz_ros2_control]: Loading joint: joint_5
+[ign gazebo-2] [INFO] [1793029045.273280541] [gz_ros2_control]: 	State:
+[ign gazebo-2] [INFO] [1793029045.273282893] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273285389] [gz_ros2_control]: 	Command:
+[ign gazebo-2] [INFO] [1793029045.273287853] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273292941] [gz_ros2_control]: Loading joint: joint_6
+[ign gazebo-2] [INFO] [1793029045.273295853] [gz_ros2_control]: 	State:
+[ign gazebo-2] [INFO] [1793029045.273298141] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273300541] [gz_ros2_control]: 	Command:
+[ign gazebo-2] [INFO] [1793029045.273302989] [gz_ros2_control]: 		 position
+[ign gazebo-2] [INFO] [1793029045.273308349] [gz_ros2_control]: Loading joint: joint_7
+[ign gazebo-2] [INFO] [1793029045.273314605] [gz_ros2_control]: Joint 'joint_7'is mimicking joint 'joint_6' with multiplier: -1
+[ign gazebo-2] [INFO] [1793029045.273317629] [gz_ros2_control]: 	State:
+[ign gazebo-2] [INFO] [1793029045.273319965] [gz_ros2_control]: 	Command:
+[ign gazebo-2] [INFO] [1793029045.273365565] [resource_manager]: Initialize hardware 'RobotSystem' 
+[ign gazebo-2] [WARN] [1793029045.273377389] [gz_ros2_control]: The ign_ros2_control plugin got renamed to gz_ros2_control.
+[ign gazebo-2] Update the <ros2_control> tag and gazebo plugin to
+[ign gazebo-2] <hardware>
+[ign gazebo-2]   <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+[ign gazebo-2] </hardware>
+[ign gazebo-2] <gazebo>
+[ign gazebo-2]   <plugin filename="gz_ros2_control-system"name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+[ign gazebo-2]     ...
+[ign gazebo-2]   </plugin>
+[ign gazebo-2] </gazebo>
+[ign gazebo-2] [INFO] [1793029045.273397613] [resource_manager]: Successful initialization of hardware 'RobotSystem'
+[ign gazebo-2] [INFO] [1793029045.273418590] [resource_manager]: 'configure' hardware 'RobotSystem' 
+[ign gazebo-2] [INFO] [1793029045.273420702] [gz_ros2_control]: System Successfully configured!
+[ign gazebo-2] [INFO] [1793029045.273424446] [resource_manager]: Successful 'configure' of hardware 'RobotSystem'
+[ign gazebo-2] [INFO] [1793029045.273427070] [resource_manager]: 'activate' hardware 'RobotSystem' 
+[ign gazebo-2] [INFO] [1793029045.273430414] [resource_manager]: Successful 'activate' of hardware 'RobotSystem'
+[ign gazebo-2] [INFO] [1793029045.273432958] [gz_ros2_control]: Loading controller_manager
+[ign gazebo-2] [WARN] [1793029045.458588807] [gz_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).
+[ign gazebo-2] [1;33m[Wrn] [Ogre2RenderEngine.cc:405] [0m[1;33mUnable to open display: [0m[1;33m. Trying to run in headless mode.[0m[1;33m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing world names on [[0m[1;32m/gazebo/worlds[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mResource path add service on [[0m[1;32m/gazebo/resource_paths/add[0m[1;32m].[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mResource path get service on [[0m[1;32m/gazebo/resource_paths/get[0m[1;32m].[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mResource path resolve service on [[0m[1;32m/gazebo/resource_paths/resolve[0m[1;32m].[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mResource paths published on [[0m[1;32m/gazebo/resource_paths[0m[1;32m].[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServer control service on [[0m[1;32m/server_control[0m[1;32m].[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mFound no publishers on /stats, adding root stats topic[0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mFound no publishers on /clock, adding root clock topic[0m[1;32m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:501] [0m[1;36mCreating PostUpdate worker threads: [0m[1;36m3[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:512] [0m[1;36mCreating postupdate worker thread ([0m[1;36m0[0m[1;36m)[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:512] [0m[1;36mCreating postupdate worker thread ([0m[1;36m1[0m[1;36m)[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SystemManager.cc:73] [0m[1;36mLoaded system [[0m[1;36mign_ros2_control::IgnitionROS2ControlPlugin[0m[1;36m] for entity [[0m[1;36m27[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [UserCommands.cc:1303] [0m[1;36mCreated entity [[0m[1;36m27[0m[1;36m] named [[0m[1;36mservo6dof[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:610] [0m[1;36mInitialization needed[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:270] [0m[1;36mInitializing render context[0m[1;36m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/estudio_hd/scene/info[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/estudio_hd/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/estudio_hd/state[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/estudio_hd[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:528] [0m[1;36mExiting postupdate worker thread ([0m[1;36m1[0m[1;36m)[0m[1;36m[0m
+[ign gazebo-2] [1;36mExiting postupdate worker thread ([0m[1;36m0[0m[1;36m)[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:501] [0m[1;36mCreating PostUpdate worker threads: [0m[1;36m4[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:512] [0m[1;36mCreating postupdate worker thread ([0m[1;36m0[0m[1;36m)[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:512] [0m[1;36mCreating postupdate worker thread ([0m[1;36m1[0m[1;36m)[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SimulationRunner.cc:512] [0m[1;36mCreating postupdate worker thread ([0m[1;36m2[0m[1;36m)[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [RenderUtil.cc:2591] [0m[1;36mCreate scene [[0m[1;36mscene[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:284] [0m[1;36mRendering Thread initialized[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [Sensors.cc:610] [0m[1;36mInitialization needed[0m[1;36m[0m
+[ign gazebo-2] [1;33m[Wrn] [Ogre2Camera.cc:390] [0m[1;33mOgre2Camera::SetVisibilityMask: Mask bits [0m[1;33mc0000000[0m[1;33m are set but will be ignored as they conflict with the [0m[1;33mreserved bits used internally by the ogre2 backend.[0m[1;33m[0m
+[ign gazebo-2] [1;33m[Wrn] [Ogre2Camera.cc:390] [0m[1;33mOgre2Camera::SetVisibilityMask: Mask bits [0m[1;33mc0000000[0m[1;33m are set but will be ignored as they conflict with the [0m[1;33mreserved bits used internally by the ogre2 backend.[0m[1;33m[0m
+[ign gazebo-2] [INFO] [1793029046.269834925] [controller_manager]: Loading controller 'joint_state_broadcaster'
+[spawner-6] [INFO] [1793029046.282144079] [spawner_joint_state_broadcaster]: [94mLoaded [1mjoint_state_broadcaster[0m
+[ign gazebo-2] [INFO] [1793029046.283067619] [controller_manager]: Configuring controller 'joint_state_broadcaster'
+[ign gazebo-2] [INFO] [1793029046.283212756] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[spawner-6] [INFO] [1793029046.329855779] [spawner_joint_state_broadcaster]: [92mConfigured and activated [1mjoint_state_broadcaster[0m
+[INFO] [spawner-6]: process has finished cleanly [pid 4196]
+[INFO] [spawner-7]: process started with pid [4290]
+[ign gazebo-2] [INFO] [1793029049.082713748] [controller_manager]: Loading controller 'arm_controller'
+[ign gazebo-2] [WARN] [1793029049.094538004] [arm_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[spawner-7] [INFO] [1793029049.107877930] [spawner_arm_controller]: [94mLoaded [1marm_controller[0m
+[ign gazebo-2] [INFO] [1793029049.108647997] [controller_manager]: Configuring controller 'arm_controller'
+[ign gazebo-2] [INFO] [1793029049.108782078] [arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ign gazebo-2] [INFO] [1793029049.108807294] [arm_controller]: Command interfaces are [position] and state interfaces are [position].
+[ign gazebo-2] [INFO] [1793029049.108827950] [arm_controller]: Using 'splines' interpolation method.
+[ign gazebo-2] [INFO] [1793029049.109732546] [arm_controller]: Controller state will be published at 50.00 Hz.
+[ign gazebo-2] [INFO] [1793029049.111105640] [arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[spawner-7] [INFO] [1793029049.148344576] [spawner_arm_controller]: [92mConfigured and activated [1marm_controller[0m
+[INFO] [spawner-7]: process has finished cleanly [pid 4290]
+[INFO] [spawner-8]: process started with pid [4324]
+[spawner-8] [INFO] [1793029049.405123081] [spawner_gripper_controller]: waiting for service /controller_manager/list_controllers to become available...
+[ign gazebo-2] [INFO] [1793029049.657973026] [controller_manager]: Loading controller 'gripper_controller'
+[ign gazebo-2] [WARN] [1793029049.665542625] [gripper_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[spawner-8] [INFO] [1793029049.680912400] [spawner_gripper_controller]: [94mLoaded [1mgripper_controller[0m
+[ign gazebo-2] [INFO] [1793029049.762469725] [controller_manager]: Configuring controller 'gripper_controller'
+[ign gazebo-2] [INFO] [1793029049.762572734] [gripper_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ign gazebo-2] [INFO] [1793029049.762588174] [gripper_controller]: Command interfaces are [position] and state interfaces are [position].
+[ign gazebo-2] [INFO] [1793029049.762595454] [gripper_controller]: Using 'splines' interpolation method.
+[ign gazebo-2] [INFO] [1793029049.763123088] [gripper_controller]: Controller state will be published at 50.00 Hz.
+[ign gazebo-2] [INFO] [1793029049.763960787] [gripper_controller]: Action status changes will be monitored at 20.00 Hz.
+[spawner-8] [INFO] [1793029049.803387716] [spawner_gripper_controller]: [92mConfigured and activated [1mgripper_controller[0m
+[INFO] [spawner-8]: process has finished cleanly [pid 4324]
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:393] [0m[1;36mCamera images for [[0m[1;36mcamera_frontal::link::rgb[0m[1;36m] advertised on [[0m[1;36mcamera_frontal/image[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:718] [0m[1;36mCamera info for [[0m[1;36mcamera_frontal::link::rgb[0m[1;36m] advertised on [[0m[1;36m/camera_frontal/camera_info[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:393] [0m[1;36mCamera images for [[0m[1;36mcamera_diagonal::link::rgb[0m[1;36m] advertised on [[0m[1;36mcamera_diagonal/image[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:718] [0m[1;36mCamera info for [[0m[1;36mcamera_diagonal::link::rgb[0m[1;36m] advertised on [[0m[1;36m/camera_diagonal/camera_info[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [DepthCameraSensor.cc:310] [0m[1;36mDepth images for [[0m[1;36mcamera_frontal::link::profundidade[0m[1;36m] advertised on [[0m[1;36mcamera_frontal/depth[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:718] [0m[1;36mCamera info for [[0m[1;36mcamera_frontal::link::profundidade[0m[1;36m] advertised on [[0m[1;36m/camera_frontal/camera_info[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [DepthCameraSensor.cc:353] [0m[1;36mPoints for [[0m[1;36mcamera_frontal::link::profundidade[0m[1;36m] advertised on [[0m[1;36mcamera_frontal/depth[0m[1;36m/points][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [DepthCameraSensor.cc:310] [0m[1;36mDepth images for [[0m[1;36mcamera_diagonal::link::profundidade[0m[1;36m] advertised on [[0m[1;36mcamera_diagonal/depth[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:718] [0m[1;36mCamera info for [[0m[1;36mcamera_diagonal::link::profundidade[0m[1;36m] advertised on [[0m[1;36m/camera_diagonal/camera_info[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [DepthCameraSensor.cc:353] [0m[1;36mPoints for [[0m[1;36mcamera_diagonal::link::profundidade[0m[1;36m] advertised on [[0m[1;36mcamera_diagonal/depth[0m[1;36m/points][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SegmentationCameraSensor.cc:205] [0m[1;36mColored map image for [[0m[1;36mcamera_frontal::link::segmentacao[0m[1;36m] advertised on [[0m[1;36mcamera_frontal/segmentation[0m[1;36m/colored_map[0m[1;36m][0m
+[ign gazebo-2] [1;36m[Dbg] [SegmentationCameraSensor.cc:220] [0m[1;36mSegmentation labels map image for [[0m[1;36mcamera_frontal::link::segmentacao[0m[1;36m] advertised on [[0m[1;36mcamera_frontal/segmentation[0m[1;36m/labels_map[0m[1;36m][0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:718] [0m[1;36mCamera info for [[0m[1;36mcamera_frontal::link::segmentacao[0m[1;36m] advertised on [[0m[1;36mcamera_frontal/segmentation/camera_info[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [SegmentationCameraSensor.cc:205] [0m[1;36mColored map image for [[0m[1;36mcamera_diagonal::link::segmentacao[0m[1;36m] advertised on [[0m[1;36mcamera_diagonal/segmentation[0m[1;36m/colored_map[0m[1;36m][0m
+[ign gazebo-2] [1;36m[Dbg] [SegmentationCameraSensor.cc:220] [0m[1;36mSegmentation labels map image for [[0m[1;36mcamera_diagonal::link::segmentacao[0m[1;36m] advertised on [[0m[1;36mcamera_diagonal/segmentation[0m[1;36m/labels_map[0m[1;36m][0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:718] [0m[1;36mCamera info for [[0m[1;36mcamera_diagonal::link::segmentacao[0m[1;36m] advertised on [[0m[1;36mcamera_diagonal/segmentation/camera_info[0m[1;36m][0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:517] [0m[1;36mEnabling camera sensor: '[0m[1;36mcamera_frontal::link::rgb[0m[1;36m' data [0m[1;36mgeneration.[0m[1;36m[0m
+[ign gazebo-2] [1;36m[Dbg] [CameraSensor.cc:517] [0m[1;36mEnabling camera sensor: '[0m[1;36mcamera_diagonal::link::rgb[0m[1;36m' data [0m[1;36mgeneration.[0m[1;36m[0m
+[ign gazebo-2] [INFO] [1793029095.499118355] [arm_controller]: Received new action goal
+[ign gazebo-2] [INFO] [1793029095.499182323] [arm_controller]: Accepted new action goal
+[ign gazebo-2] [INFO] [1793029095.499942614] [gripper_controller]: Received new action goal
+[ign gazebo-2] [INFO] [1793029095.499986038] [gripper_controller]: Accepted new action goal
+[ign gazebo-2] [INFO] [1793029101.388475609] [arm_controller]: Goal reached, success!
+[ign gazebo-2] [INFO] [1793029101.388565049] [gripper_controller]: Goal reached, success!
+[ign gazebo-2] [INFO] [1793029103.716142704] [arm_controller]: Received new action goal
+[ign gazebo-2] [INFO] [1793029103.716188224] [arm_controller]: Accepted new action goal
+[ign gazebo-2] [INFO] [1793029103.716996851] [gripper_controller]: Received new action goal
+[ign gazebo-2] [INFO] [1793029103.717016244] [gripper_controller]: Accepted new action goal
+[ign gazebo-2] [INFO] [1793029109.653877225] [arm_controller]: Goal reached, success!
+[ign gazebo-2] [INFO] [1793029109.653930489] [gripper_controller]: Goal reached, success!
+] id 917 -> [-0.2373, 0.0933, 0.8763, -0.9268, 0.2762]
+[INFO] [1793029111.627731874] [fotografo_servo6dof]: metadados salvos em /ws/dataset/poses_registradas_w5.csv
+[INFO] [1793029111.627905442] [fotografo_servo6dof]: FIM: 2 poses fotografadas em /ws/dataset

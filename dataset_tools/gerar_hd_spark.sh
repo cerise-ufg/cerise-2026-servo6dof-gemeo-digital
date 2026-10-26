@@ -34,7 +34,7 @@ ronda(){
       ros2 run servo6dof_camera tirar_fotos.py --ros-args --params-file "$WS/cams_hd.yaml" \
         -p plano:="$PLANO" -p saida:="$SAIDA" -p worker_id:=$w -p n_workers:=$WORKERS \
         -p duracao:=$DURACAO -p assentamento:=$ASSENT -p use_sim_time:=true >> "$LOG" 2>&1
-      kill $GZ 2>/dev/null; pkill -f "ign gazebo" 2>/dev/null
+      kill $GZ 2>/dev/null
     ) &
     PIDS+=($!); sleep 7
   done
