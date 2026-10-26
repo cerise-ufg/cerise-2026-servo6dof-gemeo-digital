@@ -1,0 +1,5 @@
+{
+ "n_amostras": 5,
+ "erro_max_m": 4.577566798522237e-16,
+ "nota": "distancia entre o efetuador do gemeo (twin/base_garra, descontado twin/world) e o da referencia (base_garra) no mesmo carimbo de tempo, via tf2"
+}

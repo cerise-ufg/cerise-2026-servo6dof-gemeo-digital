@@ -1,0 +1,9 @@
+/**:
+  ros__parameters:
+    cameras:
+      - /camera_frontal/image
+      - /camera_frontal/depth
+      - /camera_frontal/segmentation/labels_map
+      - /camera_diagonal/image
+      - /camera_diagonal/depth
+      - /camera_diagonal/segmentation/labels_map

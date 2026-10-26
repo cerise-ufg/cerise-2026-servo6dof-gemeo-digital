@@ -1,0 +1,121 @@
+{
+  "n_poses": 3594,
+  "n_imagens": 21564,
+  "n_imagens_rgb": 7188,
+  "tamanho_total_bytes": 1803352845,
+  "tamanho_total_gb": 1.803352845,
+  "tamanho_por_modalidade_bytes": {
+    "RGB": 788456508,
+    "profundidade": 932075015,
+    "segmentacao": 77273702
+  },
+  "tamanho_json_bytes": 5547620,
+  "tamanho_por_camera_modalidade": {
+    "camera_frontal_image": {
+      "total_bytes": 428802197,
+      "media_kb": 116.51423080350932
+    },
+    "camera_frontal_depth": {
+      "total_bytes": 174596413,
+      "media_kb": 47.441377175935585
+    },
+    "camera_frontal_segmentation_labels_map": {
+      "total_bytes": 38493952,
+      "media_kb": 10.459585420144686
+    },
+    "camera_diagonal_image": {
+      "total_bytes": 359654311,
+      "media_kb": 97.7253514429431
+    },
+    "camera_diagonal_depth": {
+      "total_bytes": 757478602,
+      "media_kb": 205.82225856027407
+    },
+    "camera_diagonal_segmentation_labels_map": {
+      "total_bytes": 38779750,
+      "media_kb": 10.537242517911798
+    }
+  },
+  "media_mb_por_pose": 0.5017676252086811,
+  "splits": {
+    "treino": 2880,
+    "validacao": 360,
+    "teste": 354
+  },
+  "angulos_graus": {
+    "joint_1": {
+      "min": -80.97039560788794,
+      "max": 80.98185476379055,
+      "media": -1.2845222751249026,
+      "desvio": 46.68620978441895
+    },
+    "joint_2": {
+      "min": -80.99331391969316,
+      "max": 80.96466602993664,
+      "media": -0.756404724578511,
+      "desvio": 46.53128373577235
+    },
+    "joint_3": {
+      "min": -80.8729927827157,
+      "max": 80.92455898427748,
+      "media": -0.7407783130374082,
+      "desvio": 46.831707491257475
+    },
+    "joint_4": {
+      "min": -80.92455898427748,
+      "max": 80.878722360667,
+      "media": -0.396032764235946,
+      "desvio": 46.1742791569682
+    },
+    "joint_5": {
+      "min": -80.9360181401801,
+      "max": 80.99331391969316,
+      "media": -0.42632109242095056,
+      "desvio": 46.37714200389054
+    }
+  },
+  "garra_graus": {
+    "min": -36.47449323802821,
+    "max": 26.470650135044036
+  },
+  "faixa_do_plano_graus": [
+    -81.0,
+    81.0
+  ],
+  "cobertura_pares_grade20": {
+    "joint_1-joint_2": 1.0,
+    "joint_1-joint_3": 1.0,
+    "joint_1-joint_4": 0.9975,
+    "joint_1-joint_5": 1.0,
+    "joint_2-joint_3": 1.0,
+    "joint_2-joint_4": 1.0,
+    "joint_2-joint_5": 1.0,
+    "joint_3-joint_4": 1.0,
+    "joint_3-joint_5": 1.0,
+    "joint_4-joint_5": 1.0
+  },
+  "cobertura_pares_media": 0.99975,
+  "dist_vizinho_mais_proximo_5d_norm": {
+    "dataset_media": 0.13544414306273803,
+    "uniforme_media": 0.13659697720027278,
+    "dataset_min": 0.015333017365662976
+  },
+  "correlacao_max_abs_fora_diagonal": 0.04774836474871087,
+  "dif_real_comandada_rad": {
+    "max": 2.8186999999999998,
+    "media": 0.07370633834168058,
+    "frac_poses_dif>0.01": 0.3511407902058987
+  },
+  "frac_pixels_braco": {
+    "camera_diagonal": {
+      "media": 0.060197799999999996,
+      "min": 0.04021,
+      "max": 0.08571
+    },
+    "camera_frontal": {
+      "media": 0.0889162,
+      "min": 0.06234,
+      "max": 0.12322
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# Playwright headless (Chromium + SwiftShader) para capturas do front-end do gemeo.
+#   sudo docker build -f docker/Dockerfile.playwright -t cerise26_gemeo_playwright:latest docker
+FROM mcr.microsoft.com/playwright/python:v1.49.1-noble
+RUN pip install --no-cache-dir --break-system-packages "playwright==1.49.1" pillow numpy

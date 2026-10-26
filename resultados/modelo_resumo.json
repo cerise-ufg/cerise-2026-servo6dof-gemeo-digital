@@ -1,0 +1,107 @@
+{
+  "urdf": "modelo_digital/urdf/servo6dof.urdf",
+  "robo": "servo6dof_description",
+  "raiz": "world",
+  "n_links": 13,
+  "n_juntas": 12,
+  "juntas_por_tipo": {
+    "fixed": 1,
+    "revolute": 11
+  },
+  "juntas_ativas": [
+    "joint_1",
+    "joint_2",
+    "joint_3",
+    "joint_4",
+    "joint_5",
+    "joint_6"
+  ],
+  "gdl_braco": 5,
+  "gdl_garra": 1,
+  "juntas_mimic": [
+    "joint_garra_1",
+    "joint_pinca_a",
+    "joint_7",
+    "joint_garra_3",
+    "joint_pinca_b"
+  ],
+  "massa_total_kg": 1.5100000000000005,
+  "inercias_placeholder": true,
+  "malhas_stl": [
+    "base_garra.stl",
+    "basement.stl",
+    "garra_elo1.stl",
+    "garra_elo2.stl",
+    "garra_pinca.stl",
+    "manipulator_elo1.stl",
+    "manipulator_elo2.stl",
+    "manipulator_elo3.stl",
+    "manipulator_elo4.stl"
+  ],
+  "escala_malhas": [
+    [
+      6.0,
+      6.0,
+      6.0
+    ]
+  ],
+  "posicao_zero": {
+    "base_link": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "primeiro_elo": [
+      0.0,
+      -0.23,
+      -0.01
+    ],
+    "segundo_elo": [
+      -0.05,
+      -0.26,
+      0.56
+    ],
+    "terceiro_elo": [
+      0.01,
+      -0.26,
+      1.19
+    ],
+    "quarto_elo": [
+      0.01,
+      0.52,
+      1.19
+    ],
+    "base_garra": [
+      0.03,
+      0.88,
+      1.19
+    ]
+  },
+  "segmentos_cadeia_zero": [
+    {
+      "de": "base_link",
+      "ate": "primeiro_elo",
+      "distancia_m": 0.23021728866442678
+    },
+    {
+      "de": "primeiro_elo",
+      "ate": "segundo_elo",
+      "distancia_m": 0.5729746940310715
+    },
+    {
+      "de": "segundo_elo",
+      "ate": "terceiro_elo",
+      "distancia_m": 0.6328506932918696
+    },
+    {
+      "de": "terceiro_elo",
+      "ate": "quarto_elo",
+      "distancia_m": 0.78
+    },
+    {
+      "de": "quarto_elo",
+      "ate": "base_garra",
+      "distancia_m": 0.3605551275463989
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "n_configuracoes": 300,
+  "n_links_comparados": 11,
+  "n_comparacoes": 3300,
+  "consultas_tf_falhas": 0,
+  "duracao_s": 32.5,
+  "erro_pos_m": {
+    "media": 3.3077495422903504e-16,
+    "max": 1.900395703982448e-15,
+    "p99": 1.0600922051595103e-15
+  },
+  "erro_ang_rad": {
+    "media": 2.7672945790154355e-09,
+    "max": 4.2146848510894035e-08,
+    "p99": 2.9802322387695312e-08
+  },
+  "por_link": {
+    "primeiro_elo": {
+      "max_erro_pos_m": 0.0,
+      "max_erro_ang_rad": 0.0
+    },
+    "segundo_elo": {
+      "max_erro_pos_m": 1.251595774909056e-16,
+      "max_erro_ang_rad": 2.9802322387695312e-08
+    },
+    "terceiro_elo": {
+      "max_erro_pos_m": 5.155369359468229e-16,
+      "max_erro_ang_rad": 2.9802322387695312e-08
+    },
+    "quarto_elo": {
+      "max_erro_pos_m": 8.083736946057739e-16,
+      "max_erro_ang_rad": 2.9802322387695312e-08
+    },
+    "base_garra": {
+      "max_erro_pos_m": 1.047382306668854e-15,
+      "max_erro_ang_rad": 4.2146848510894035e-08
+    },
+    "garra_elo1": {
+      "max_erro_pos_m": 1.2658490090568385e-15,
+      "max_erro_ang_rad": 2.9802322387695312e-08
+    },
+    "garra_elo2a": {
+      "max_erro_pos_m": 1.355199909595506e-15,
+      "max_erro_ang_rad": 2.9802322387695312e-08
+    },
+    "garra_elo3a": {
+      "max_erro_pos_m": 1.8047528146390834e-15,
+      "max_erro_ang_rad": 3.6500241499888574e-08
+    },
+    "garra_elo2": {
+      "max_erro_pos_m": 1.1710090180710446e-15,
+      "max_erro_ang_rad": 3.6500241499888574e-08
+    },
+    "garra_elo2b": {
+      "max_erro_pos_m": 1.6011864169946884e-15,
+      "max_erro_ang_rad": 2.9802322387695312e-08
+    },
+    "garra_elo3b": {
+      "max_erro_pos_m": 1.900395703982448e-15,
+      "max_erro_ang_rad": 2.9802322387695312e-08
+    }
+  },
+  "referencia": "robot_state_publisher (ROS 2 Humble) + tf2_ros, mesmo URDF"
+}

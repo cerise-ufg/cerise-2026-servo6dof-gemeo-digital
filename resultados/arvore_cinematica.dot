@@ -1,0 +1,31 @@
+digraph servo6dof {
+  graph [rankdir=TB, bgcolor="#fcfcfb", fontname="Helvetica", nodesep=0.35, ranksep=0.42, pad=0.3,
+         label="Arvore cinematica do servo6dof (URDF gerado do xacro)\nazul = junta ativa (comandada) | laranja = mimic de joint_6 | cinza = fixa", labelloc=t, fontsize=15];
+  node [shape=box, style="rounded,filled", fillcolor="#ffffff", color="#b9b8b2", fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=9.5];
+  "world" [label="world", fillcolor="#f0efec"];
+  "base_link" [label="base_link\nm = 1 kg"];
+  "primeiro_elo" [label="primeiro_elo\nm = 0.1 kg"];
+  "segundo_elo" [label="segundo_elo\nm = 0.1 kg"];
+  "terceiro_elo" [label="terceiro_elo\nm = 0.1 kg"];
+  "quarto_elo" [label="quarto_elo\nm = 0.1 kg"];
+  "base_garra" [label="base_garra\nm = 0.05 kg", fillcolor="#e8f1fc", color="#2a78d6", penwidth=1.6];
+  "garra_elo1" [label="garra_elo1\nm = 0.01 kg"];
+  "garra_elo2a" [label="garra_elo2a\nm = 0.01 kg"];
+  "garra_elo3a" [label="garra_elo3a\nm = 0.01 kg"];
+  "garra_elo2" [label="garra_elo2\nm = 0.01 kg"];
+  "garra_elo2b" [label="garra_elo2b\nm = 0.01 kg"];
+  "garra_elo3b" [label="garra_elo3b\nm = 0.01 kg"];
+  "world" -> "base_link" [label="virtual_joint\n(fixa)", color="#8a8984", fontcolor="#52514e", penwidth=1.8];
+  "base_link" -> "primeiro_elo" [label="joint_1  eixo z\n[-90, 90] graus", color="#2a78d6", fontcolor="#0b0b0b", penwidth=1.8];
+  "primeiro_elo" -> "segundo_elo" [label="joint_2  eixo x\n[-90, 90] graus", color="#2a78d6", fontcolor="#0b0b0b", penwidth=1.8];
+  "segundo_elo" -> "terceiro_elo" [label="joint_3  eixo x\n[-90, 90] graus", color="#2a78d6", fontcolor="#0b0b0b", penwidth=1.8];
+  "terceiro_elo" -> "quarto_elo" [label="joint_4  eixo x\n[-90, 90] graus", color="#2a78d6", fontcolor="#0b0b0b", penwidth=1.8];
+  "quarto_elo" -> "base_garra" [label="joint_5  eixo y\n[-90, 90] graus", color="#2a78d6", fontcolor="#0b0b0b", penwidth=1.8];
+  "base_garra" -> "garra_elo1" [label="joint_6  eixo z\n[-40, 30] graus", color="#2a78d6", fontcolor="#0b0b0b", penwidth=1.8];
+  "base_garra" -> "garra_elo2a" [label="joint_garra_1\nmimic joint_6 x1 -0.2", color="#eb6834", fontcolor="#0b0b0b", penwidth=1.8];
+  "garra_elo1" -> "garra_elo3a" [label="joint_pinca_a\nmimic joint_6 x-1 +0.2", color="#eb6834", fontcolor="#0b0b0b", penwidth=1.8];
+  "base_garra" -> "garra_elo2" [label="joint_7\nmimic joint_6 x-1 +0", color="#eb6834", fontcolor="#0b0b0b", penwidth=1.8];
+  "base_garra" -> "garra_elo2b" [label="joint_garra_3\nmimic joint_6 x-1 -1.6708", color="#eb6834", fontcolor="#0b0b0b", penwidth=1.8];
+  "garra_elo2" -> "garra_elo3b" [label="joint_pinca_b\nmimic joint_6 x1 -0.2", color="#eb6834", fontcolor="#0b0b0b", penwidth=1.8];
+}

@@ -1,0 +1,13 @@
+# artefatos de build do ROS 2
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+# dataset completo e metadados gerados (ficam no Spark: ~/braco/dataset e ~/cerise2026/gemeo/dataset_meta)
+dataset/
+dataset_meta/
+# a amostra pequena (amostra_dataset/, ~4 MB) E versionada de proposito
+__pycache__/
+*.pyc
+.mpl/
+tmp/
+*.log.bak

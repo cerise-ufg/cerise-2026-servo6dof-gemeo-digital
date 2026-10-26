@@ -1,0 +1,12 @@
+recolhido        exec SUCCESS  |  23 pontos | dur 2.18 s | plan_only 10/10 ok, tempo medio 14.5 ms (max 15.9)
+giro_esquerda    exec SUCCESS  |  28 pontos | dur 2.63 s | plan_only 10/10 ok, tempo medio 13.0 ms (max 23.7)
+estendido        exec SUCCESS  |  23 pontos | dur 2.19 s | plan_only 10/10 ok, tempo medio 15.9 ms (max 24.6)
+alvo_cartesiano  exec SUCCESS  |  21 pontos | dur 1.98 s | plan_only 10/10 ok, tempo medio 17.0 ms (max 24.3)
+home             exec SUCCESS  |  17 pontos | dur 1.56 s | plan_only 10/10 ok, tempo medio 12.9 ms (max 17.3)
+alvo cartesiano: erro de posicao final (FK) = 0.0159 m
+objetivos com SUCCESS: 5/5
+salvo: /repo/resultados/moveit_planejamento.json
+--- ros2 control list_controllers ---
+[92mgripper_controller     [0m joint_trajectory_controller/JointTrajectoryController  [92mactive[0m
+[92mjoint_state_broadcaster[0m joint_state_broadcaster/JointStateBroadcaster          [92mactive[0m
+[92marm_controller         [0m joint_trajectory_controller/JointTrajectoryController  [92mactive[0m

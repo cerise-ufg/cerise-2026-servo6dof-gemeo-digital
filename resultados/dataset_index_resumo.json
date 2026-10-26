@@ -1,0 +1,52 @@
+{
+  "dataset": "/dataset",
+  "gerado_em": "2026-10-26 05:21:49",
+  "n_poses_json": 3594,
+  "n_poses_indexadas": 3594,
+  "erros_json": [],
+  "n_png": 21564,
+  "n_png_referenciados": 21564,
+  "png_orfaos": 0,
+  "exemplos_orfaos": [],
+  "outros_arquivos": [
+    "poses_registradas_w0.csv",
+    "poses_registradas_w1.csv",
+    "poses_registradas_w2.csv",
+    "poses_registradas_w3.csv",
+    "poses_registradas_w4.csv",
+    "poses_registradas_w5.csv",
+    "poses_registradas_w6.csv",
+    "poses_registradas_w7.csv"
+  ],
+  "poses_com_arquivo_faltando": 0,
+  "faltantes_no_plano": 1406,
+  "exemplos_faltantes_plano": [
+    1352,
+    2124,
+    2197,
+    2759,
+    2774,
+    2779,
+    2816,
+    3197,
+    3199,
+    3205,
+    3239,
+    3249,
+    3251,
+    3311,
+    3339,
+    3340,
+    3437,
+    3469,
+    3477,
+    3487
+  ],
+  "bytes_total": 1804372678,
+  "splits": {
+    "treino": 2880,
+    "validacao": 360,
+    "teste": 354
+  },
+  "tempo_s": 1.6
+}

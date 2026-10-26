@@ -1,0 +1,9 @@
+Finished <<< servo6dof_moveit [0.86s]
+Finished <<< servo6dof_description [0.95s]
+Starting >>> servo6dof_camera
+Finished <<< servo6dof_camera [0.72s]
+
+Summary: 4 packages finished [1.77s]
+URDF gerado: /repo/modelo_digital/urdf/servo6dof.urdf (14186 bytes)
+robot: servo6dof_description | links: 13 | joints: 12 {'fixed': 1, 'revolute': 11}
+juntas mimic: joint_garra_1, joint_pinca_a, joint_7, joint_garra_3, joint_pinca_b

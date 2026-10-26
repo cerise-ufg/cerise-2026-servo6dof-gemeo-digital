@@ -1,0 +1,44 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.5
+      Plane Cell Count: 20
+      Reference Frame: world
+    - Class: rviz_default_plugins/RobotModel
+      Name: Braco - referencia
+      Enabled: true
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+      TF Prefix: ""
+      Alpha: 1
+    - Class: rviz_default_plugins/RobotModel
+      Name: Gemeo digital
+      Enabled: true
+      Description Source: Topic
+      Description Topic:
+        Value: /twin/robot_description
+      TF Prefix: twin
+      Alpha: 0.45
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: false
+  Global Options:
+    Fixed Frame: world
+    Background Color: 44; 48; 55
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 9
+      Focal Point:
+        X: 0
+        Y: 1.5
+        Z: 1
+      Pitch: 0.35
+      Yaw: 0.2

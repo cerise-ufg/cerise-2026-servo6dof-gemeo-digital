@@ -1,0 +1,29 @@
+{
+  "n_poses": 3594,
+  "limiar_rad": 0.01,
+  "frac_poses_divergentes": 0.3511407902058987,
+  "por_junta_frac_divergente": {
+    "joint_1": 0.20951585976627712,
+    "joint_2": 0.2760155815247635,
+    "joint_3": 0.22064552031163048,
+    "joint_4": 0.03478018920422927,
+    "joint_5": 0.0013912075681691708
+  },
+  "por_junta_dif_media_rad": {
+    "joint_1": 0.10103742070116863,
+    "joint_2": 0.12638573177518084,
+    "joint_3": 0.11000057595993323,
+    "joint_4": 0.030708372287145243,
+    "joint_5": 0.0003995909849749582
+  },
+  "dif_max_rad": 2.8186999999999998,
+  "dif_p95_rad": 1.1666534999999998,
+  "frac_comandadas_atravessam_chao": 0.1986644407345576,
+  "frac_divergentes_entre_as_que_atravessam_chao": 1.0,
+  "frac_divergentes_entre_as_acima_do_chao": 0.19027777777777777,
+  "z_min_real_m_das_divergentes": {
+    "media": 0.29210129822073005,
+    "p5": 0.17156383501186426
+  },
+  "frac_reais_abaixo_de_-5cm": 0.0
+}

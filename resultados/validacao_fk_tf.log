@@ -1,0 +1,20 @@
+50/300 configuracoes
+100/300 configuracoes
+150/300 configuracoes
+200/300 configuracoes
+250/300 configuracoes
+300/300 configuracoes
+{
+ "n_comparacoes": 3300,
+ "consultas_tf_falhas": 0,
+ "erro_pos_m": {
+  "media": 3.3077495422903504e-16,
+  "max": 1.900395703982448e-15,
+  "p99": 1.0600922051595103e-15
+ },
+ "erro_ang_rad": {
+  "media": 2.7672945790154355e-09,
+  "max": 4.2146848510894035e-08,
+  "p99": 2.9802322387695312e-08
+ }
+}

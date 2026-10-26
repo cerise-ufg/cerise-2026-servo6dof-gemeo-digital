@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<robot name="servo6dof">
+
+	<group name="arm">
+		<joint name="virtual_joint"/>
+		<joint name="joint_1"/>
+		<joint name="joint_2"/>
+		<joint name="joint_3"/>
+		<joint name="joint_4"/>
+		<joint name="joint_5"/>
+	</group>
+
+	<group name="gripper">
+		<joint name="joint_6"/>
+		<joint name="joint_garra_1"/>
+		<joint name="joint_pinca_a"/>
+		<joint name="joint_7"/>
+		<joint name="joint_garra_3"/>
+		<joint name="joint_pinca_b"/>
+
+	</group>
+
+	<group_state name="home" group="arm">
+		<joint name="joint_1" value="0"/>
+		<joint name="joint_2" value="0"/>
+		<joint name="joint_3" value="0"/>
+		<joint name="joint_4" value="0"/>
+		<joint name="joint_5" value="0"/>
+	</group_state>
+
+	<group_state name="home" group="gripper">
+		<joint name="joint_6" value="0"/>
+	</group_state>
+
+	<disable_collision link1="base_link" link2="primeiro_elo" reason="Adjacent"/>
+	<disable_collision link1="primeiro_elo" link2="segundo_elo" reason="Adjacent"/>
+	<disable_collision link1="segundo_elo" link2="terceiro_elo" reason="Adjacent"/>
+	<disable_collision link1="terceiro_elo" link2="quarto_elo" reason="Adjacent"/>
+	<disable_collision link1="quarto_elo" link2="base_garra" reason="Adjacent"/>
+	<disable_collision link1="base_garra" link2="garra_elo_1" reason="Adjacent"/>
+	<disable_collision link1="base_garra" link2="garra_elo_2a" reason="Adjacent"/>
+
+</robot>

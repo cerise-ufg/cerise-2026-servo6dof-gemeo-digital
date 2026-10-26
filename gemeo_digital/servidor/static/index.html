@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gêmeo Digital servo6dof</title>
+<link rel="stylesheet" href="/static/estilo.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "/static/vendor/three/build/three.module.js",
+    "three/examples/jsm/": "/static/vendor/three/examples/jsm/",
+    "urdf-loader": "/static/vendor/urdf-loader/src/URDFLoader.js"
+  }
+}
+</script>
+</head>
+<body>
+<header class="topo">
+  <div class="marca">
+    <span class="sigla">CERISE</span>
+    <h1>Gêmeo Digital — braço servo6dof</h1>
+  </div>
+  <div class="chips">
+    <span class="chip" id="chip-conexao"><i class="ponto"></i><span>conectando…</span></span>
+    <span class="chip" id="chip-predictor">predictor: —</span>
+    <span class="chip" id="chip-quadro">quadro —</span>
+  </div>
+</header>
+
+<main class="grade">
+  <section class="palco">
+    <div id="viewport"></div>
+    <div class="legenda-3d">
+      <span><i class="amostra ref"></i>Braço — referência (verdade-base do Gazebo)</span>
+      <span><i class="amostra gemeo"></i>Gêmeo digital (juntas previstas)</span>
+    </div>
+    <div class="carregando" id="carregando">carregando URDF e malhas STL…</div>
+    <div class="barra">
+      <button id="bt-play" title="pausar / continuar">❚❚ pausar</button>
+      <button id="bt-ant" title="quadro anterior">◀</button>
+      <button id="bt-prox" title="próximo quadro">▶</button>
+      <label>fps
+        <select id="sel-fps"><option>1</option><option selected>2</option><option>5</option><option>10</option></select>
+      </label>
+      <label>câmera
+        <select id="sel-camera">
+          <option value="camera_frontal">frontal</option>
+          <option value="camera_diagonal">diagonal</option>
+        </select>
+      </label>
+      <label>disposição
+        <select id="sel-modo">
+          <option value="lado">lado a lado</option>
+          <option value="sobreposto">sobreposto (fantasma)</option>
+        </select>
+      </label>
+      <label>vista
+        <select id="sel-vista">
+          <option value="livre">livre (órbita)</option>
+          <option value="camera">mesma da câmera</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <aside class="lateral">
+    <div class="cartao">
+      <div class="cartao-cab"><h2>Câmera do estúdio</h2><span class="sub" id="img-legenda">—</span></div>
+      <div class="imagem"><img id="img-camera" alt="imagem da câmera do dataset"></div>
+    </div>
+
+    <div class="cartao">
+      <div class="cartao-cab"><h2>Ângulos por junta</h2><span class="sub">graus</span></div>
+      <table class="juntas">
+        <thead><tr><th>junta</th><th>referência</th><th>gêmeo</th><th>erro</th><th class="col-barra"></th></tr></thead>
+        <tbody id="tab-juntas"></tbody>
+      </table>
+      <div class="resumo">
+        <div><span class="rot">erro médio (braço)</span><span class="val" id="v-mae">—</span></div>
+        <div><span class="rot">erro máx.</span><span class="val" id="v-max">—</span></div>
+        <div><span class="rot">erro efetuador (FK)</span><span class="val" id="v-ee">—</span></div>
+        <div><span class="rot">latência predictor</span><span class="val" id="v-lat">—</span></div>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <div class="cartao-cab"><h2>Erro ao longo da sequência</h2><span class="sub">últimos 60 quadros</span></div>
+      <div class="leg-graf">
+        <span><i class="traco s1"></i>erro médio das 5 juntas</span>
+        <span><i class="traco s2"></i>erro máximo</span>
+      </div>
+      <div class="grafico"><canvas id="graf-erro"></canvas><div class="dica" id="dica"></div></div>
+    </div>
+  </aside>
+</main>
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>

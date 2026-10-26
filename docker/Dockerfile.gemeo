@@ -1,0 +1,25 @@
+# Imagem de ferramentas do Gemeo Digital (CERISE 2026, frente "Gemeo Digital - Base").
+# Deriva da imagem do gerador de dataset (ROS 2 Humble + Ignition Fortress, arm64)
+# e acrescenta: MoveIt 2 (move_group + OMPL + KDL), ferramentas de analise
+# (numpy/scipy/pandas/matplotlib/graphviz) e o servidor web (FastAPI + uvicorn).
+#   sudo docker build -f docker/Dockerfile.gemeo -t cerise26_gemeo:latest .
+FROM servo6dof:humble
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ros-humble-moveit-ros-move-group \
+        ros-humble-moveit-planners-ompl \
+        ros-humble-moveit-kinematics \
+        ros-humble-moveit-configs-utils \
+        ros-humble-moveit-simple-controller-manager \
+        ros-humble-moveit-ros-planning-interface \
+        ros-humble-tf2-ros-py ros-humble-tf2-tools \
+        ros-humble-joint-state-publisher \
+        python3-matplotlib python3-pandas python3-scipy python3-pil \
+        python3-pip graphviz \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --no-cache-dir "fastapi==0.115.6" "uvicorn[standard]==0.32.1"
+
+WORKDIR /repo
+CMD ["bash"]

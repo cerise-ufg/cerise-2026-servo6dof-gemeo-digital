@@ -1,0 +1,41 @@
+$ ros2 node list
+/gemeo_twin
+/publicar_dataset
+/robot_state_publisher
+/rsp_twin
+/tf_twin
+$ ros2 topic hz /twin/joint_states  (8 s)
+average rate: 1.326
+	min: 0.494s max: 1.015s std dev: 0.26028s window: 2
+average rate: 1.003
+	min: 0.486s max: 1.996s std dev: 0.61480s window: 4
+$ ros2 topic echo --once /twin/joint_states
+header:
+  stamp:
+    sec: 1792992619
+    nanosec: 961046681
+  frame_id: ''
+name:
+- joint_1
+- joint_2
+- joint_3
+- joint_4
+- joint_5
+- joint_6
+position:
+- -0.5389
+- -0.73341
+- 0.58807
+- -1.16252
+- -1.2909
+- 0.2536
+velocity: []
+effort: []
+---
+$ python3 verificar_tf_twin.py
+{
+ "n_amostras": 5,
+ "erro_max_m": 4.577566798522237e-16,
+ "nota": "distancia entre o efetuador do gemeo (twin/base_garra, descontado twin/world) e o da referencia (base_garra) no mesmo carimbo de tempo, via tf2"
+}
+[gemeo_twin_node.py-3] [INFO] [1792992594.479562223] [gemeo_twin]: predictor: ground_truth (oraculo)

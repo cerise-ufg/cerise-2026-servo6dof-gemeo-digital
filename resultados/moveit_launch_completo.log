@@ -1,0 +1,599 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-26-04-40-58-526154-128dce74e94a-31
+[INFO] [launch]: Default logging verbosity is set to INFO
+WARNING:root:[33;21mCannot infer URDF from `/repo/ros2_ws/install/servo6dof_moveit/share/servo6dof_moveit`. -- using config/servo6dof.urdf[0m
+WARNING:root:[33;21mCannot infer SRDF from `/repo/ros2_ws/install/servo6dof_moveit/share/servo6dof_moveit`. -- using config/servo6dof.srdf[0m
+[INFO] [robot_state_publisher-1]: process started with pid [63]
+[INFO] [ros2_control_node-2]: process started with pid [65]
+[INFO] [spawner-3]: process started with pid [67]
+[INFO] [spawner-4]: process started with pid [69]
+[INFO] [spawner-5]: process started with pid [71]
+[INFO] [move_group-6]: process started with pid [73]
+[ros2_control_node-2] [WARN] [1792989658.681591986] [controller_manager]: [Deprecated] Passing the robot description parameter directly to the control_manager node is deprecated. Use '~/robot_description' topic from 'robot_state_publisher' instead.
+[ros2_control_node-2] [INFO] [1792989658.682571617] [resource_manager]: Loading hardware 'RobotSystem' 
+[ros2_control_node-2] [INFO] [1792989658.683786367] [resource_manager]: Initialize hardware 'RobotSystem' 
+[ros2_control_node-2] [INFO] [1792989658.683863711] [resource_manager]: Successful initialization of hardware 'RobotSystem'
+[ros2_control_node-2] [INFO] [1792989658.683925950] [resource_manager]: 'configure' hardware 'RobotSystem' 
+[ros2_control_node-2] [INFO] [1792989658.683934894] [resource_manager]: Successful 'configure' of hardware 'RobotSystem'
+[ros2_control_node-2] [INFO] [1792989658.683940526] [resource_manager]: 'activate' hardware 'RobotSystem' 
+[ros2_control_node-2] [INFO] [1792989658.683946222] [resource_manager]: Successful 'activate' of hardware 'RobotSystem'
+[ros2_control_node-2] [INFO] [1792989658.695242237] [controller_manager]: update rate is 100 Hz
+[ros2_control_node-2] [INFO] [1792989658.695614829] [controller_manager]: Spawning controller_manager RT thread with scheduler priority: 50
+[ros2_control_node-2] [WARN] [1792989658.695729085] [controller_manager]: Could not enable FIFO RT scheduling policy: with error number <1>(Operation not permitted). See [https://control.ros.org/master/doc/ros2_control/controller_manager/doc/userdoc.html] for details on how to enable realtime scheduling.
+[robot_state_publisher-1] [INFO] [1792989658.703167809] [robot_state_publisher]: got segment base_garra
+[robot_state_publisher-1] [INFO] [1792989658.703265585] [robot_state_publisher]: got segment base_link
+[robot_state_publisher-1] [INFO] [1792989658.703276545] [robot_state_publisher]: got segment garra_elo1
+[robot_state_publisher-1] [INFO] [1792989658.703282097] [robot_state_publisher]: got segment garra_elo2
+[robot_state_publisher-1] [INFO] [1792989658.703286449] [robot_state_publisher]: got segment garra_elo2a
+[robot_state_publisher-1] [INFO] [1792989658.703290545] [robot_state_publisher]: got segment garra_elo2b
+[robot_state_publisher-1] [INFO] [1792989658.703294321] [robot_state_publisher]: got segment garra_elo3a
+[robot_state_publisher-1] [INFO] [1792989658.703298001] [robot_state_publisher]: got segment garra_elo3b
+[robot_state_publisher-1] [INFO] [1792989658.703301905] [robot_state_publisher]: got segment primeiro_elo
+[robot_state_publisher-1] [INFO] [1792989658.703305905] [robot_state_publisher]: got segment quarto_elo
+[robot_state_publisher-1] [INFO] [1792989658.703309649] [robot_state_publisher]: got segment segundo_elo
+[robot_state_publisher-1] [INFO] [1792989658.703313361] [robot_state_publisher]: got segment terceiro_elo
+[robot_state_publisher-1] [INFO] [1792989658.703317201] [robot_state_publisher]: got segment world
+[move_group-6] [INFO] [1792989658.743257637] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0.0370325 seconds
+[move_group-6] [INFO] [1792989658.743343221] [moveit_robot_model.robot_model]: Loading robot model 'servo6dof_description'...
+[move_group-6] [INFO] [1792989658.743352165] [moveit_robot_model.robot_model]: No root/virtual joint specified in SRDF. Assuming fixed joint
+[ros2_control_node-2] [INFO] [1792989658.792042252] [controller_manager]: Loading controller 'gripper_controller'
+[ros2_control_node-2] [WARN] [1792989658.818945251] [gripper_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[spawner-5] [INFO] [1792989658.847429224] [spawner_gripper_controller]: [94mLoaded [1mgripper_controller[0m
+[ros2_control_node-2] [INFO] [1792989658.849452821] [controller_manager]: Configuring controller 'gripper_controller'
+[ros2_control_node-2] [INFO] [1792989658.849598085] [gripper_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ros2_control_node-2] [INFO] [1792989658.849621173] [gripper_controller]: Command interfaces are [position] and state interfaces are [position].
+[ros2_control_node-2] [INFO] [1792989658.849639237] [gripper_controller]: Using 'splines' interpolation method.
+[ros2_control_node-2] [INFO] [1792989658.852266625] [gripper_controller]: Controller state will be published at 50.00 Hz.
+[ros2_control_node-2] [INFO] [1792989658.856136779] [gripper_controller]: Action status changes will be monitored at 20.00 Hz.
+[spawner-3] [INFO] [1792989658.879042280] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-5] [INFO] [1792989658.887457020] [spawner_gripper_controller]: [92mConfigured and activated [1mgripper_controller[0m
+[spawner-4] [INFO] [1792989658.888495578] [spawner_arm_controller]: waiting for service /controller_manager/list_controllers to become available...
+[move_group-6] [INFO] [1792989658.965955510] [moveit_kinematics_base.kinematics_base]: Using position only ik
+[INFO] [spawner-5]: process has finished cleanly [pid 71]
+[ros2_control_node-2] [INFO] [1792989659.134227464] [controller_manager]: Loading controller 'joint_state_broadcaster'
+[spawner-3] [INFO] [1792989659.147226596] [spawner_joint_state_broadcaster]: [94mLoaded [1mjoint_state_broadcaster[0m
+[ros2_control_node-2] [INFO] [1792989659.147720852] [controller_manager]: Loading controller 'arm_controller'
+[ros2_control_node-2] [WARN] [1792989659.155395352] [arm_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[ros2_control_node-2] [INFO] [1792989659.156051815] [controller_manager]: Configuring controller 'joint_state_broadcaster'
+[ros2_control_node-2] [INFO] [1792989659.156098967] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[spawner-4] [INFO] [1792989659.156938822] [spawner_arm_controller]: [94mLoaded [1marm_controller[0m
+[ros2_control_node-2] [INFO] [1792989659.169508739] [controller_manager]: Configuring controller 'arm_controller'
+[ros2_control_node-2] [INFO] [1792989659.169660835] [arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ros2_control_node-2] [INFO] [1792989659.169671683] [arm_controller]: Command interfaces are [position] and state interfaces are [position].
+[ros2_control_node-2] [INFO] [1792989659.169678146] [arm_controller]: Using 'splines' interpolation method.
+[ros2_control_node-2] [INFO] [1792989659.170034290] [arm_controller]: Controller state will be published at 50.00 Hz.
+[ros2_control_node-2] [INFO] [1792989659.172344174] [arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[spawner-3] [INFO] [1792989659.267195968] [spawner_joint_state_broadcaster]: [92mConfigured and activated [1mjoint_state_broadcaster[0m
+[move_group-6] [INFO] [1792989659.270789882] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Publishing maintained planning scene on 'monitored_planning_scene'
+[move_group-6] [INFO] [1792989659.271130762] [moveit.ros_planning_interface.moveit_cpp]: Listening to 'joint_states' for joint states
+[move_group-6] [INFO] [1792989659.271829897] [moveit_ros.current_state_monitor]: Listening to joint states on topic 'joint_states'
+[move_group-6] [INFO] [1792989659.272024024] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/attached_collision_object' for attached collision objects
+[move_group-6] [INFO] [1792989659.272031560] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
+[move_group-6] [INFO] [1792989659.272112168] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/planning_scene'
+[move_group-6] [INFO] [1792989659.272116920] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting world geometry update monitor for collision objects, attached objects, octomap updates.
+[move_group-6] [INFO] [1792989659.272204184] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'collision_object'
+[move_group-6] [INFO] [1792989659.272293720] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'planning_scene_world' for planning scene world geometry
+[move_group-6] [WARN] [1792989659.272712167] [moveit.ros.occupancy_map_monitor.middleware_handle]: Resolution not specified for Octomap. Assuming resolution = 0.1 instead
+[move_group-6] [ERROR] [1792989659.272722887] [moveit.ros.occupancy_map_monitor.middleware_handle]: No 3D sensor plugin(s) defined for octomap updates
+[spawner-4] [INFO] [1792989659.286662994] [spawner_arm_controller]: [92mConfigured and activated [1marm_controller[0m
+[INFO] [spawner-3]: process has finished cleanly [pid 67]
+[INFO] [spawner-4]: process has finished cleanly [pid 69]
+[move_group-6] [INFO] [1792989659.766428399] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'ompl'
+[move_group-6] [INFO] [1792989659.772087639] [moveit.ros_planning.planning_pipeline]: Using planning interface 'OMPL'
+[move_group-6] [INFO] [1792989659.773060917] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.path_tolerance' was not set. Using default value: 0.100000
+[move_group-6] [INFO] [1792989659.773072725] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.resample_dt' was not set. Using default value: 0.100000
+[move_group-6] [INFO] [1792989659.773074677] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.min_angle_change' was not set. Using default value: 0.001000
+[move_group-6] [INFO] [1792989659.773084389] [moveit_ros.fix_workspace_bounds]: Param 'ompl.default_workspace_bounds' was not set. Using default value: 10.000000
+[move_group-6] [INFO] [1792989659.773092517] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_bounds_error' was set to 0.100000
+[move_group-6] [INFO] [1792989659.773095461] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-6] [INFO] [1792989659.773100181] [moveit_ros.fix_start_state_collision]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-6] [INFO] [1792989659.773102501] [moveit_ros.fix_start_state_collision]: Param 'ompl.jiggle_fraction' was set to 0.050000
+[move_group-6] [INFO] [1792989659.773104965] [moveit_ros.fix_start_state_collision]: Param 'ompl.max_sampling_attempts' was not set. Using default value: 100
+[move_group-6] [INFO] [1792989659.773109701] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Add Time Optimal Parameterization'
+[move_group-6] [INFO] [1792989659.773111253] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Resolve constraint frames to robot links'
+[move_group-6] [INFO] [1792989659.773112629] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Workspace Bounds'
+[move_group-6] [INFO] [1792989659.773114133] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Bounds'
+[move_group-6] [INFO] [1792989659.773115557] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State In Collision'
+[move_group-6] [INFO] [1792989659.773117125] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Path Constraints'
+[move_group-6] [INFO] [1792989659.787936943] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for arm_controller
+[move_group-6] [INFO] [1792989659.789639676] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for gripper_controller
+[move_group-6] [INFO] [1792989659.789794972] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989659.789827420] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989659.790080588] [moveit_ros.trajectory_execution_manager]: Trajectory execution is managing controllers
+[move_group-6] [INFO] [1792989659.790097820] [move_group.move_group]: MoveGroup debug mode is ON
+[move_group-6] [INFO] [1792989659.802365561] [move_group.move_group]: 
+[move_group-6] 
+[move_group-6] ********************************************************
+[move_group-6] * MoveGroup using: 
+[move_group-6] *     - ApplyPlanningSceneService
+[move_group-6] *     - ClearOctomapService
+[move_group-6] *     - CartesianPathService
+[move_group-6] *     - ExecuteTrajectoryAction
+[move_group-6] *     - GetPlanningSceneService
+[move_group-6] *     - KinematicsService
+[move_group-6] *     - MoveAction
+[move_group-6] *     - MotionPlanService
+[move_group-6] *     - QueryPlannersService
+[move_group-6] *     - StateValidationService
+[move_group-6] ********************************************************
+[move_group-6] 
+[move_group-6] [INFO] [1792989659.802425081] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context using planning plugin ompl_interface/OMPLPlanner
+[move_group-6] [INFO] [1792989659.802431161] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context initialization complete
+[move_group-6] [96mLoading 'move_group/ApplyPlanningSceneService'...
+[move_group-6] [0m[96mLoading 'move_group/ClearOctomapService'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupCartesianPathService'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupExecuteTrajectoryAction'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupGetPlanningSceneService'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupKinematicsService'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupMoveAction'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupPlanService'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupQueryPlannersService'...
+[move_group-6] [0m[96mLoading 'move_group/MoveGroupStateValidationService'...
+[move_group-6] [0m[92m
+[move_group-6] You can start planning now!
+[move_group-6] 
+[move_group-6] [INFO] [1792989659.890826644] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989659.891013923] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989659.896661851] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989659.896749227] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989659.896968763] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989659.897326666] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [WARN] [1792989659.911873396] [moveit_trajectory_processing.time_optimal_trajectory_generation]: Joint acceleration limits are not defined. Using the default 1 rad/s^2. You can define acceleration limits in the URDF or joint_limits.yaml.
+[move_group-6] [INFO] [1792989659.912721043] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989659.917715771] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989659.917777179] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989659.926210942] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989659.926239118] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989659.926365102] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989659.926535726] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989659.942676134] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989659.944734483] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989659.944805586] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989659.946191008] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989659.946223792] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989659.946380976] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989659.946635280] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989659.962782343] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989659.966767201] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989659.966892689] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989659.976237043] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989659.976710642] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989659.976972226] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989659.977204802] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989659.991755516] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989659.994862743] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989659.994970167] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989659.996058933] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989659.996093013] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989659.996240437] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989659.996470549] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989660.012366557] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989660.016316375] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989660.016419367] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989660.026596679] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989660.026631655] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989660.026801767] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989660.027051975] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989660.043018206] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989660.046662089] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989660.046769657] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989660.056156299] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989660.056202139] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989660.056404522] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989660.056637130] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989660.072651090] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989660.076157324] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989660.076229580] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989660.087158396] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989660.087201468] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989660.087363212] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989660.087617323] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989660.103405587] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989660.107159742] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989660.107231646] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989660.116486624] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989660.116519424] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989660.116748255] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989660.116919423] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989660.131258057] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989660.134221413] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989660.134320629] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989660.136065842] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989660.136099794] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989660.136297938] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989660.136523985] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989660.154063639] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989660.157938913] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989660.158105521] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989660.166341109] [moveit_move_group_default_capabilities.move_action_capability]: Combined planning and execution request received for MoveGroup action. Forwarding to planning and execution pipeline.
+[move_group-6] [WARN] [1792989660.166379717] [moveit_move_group_capabilities_base.move_group_capability]: Execution of motions should always start at the robot's current state. Ignoring the state supplied as difference in the planning scene diff
+[move_group-6] [INFO] [1792989660.166393588] [moveit_ros.plan_execution]: Planning attempt 1 of at most 1
+[move_group-6] [INFO] [1792989660.166401380] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989660.166533524] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989660.166722692] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989660.183335707] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989660.183407339] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989660.183538555] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[move_group-6] [INFO] [1792989660.186414598] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[move_group-6] [INFO] [1792989660.186474038] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989660.186488310] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989660.186611926] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to arm_controller
+[ros2_control_node-2] [INFO] [1792989660.187573877] [arm_controller]: Received new action goal
+[ros2_control_node-2] [INFO] [1792989660.187646836] [arm_controller]: Accepted new action goal
+[move_group-6] [INFO] [1792989660.187874388] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: arm_controller started execution
+[move_group-6] [INFO] [1792989660.187902884] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[ros2_control_node-2] [INFO] [1792989662.385876563] [arm_controller]: Goal reached, success!
+[move_group-6] [INFO] [1792989662.389396078] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller 'arm_controller' successfully finished
+[move_group-6] [INFO] [1792989662.416085126] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[move_group-6] [INFO] [1792989662.416658869] [moveit_move_group_default_capabilities.move_action_capability]: Solution was found and executed.
+[move_group-6] [INFO] [1792989663.427891360] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.427980928] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.436224628] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.436258547] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.436549923] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.436760067] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.444171256] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.447410115] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.447488003] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.456236789] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.456270901] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.456431509] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.456625941] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.473286892] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.477218342] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.477314950] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.486133048] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.486171384] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.486346392] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.486609144] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.495617050] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.499705012] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.499784788] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.506160730] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.506646681] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.506822217] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.507002153] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.531940899] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.534319296] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.534417839] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.536055997] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.536440412] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.536674524] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.536907244] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.552640692] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.555014384] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.555156768] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.556094495] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.556117199] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.556270271] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.556471870] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.560929975] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.564866722] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.564965185] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.566190624] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.566222320] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.566431439] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.566631183] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.584889379] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.588781070] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.589362701] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.596175442] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.596205954] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.596382050] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.596588850] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.615642437] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.619901407] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.619983294] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.626158421] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.626183365] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.626334549] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.627025588] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.644225514] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.649212402] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.649309826] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.656106824] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989663.656131416] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.656294536] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.656488631] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.673333294] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989663.675710970] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989663.675790490] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989663.686154747] [moveit_move_group_default_capabilities.move_action_capability]: Combined planning and execution request received for MoveGroup action. Forwarding to planning and execution pipeline.
+[move_group-6] [WARN] [1792989663.686193627] [moveit_move_group_capabilities_base.move_group_capability]: Execution of motions should always start at the robot's current state. Ignoring the state supplied as difference in the planning scene diff
+[move_group-6] [INFO] [1792989663.686200507] [moveit_ros.plan_execution]: Planning attempt 1 of at most 1
+[move_group-6] [INFO] [1792989663.686205035] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989663.686371098] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989663.686550698] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989663.701645635] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989663.701998115] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989663.702052467] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[move_group-6] [INFO] [1792989663.706213388] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[move_group-6] [INFO] [1792989663.706252684] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989663.706261900] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989663.706329100] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to arm_controller
+[ros2_control_node-2] [INFO] [1792989663.706617724] [arm_controller]: Received new action goal
+[ros2_control_node-2] [INFO] [1792989663.706658812] [arm_controller]: Accepted new action goal
+[move_group-6] [INFO] [1792989663.706862380] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: arm_controller started execution
+[move_group-6] [INFO] [1792989663.706874795] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[ros2_control_node-2] [INFO] [1792989666.355883729] [arm_controller]: Goal reached, success!
+[move_group-6] [INFO] [1792989666.357266127] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller 'arm_controller' successfully finished
+[move_group-6] [INFO] [1792989666.386186355] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[move_group-6] [INFO] [1792989666.386336515] [moveit_move_group_default_capabilities.move_action_capability]: Solution was found and executed.
+[move_group-6] [INFO] [1792989667.399203643] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.399312523] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.406946543] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.406984559] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.407787086] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.408046798] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.423825094] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.429502205] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.429589149] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.436779810] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.436804770] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.436990258] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.437160706] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.452521499] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.454950039] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.455084935] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.456926340] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.456958868] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.457159652] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.457403747] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.472555212] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.476912134] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.476994326] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.486210280] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.486240472] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.486394120] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.486569127] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.512196625] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.514528349] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.514618077] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.516836586] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.516861802] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.517060057] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.517264649] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.531921267] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.534420991] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.534483727] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.536835180] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.536853883] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.536993211] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.537181643] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.552238708] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.555838863] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.555918127] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.566129631] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.566157855] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.566315855] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.566491759] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.582195943] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.585694978] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.585798898] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.586051105] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.586068897] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.586355665] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.586550336] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.601138315] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.605058917] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.605183812] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.606057939] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.606082435] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.606336483] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.606519586] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.621380204] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.625278262] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.625353590] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.626059829] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989667.626075173] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.626215205] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.626392804] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.651768174] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989667.655399193] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989667.655512728] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989667.656433847] [moveit_move_group_default_capabilities.move_action_capability]: Combined planning and execution request received for MoveGroup action. Forwarding to planning and execution pipeline.
+[move_group-6] [WARN] [1792989667.656472215] [moveit_move_group_capabilities_base.move_group_capability]: Execution of motions should always start at the robot's current state. Ignoring the state supplied as difference in the planning scene diff
+[move_group-6] [INFO] [1792989667.656481127] [moveit_ros.plan_execution]: Planning attempt 1 of at most 1
+[move_group-6] [INFO] [1792989667.656486871] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989667.656663607] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989667.656894454] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989667.675092171] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989667.675131435] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989667.675185643] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[move_group-6] [INFO] [1792989667.676325353] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[move_group-6] [INFO] [1792989667.676729129] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989667.676749545] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989667.676841016] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to arm_controller
+[ros2_control_node-2] [INFO] [1792989667.677122344] [arm_controller]: Received new action goal
+[ros2_control_node-2] [INFO] [1792989667.677169560] [arm_controller]: Accepted new action goal
+[move_group-6] [INFO] [1792989667.677486887] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: arm_controller started execution
+[move_group-6] [INFO] [1792989667.677515047] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[ros2_control_node-2] [INFO] [1792989669.875895779] [arm_controller]: Goal reached, success!
+[move_group-6] [INFO] [1792989669.877572080] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller 'arm_controller' successfully finished
+[move_group-6] [INFO] [1792989669.906130373] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[move_group-6] [INFO] [1792989669.906437493] [moveit_move_group_default_capabilities.move_action_capability]: Solution was found and executed.
+[move_group-6] [INFO] [1792989670.917916222] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989670.918004878] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989670.926096914] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989670.926124050] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989670.926376530] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989670.926635649] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989670.952193099] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989670.955869045] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989670.955966997] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989670.966890804] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989670.966918292] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989670.967081124] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989670.967246948] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989670.990644417] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989670.993121133] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989670.993212349] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989670.996754647] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989670.996787143] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989670.996961079] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989670.997168407] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.011929904] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.016415594] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.016610921] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.026103931] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989671.026135195] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.026363867] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.026574538] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.044060640] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.048950441] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.049051000] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.056118014] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989671.056149150] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.056328029] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.056528205] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.077168990] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.081903767] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.081980119] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.086186480] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989671.086212624] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.086368384] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.086527216] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.100012572] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.105201236] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.105292532] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.106267106] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989671.106278770] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.106430914] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.106977521] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.132013083] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.134953399] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.135090615] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.136330597] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989671.136356293] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.136526804] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.136717892] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.152734060] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.155580728] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.155672951] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.156039431] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989671.156057623] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.156234775] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.156441366] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.174517467] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.179082036] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.179642499] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.186867192] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989671.186969784] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.187171592] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.187359448] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.206319595] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989671.209105287] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989671.209205639] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989671.216221852] [moveit_move_group_default_capabilities.move_action_capability]: Combined planning and execution request received for MoveGroup action. Forwarding to planning and execution pipeline.
+[move_group-6] [WARN] [1792989671.216269484] [moveit_move_group_capabilities_base.move_group_capability]: Execution of motions should always start at the robot's current state. Ignoring the state supplied as difference in the planning scene diff
+[move_group-6] [INFO] [1792989671.216277788] [moveit_ros.plan_execution]: Planning attempt 1 of at most 1
+[move_group-6] [INFO] [1792989671.216284364] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989671.216485468] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989671.216885771] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989671.231406981] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989671.231433893] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989671.231464517] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[move_group-6] [INFO] [1792989671.237545788] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[move_group-6] [INFO] [1792989671.237595964] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989671.237608652] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989671.237688572] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to arm_controller
+[ros2_control_node-2] [INFO] [1792989671.237925227] [arm_controller]: Received new action goal
+[ros2_control_node-2] [INFO] [1792989671.237976731] [arm_controller]: Accepted new action goal
+[move_group-6] [INFO] [1792989671.238330587] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: arm_controller started execution
+[move_group-6] [INFO] [1792989671.238343835] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[ros2_control_node-2] [INFO] [1792989673.225899683] [arm_controller]: Goal reached, success!
+[move_group-6] [INFO] [1792989673.238361200] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller 'arm_controller' successfully finished
+[move_group-6] [INFO] [1792989673.266183350] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[move_group-6] [INFO] [1792989673.267650820] [moveit_move_group_default_capabilities.move_action_capability]: Solution was found and executed.
+[move_group-6] [INFO] [1792989674.277608431] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.277706959] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.286073187] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.286109458] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.286835761] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.287067841] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.302882713] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.307882610] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.307975986] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.316119813] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.316148325] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.316318437] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.316490069] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.330235984] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.334357050] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.334504953] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.336120439] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.336153527] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.336285959] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.336461191] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.354499851] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.358460133] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.358531557] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.366111722] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.366158874] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.366328457] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.367279880] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.382502481] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.387010170] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.387113770] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.396250156] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.396284348] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.396447724] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.396641964] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.411071686] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.415818847] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.415901215] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.426449199] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.426479935] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.426670318] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.427038910] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.441942087] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.446592368] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.446682752] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.456181410] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.456207058] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.456354321] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.456522449] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.459302125] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.464044566] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.464133462] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.466240291] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.466269315] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.466443682] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.466732210] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.482479610] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.485901573] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.485985029] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.496155973] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.496183381] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.496333125] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.496490309] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.510905775] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.516009239] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.516124167] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.526196856] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
+[move_group-6] [INFO] [1792989674.526231736] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.526396136] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.526621815] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.541363153] [moveit_move_group_default_capabilities.move_action_capability]: Motion plan was computed successfully.
+[move_group-6] [INFO] [1792989674.546036042] [moveit_move_group_default_capabilities.move_action_capability]: Received request
+[move_group-6] [INFO] [1792989674.546126954] [moveit_move_group_default_capabilities.move_action_capability]: executing..
+[move_group-6] [INFO] [1792989674.556095899] [moveit_move_group_default_capabilities.move_action_capability]: Combined planning and execution request received for MoveGroup action. Forwarding to planning and execution pipeline.
+[move_group-6] [WARN] [1792989674.556128795] [moveit_move_group_capabilities_base.move_group_capability]: Execution of motions should always start at the robot's current state. Ignoring the state supplied as difference in the planning scene diff
+[move_group-6] [INFO] [1792989674.556135147] [moveit_ros.plan_execution]: Planning attempt 1 of at most 1
+[move_group-6] [INFO] [1792989674.556139323] [moveit_move_group_capabilities_base.move_group_capability]: Using planning pipeline 'ompl'
+[move_group-6] [WARN] [1792989674.556731178] [moveit.ompl_planning.planning_context_manager]: Cannot find planning configuration for group 'arm' using planner 'RRTConnectkConfigDefault'. Will use defaults instead.
+[move_group-6] [INFO] [1792989674.557310233] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
+[move_group-6] [INFO] [1792989674.573790640] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989674.573920224] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989674.574038416] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[move_group-6] [INFO] [1792989674.576102205] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[move_group-6] [INFO] [1792989674.576133421] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989674.576147565] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[move_group-6] [INFO] [1792989674.576216093] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to arm_controller
+[ros2_control_node-2] [INFO] [1792989674.576459468] [arm_controller]: Received new action goal
+[ros2_control_node-2] [INFO] [1792989674.576500140] [arm_controller]: Accepted new action goal
+[move_group-6] [INFO] [1792989674.576761212] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: arm_controller started execution
+[move_group-6] [INFO] [1792989674.576777260] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[ros2_control_node-2] [INFO] [1792989676.145897083] [arm_controller]: Goal reached, success!
+[move_group-6] [INFO] [1792989676.176919772] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller 'arm_controller' successfully finished
+[move_group-6] [INFO] [1792989676.206110944] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[move_group-6] [INFO] [1792989676.206216543] [moveit_move_group_default_capabilities.move_action_capability]: Solution was found and executed.

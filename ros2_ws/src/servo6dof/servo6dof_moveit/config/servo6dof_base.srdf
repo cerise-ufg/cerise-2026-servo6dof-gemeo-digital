@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SRDF do servo6dof.
+  Este arquivo e' o "esqueleto" (grupos, poses, efetuador). A matriz de
+  auto-colisao e' gerada por cima dele pelo collisions_updater, que e'
+  exatamente o mesmo codigo usado pela aba "Self-Collisions" da GUI do
+  MoveIt Setup Assistant.
+-->
+<robot name="servo6dof_description">
+
+    <!-- ================= GRUPOS DE PLANEJAMENTO ================= -->
+
+    <!-- Braco: cadeia cinematica de 5 juntas (joint_1 .. joint_5).
+         Usar <chain> em vez de listar juntas evita incluir a junta fixa
+         virtual_joint, que nao pode fazer parte de um grupo. -->
+    <group name="arm">
+        <chain base_link="base_link" tip_link="base_garra"/>
+    </group>
+
+    <!-- Garra: SO a junta ativa joint_6.
+         As demais (joint_7, joint_garra_1, joint_garra_3, joint_pinca_a,
+         joint_pinca_b) sao <mimic> no URDF: seguem joint_6 sozinhas.
+         Colocar junta mimic dentro de um grupo faz o MoveIt falhar. -->
+    <group name="gripper">
+        <joint name="joint_6"/>
+    </group>
+
+    <!-- ================= POSES NOMEADAS ================= -->
+
+    <group_state name="home" group="arm">
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="0"/>
+        <joint name="joint_3" value="0"/>
+        <joint name="joint_4" value="0"/>
+        <joint name="joint_5" value="0"/>
+    </group_state>
+
+    <group_state name="recolhido" group="arm">
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="-1.2"/>
+        <joint name="joint_3" value="1.2"/>
+        <joint name="joint_4" value="0"/>
+        <joint name="joint_5" value="0"/>
+    </group_state>
+
+    <group_state name="estendido" group="arm">
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="0.9"/>
+        <joint name="joint_3" value="-0.6"/>
+        <joint name="joint_4" value="0"/>
+        <joint name="joint_5" value="0.3"/>
+    </group_state>
+
+    <group_state name="aberta" group="gripper">
+        <joint name="joint_6" value="-0.60"/>
+    </group_state>
+
+    <group_state name="fechada" group="gripper">
+        <joint name="joint_6" value="0.45"/>
+    </group_state>
+
+    <!-- ================= EFETUADOR ================= -->
+
+    <end_effector name="garra" parent_link="base_garra" group="gripper" parent_group="arm"/>
+
+    <!-- ================= AUTO-COLISAO DA GARRA =================
+
+         A garra e' um mecanismo de barras acionado por uma unica junta
+         (joint_6); as outras cinco sao <mimic>. As malhas STL vem em escala
+         6x com deslocamentos grandes e se interpenetram por construcao.
+
+         A amostragem aleatoria do collisions_updater pega quase todos esses
+         pares, mas nao todos: o par base_garra <-> garra_elo3b escapava e
+         deixava o robo em auto-colisao no estado inicial, com o OMPL
+         respondendo "Skipping invalid start state" e falhando todo plano.
+
+         Como a pose relativa dessas pecas depende SO do joint_6, nao existe
+         plano que evite esse contato -- checar colisao entre elas nao ajuda
+         em nada. Entao desabilitamos o cluster inteiro (21 pares), que e'
+         exatamente o que se faz marcando as caixas na aba Self-Collisions
+         da GUI. O collisions_updater roda com --keep e preserva estes.
+         ========================================================= -->
+
+    <disable_collisions link1="base_garra"  link2="garra_elo1"  reason="User"/>
+    <disable_collisions link1="base_garra"  link2="garra_elo2"  reason="User"/>
+    <disable_collisions link1="base_garra"  link2="garra_elo2a" reason="User"/>
+    <disable_collisions link1="base_garra"  link2="garra_elo2b" reason="User"/>
+    <disable_collisions link1="base_garra"  link2="garra_elo3a" reason="User"/>
+    <disable_collisions link1="base_garra"  link2="garra_elo3b" reason="User"/>
+    <disable_collisions link1="garra_elo1"  link2="garra_elo2"  reason="User"/>
+    <disable_collisions link1="garra_elo1"  link2="garra_elo2a" reason="User"/>
+    <disable_collisions link1="garra_elo1"  link2="garra_elo2b" reason="User"/>
+    <disable_collisions link1="garra_elo1"  link2="garra_elo3a" reason="User"/>
+    <disable_collisions link1="garra_elo1"  link2="garra_elo3b" reason="User"/>
+    <disable_collisions link1="garra_elo2"  link2="garra_elo2a" reason="User"/>
+    <disable_collisions link1="garra_elo2"  link2="garra_elo2b" reason="User"/>
+    <disable_collisions link1="garra_elo2"  link2="garra_elo3a" reason="User"/>
+    <disable_collisions link1="garra_elo2"  link2="garra_elo3b" reason="User"/>
+    <disable_collisions link1="garra_elo2a" link2="garra_elo2b" reason="User"/>
+    <disable_collisions link1="garra_elo2a" link2="garra_elo3a" reason="User"/>
+    <disable_collisions link1="garra_elo2a" link2="garra_elo3b" reason="User"/>
+    <disable_collisions link1="garra_elo2b" link2="garra_elo3a" reason="User"/>
+    <disable_collisions link1="garra_elo2b" link2="garra_elo3b" reason="User"/>
+    <disable_collisions link1="garra_elo3a" link2="garra_elo3b" reason="User"/>
+
+</robot>

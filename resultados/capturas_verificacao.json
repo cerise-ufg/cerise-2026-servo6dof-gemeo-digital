@@ -1,0 +1,198 @@
+{
+  "lado": {
+    "arquivo": "a12_gemeo_lado_a_lado.png",
+    "url": "http://127.0.0.1:8091/?modo=lado&vista=livre&camera=camera_frontal&fps=2",
+    "tempo_ate_pronto_s": 0.96,
+    "estado_js": {
+      "pronto": true,
+      "robos": 2,
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": [],
+      "quadros": 9,
+      "ultimo": {
+        "idx": 7,
+        "id": 1649,
+        "mae": 0
+      },
+      "ws": "aberto"
+    },
+    "webgl": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+      "versao": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+    },
+    "canvas": {
+      "largura": 1128,
+      "altura": 924,
+      "frac_pixels_aluminio": 0.006326563507414572,
+      "frac_pixels_verde_gemeo": 0.014868479629117927,
+      "cores_distintas": 550
+    },
+    "console": [],
+    "malhas_visiveis": true
+  },
+  "sobreposto": {
+    "arquivo": "a12_gemeo_sobreposto_vista_camera.png",
+    "url": "http://127.0.0.1:8091/?modo=sobreposto&vista=camera&camera=camera_frontal&fps=2",
+    "tempo_ate_pronto_s": 1.77,
+    "estado_js": {
+      "pronto": true,
+      "robos": 2,
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": [],
+      "quadros": 9,
+      "ultimo": {
+        "idx": 7,
+        "id": 1649,
+        "mae": 0
+      },
+      "ws": "aberto"
+    },
+    "webgl": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+      "versao": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+    },
+    "canvas": {
+      "largura": 1128,
+      "altura": 924,
+      "frac_pixels_aluminio": 0.018742708237389088,
+      "frac_pixels_verde_gemeo": 0.03477691044180406,
+      "cores_distintas": 484
+    },
+    "console": [],
+    "malhas_visiveis": true
+  },
+  "diagonal": {
+    "arquivo": "a12_gemeo_sobreposto_camera_diagonal.png",
+    "url": "http://127.0.0.1:8091/?modo=sobreposto&vista=camera&camera=camera_diagonal&fps=2",
+    "tempo_ate_pronto_s": 1.69,
+    "estado_js": {
+      "pronto": true,
+      "robos": 2,
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": [],
+      "quadros": 9,
+      "ultimo": {
+        "idx": 7,
+        "id": 1649,
+        "mae": 0
+      },
+      "ws": "aberto"
+    },
+    "webgl": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+      "versao": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+    },
+    "canvas": {
+      "largura": 1128,
+      "altura": 924,
+      "frac_pixels_aluminio": 0.01752517576985662,
+      "frac_pixels_verde_gemeo": 0.022835689723987595,
+      "cores_distintas": 396
+    },
+    "console": [],
+    "malhas_visiveis": true
+  },
+  "ruido": {
+    "arquivo": "a12_gemeo_demo_predictor_ruido.png",
+    "url": "http://127.0.0.1:8091/?modo=lado&vista=livre&camera=camera_frontal&fps=10",
+    "tempo_ate_pronto_s": 9.38,
+    "estado_js": {
+      "pronto": true,
+      "robos": 2,
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": [],
+      "quadros": 89,
+      "ultimo": {
+        "idx": 87,
+        "id": 2149,
+        "mae": 2.3028346581857853
+      },
+      "ws": "aberto"
+    },
+    "webgl": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+      "versao": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+    },
+    "canvas": {
+      "largura": 1128,
+      "altura": 924,
+      "frac_pixels_aluminio": 0.006257483651100672,
+      "frac_pixels_verde_gemeo": 0.014099966227625802,
+      "cores_distintas": 546
+    },
+    "console": [],
+    "malhas_visiveis": true
+  },
+  "ruido_sobreposto": {
+    "arquivo": "a12_gemeo_demo_ruido_sobreposto.png",
+    "url": "http://127.0.0.1:8091/?modo=sobreposto&vista=livre&camera=camera_diagonal&fps=10",
+    "tempo_ate_pronto_s": 8.05,
+    "estado_js": {
+      "pronto": true,
+      "robos": 2,
+      "malhas": {
+        "ref": 12,
+        "gemeo": 12
+      },
+      "erros": [],
+      "quadros": 90,
+      "ultimo": {
+        "idx": 88,
+        "id": 579,
+        "mae": 3.287298968184731
+      },
+      "ws": "aberto",
+      "efetuador": {
+        "ref": [
+          0.6181096861695545,
+          0.387140009805207,
+          0.5524091132875594
+        ],
+        "gemeo": [
+          0.5409142426994137,
+          0.3717103401088737,
+          0.46152380159733214
+        ],
+        "servidor_gt": [
+          0.61811,
+          0.38714,
+          0.552409
+        ],
+        "servidor_pred": [
+          0.540914,
+          0.37171,
+          0.461524
+        ]
+      }
+    },
+    "fk_threejs_vs_python": {
+      "ref_vs_servidor_m": 3.3379598817216076e-07,
+      "gemeo_vs_servidor_m": 4.6253720931394715e-07
+    },
+    "webgl": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+      "versao": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+    },
+    "canvas": {
+      "largura": 1128,
+      "altura": 924,
+      "frac_pixels_aluminio": 0.009822771790856897,
+      "frac_pixels_verde_gemeo": 0.017978032605692182,
+      "cores_distintas": 516
+    },
+    "console": [],
+    "malhas_visiveis": true
+  }
+}
