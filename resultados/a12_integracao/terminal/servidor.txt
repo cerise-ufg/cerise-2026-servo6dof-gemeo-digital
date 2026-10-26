@@ -1,0 +1,42 @@
+$ sudo docker ps --filter name=cerise26_gemeo --format "{{.Names}}  {{.Image}}  {{.Status}}  {{.Ports}}"
+cerise26_gemeo  cerise26_pose:latest  Up 34 minutes  6006/tcp, 8888/tcp, 127.0.0.1:8091->8091/tcp
+$ sudo docker inspect cerise26_gemeo --format "{{.Config.Env}}" | tr " " "\n" | grep GEMEO_
+[GEMEO_RUIDO_GRAUS=3.0
+GEMEO_SPLIT_FONTE=auto
+GEMEO_POSE_DIR=/pose
+GEMEO_LOG_DIR=/saida_logs
+GEMEO_PREDICTOR=pose
+GEMEO_N_QUADROS=0
+$ sudo docker logs cerise26_gemeo 2>&1 | grep -v "GET\|POST" | head -6
+=============
+== PyTorch ==
+=============
+NVIDIA Release 26.05 (build 313520560)
+PyTorch Version 2.12.0a0+5aff392
+Container image Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+$ curl -s http://127.0.0.1:8091/saude
+{"ok":true,"quadros":500,"predictor":"PosePredictor (HPE + Depth Anything V2, frente POSE)","split":"frente de pose (index.npz, semente 2026)"}
+$ curl -s http://127.0.0.1:8091/api/recursos | python3 -m json.tool
+{
+    "predictor": "PosePredictor (HPE + Depth Anything V2, frente POSE)",
+    "uptime_s": 2094.1,
+    "contadores": {
+        "quadros": 1823,
+        "acks": 1690,
+        "prever": 139,
+        "sessoes": 19
+    },
+    "t_carga_predictor_s": 16.19311785697937,
+    "gpu_torch": {
+        "alocada_GB": 1.829,
+        "reservada_GB": 3.183,
+        "pico_alocada_GB": 2.941,
+        "pico_reservada_GB": 3.183,
+        "dispositivo": "NVIDIA GB10"
+    },
+    "VmHWM": "4242964 kB",
+    "VmRSS": "3280044 kB",
+    "cgroup_memory_current": 3.141,
+    "cgroup_memory_peak": 5.15,
+    "cgroup_memory_max": 10.737
+}

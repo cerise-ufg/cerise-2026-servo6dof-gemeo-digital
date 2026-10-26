@@ -1,0 +1,1 @@
+cd ~/cerise2026/gemeo/repo/amostra_dataset && python3 -c "import json,os; k=set(json.load(open(\"amostra.json\"))[\"poses\"]); [os.remove(f) for f in os.listdir(\".\") if f[:6].isdigit() and int(f[:6]) not in k]; print(len(os.listdir(\".\")))"

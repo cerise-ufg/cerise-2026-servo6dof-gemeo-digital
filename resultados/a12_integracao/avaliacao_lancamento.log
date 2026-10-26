@@ -1,0 +1,11 @@
+=== inicio 2026-10-26 07:00:06
+{"predictor":"PosePredictor (HPE + Depth Anything V2, frente POSE)","uptime_s":398.6,"contadores":{"quadros":15,"acks":9,"prever":0,"sessoes":5},"t_carga_predictor_s":16.19311785697937,"gpu_torch":{"alocada_GB":1.829,"reservada_GB":3.183,"pico_alocada_GB":2.941,"pico_reservada_GB":3.183,"dispositivo":"NVIDIA GB10"},"VmHWM":"4242964 kB","VmRSS":"4212700 kB","cgroup_memory_current":5.144,"cgroup_memory_peak":5.147,"cgroup_memory_max":10.737}
+camera_frontal   fps_alvo=malha fechada   501 quadros em   50.8 s -> 9.86 quadros/s (cliente) | recebido->desenhado mediana 14.1 ms
+camera_diagonal  fps_alvo=malha fechada   502 quadros em   84.2 s -> 5.96 quadros/s (cliente) | recebido->desenhado mediana 14.0 ms
+camera_frontal   fps_alvo=2.0              60 quadros em    8.3 s -> 7.26 quadros/s (cliente) | recebido->desenhado mediana 15.2 ms
+camera_frontal   fps_alvo=5.0              60 quadros em    7.8 s -> 7.72 quadros/s (cliente) | recebido->desenhado mediana 12.7 ms
+=== gpu fim 2026-10-26 07:02:47
+{"predictor":"PosePredictor (HPE + Depth Anything V2, frente POSE)","uptime_s":559.4,"contadores":{"quadros":1142,"acks":1132,"prever":0,"sessoes":9},"t_carga_predictor_s":16.19311785697937,"gpu_torch":{"alocada_GB":1.829,"reservada_GB":3.183,"pico_alocada_GB":2.941,"pico_reservada_GB":3.183,"dispositivo":"NVIDIA GB10"},"VmHWM":"4242964 kB","VmRSS":"3647080 kB","cgroup_memory_current":3.469,"cgroup_memory_peak":5.15,"cgroup_memory_max":10.737}
+camera_frontal   fps_alvo=malha fechada    40 quadros em   92.0 s -> 0.43 quadros/s (cliente) | recebido->desenhado mediana 1909.7 ms
+=== fim 2026-10-26 07:04:25
+{"predictor":"PosePredictor (HPE + Depth Anything V2, frente POSE)","uptime_s":658.0,"contadores":{"quadros":1183,"acks":1172,"prever":0,"sessoes":10},"t_carga_predictor_s":16.19311785697937,"gpu_torch":{"alocada_GB":1.829,"reservada_GB":3.183,"pico_alocada_GB":2.941,"pico_reservada_GB":3.183,"dispositivo":"NVIDIA GB10"},"VmHWM":"4242964 kB","VmRSS":"3310608 kB","cgroup_memory_current":3.151,"cgroup_memory_peak":5.15,"cgroup_memory_max":10.737}

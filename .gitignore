@@ -1,13 +1,26 @@
-# artefatos de build do ROS 2
+# artefatos de build do ROS 2 (colcon)
 ros2_ws/build/
 ros2_ws/install/
 ros2_ws/log/
-# dataset completo e metadados gerados (ficam no Spark: ~/braco/dataset e ~/cerise2026/gemeo/dataset_meta)
-dataset/
-dataset_meta/
-# a amostra pequena (amostra_dataset/, ~4 MB) E versionada de proposito
+legado/build/
+legado/install/
+legado/log/
+# datasets completos: distribuidos como Releases (ver RELEASES.md), nao versionados
+/dataset/
+/dataset_cinza/
+/dataset_laranja/
+/dataset_meta/
+legado/dataset/
+legado/dataset_cinza/
+# a amostra pequena (amostra_dataset/, ~4 MB) e os metadados em resultados/dataset_meta/ sao versionados de proposito
 __pycache__/
 *.pyc
 .mpl/
 tmp/
 *.log.bak
+# segredos nunca entram no repositorio
+*.secrets.env
+*.jks
+*.keystore
+upload.properties
+.env

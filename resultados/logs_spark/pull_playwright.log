@@ -1,0 +1,16 @@
+v1.49.1-noble: Pulling from playwright/python
+e82d16b0fcd3: Pulling fs layer
+ea16dc0d3736: Pulling fs layer
+820619057a1c: Pulling fs layer
+a5d0218c6c9e: Pulling fs layer
+820619057a1c: Download complete
+820619057a1c: Pull complete
+a5d0218c6c9e: Download complete
+ea16dc0d3736: Download complete
+ea16dc0d3736: Pull complete
+a5d0218c6c9e: Pull complete
+e82d16b0fcd3: Download complete
+e82d16b0fcd3: Pull complete
+Digest: sha256:42e251ec3238672c931be6c3565ff279690ae072c3e22058128d0412494f6866
+Status: Downloaded newer image for mcr.microsoft.com/playwright/python:v1.49.1-noble
+mcr.microsoft.com/playwright/python:v1.49.1-noble

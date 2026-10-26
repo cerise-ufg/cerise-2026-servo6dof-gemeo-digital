@@ -1,0 +1,17 @@
+6822879c3bf3f8676454c5fac6c2027edef731e3b72bbf5376b2baa1c4deb4eb
+aguardando o servidor...
+{"ok":true,"quadros":150,"predictor":"ground_truth (oraculo)"}
+servidor: http://127.0.0.1:8091  (container cerise26_gemeo, so loopback do Spark)
+lado -> a12_gemeo_lado_a_lado.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.006 verde 0.015 | quadros 9 | erros [] | OK
+sobreposto -> a12_gemeo_sobreposto_vista_camera.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.019 verde 0.035 | quadros 9 | erros [] | OK
+diagonal -> a12_gemeo_sobreposto_camera_diagonal.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.018 verde 0.023 | quadros 9 | erros [] | OK
+66fdd4f858c8221a6e34456ef19fde26f2bd5d8453d8966f83a09f02a36c14a1
+aguardando o servidor...
+{"ok":true,"quadros":150,"predictor":"demo: GT + ruido gaussiano (sigma 4.0 graus)"}
+servidor: http://127.0.0.1:8091  (container cerise26_gemeo, so loopback do Spark)
+ruido -> a12_gemeo_demo_predictor_ruido.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.006 verde 0.014 | quadros 89 | erros [] | OK
+ruido_sobreposto -> a12_gemeo_demo_ruido_sobreposto.png | malhas {'ref': 12, 'gemeo': 12} | canvas aluminio 0.008 verde 0.013 | quadros 89 | erros [] | OK
+b213701f61ae68df0e888933e6e0d9c8204ff129b4ee92fd485fdd47cb0930ad
+aguardando o servidor...
+{"ok":true,"quadros":150,"predictor":"ground_truth (oraculo)"}
+servidor: http://127.0.0.1:8091  (container cerise26_gemeo, so loopback do Spark)
