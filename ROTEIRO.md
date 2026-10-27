@@ -27,11 +27,12 @@ Este roteiro reproduz o trabalho com o braço robótico virtual servo6dof: a ger
 
 Os scripts assumem o repositório em `~/cerise2026/gemeo/repo`, a pasta do gerador em `~/braco` (dataset em `~/braco/dataset`) e os metadados em `~/cerise2026/gemeo/dataset_meta`. As variáveis `REPO`, `DATASET` e `META` de `scripts/rodar_container.sh` e de `gemeo_digital/subir_servidor.sh` trocam esses caminhos, mas `dataset_tools/analise/rodar_analise.sh` e `gemeo_digital/ros2/rodar_rviz_pose.sh` usam caminhos fixos; mantenha o layout.
 
-1. Clone o repositório:
+1. Autentique a GitHub CLI (escolha HTTPS e aceite autenticar o Git com as suas credenciais do GitHub) e clone o repositório:
 
 ```bash
+gh auth login
 mkdir -p ~/cerise2026/gemeo ~/braco
-git clone https://github.com/cerise-ufg/cerise-2026-servo6dof-gemeo-digital.git ~/cerise2026/gemeo/repo
+gh repo clone cerise-ufg/cerise-2026-servo6dof-gemeo-digital ~/cerise2026/gemeo/repo
 ```
 
 2. Baixe o dataset do Release `dados-2026-10-26` (ou pela página Releases do repositório) e confira os SHA-256. O comando baixa só a versão cinza, usada em todos os números de referência; sem as opções `-p` e `--ignore-missing`, baixa e confere tudo (variante laranja e quadros brutos do gêmeo).
@@ -84,7 +85,7 @@ sudo docker run --rm --gpus all servo6dof:humble ls /usr/share/glvnd/egl_vendor.
 
 ## Etapa 2: geração do dataset
 
-O gerador lê um plano fixo de poses, sobe N Gazebos isolados (worker w com `ROS_DOMAIN_ID` 90+w e `IGN_PARTITION` próprio, responsável pelas poses com `id % N == w`) e grava seis PNGs e um JSON por pose. A cada rodada, recalcula o que falta no disco e repete, o que torna a geração retomável. Faça primeiro um teste de 40 poses numa pasta separada; para a geração completa, use `WS=~/braco` com a pasta `dataset/` baixada renomeada.
+O gerador lê um plano fixo de poses, sobe N Gazebos isolados (worker w com `ROS_DOMAIN_ID` 90+w e `IGN_PARTITION` próprio, responsável pelas poses com `id % N == w`) e grava seis PNGs e um JSON por pose. A cada rodada, recalcula o que falta no disco e repete, o que torna a geração retomável. Faça primeiro um teste de 40 poses numa pasta separada. Antes da geração completa com `WS=~/braco`, renomeie o dataset baixado (`mv ~/braco/dataset ~/braco/dataset_release`) ou use outra pasta `WS`: o `gerar_hd_spark.sh` pula toda pose que já tem `NNNNNN.json` em `/ws/dataset` e, com o dataset do Release no lugar, termina na hora com `=== COMPLETO`, sem gerar nada.
 
 1. Monte a pasta de trabalho (vista como `/ws` no contêiner):
 
@@ -199,7 +200,7 @@ No modo `pose`, o servidor carrega `inferencia/predict.py` (classe `PosePredicto
 1. Prepare a pasta do modelo de pose: modelo final das Releases, `READY.json` (sinaliza que o modelo está pronto), `index.npz` e `crop.json` do conjunto de teste em que o modelo foi avaliado (500 poses, semente 2026), imagem Docker e pesos do Depth Anything V2. Detalhes em `inferencia/INFERENCIA.md` daquele repositório.
 
 ```bash
-git clone https://github.com/cerise-ufg/cerise-2026-pose-servo6dof.git ~/cerise2026/pose
+gh repo clone cerise-ufg/cerise-2026-pose-servo6dof ~/cerise2026/pose
 cd ~/cerise2026/pose
 gh release download artefatos-2026-10-26 -R cerise-ufg/cerise-2026-pose-servo6dof -D _releases \
   -p pose_servo6dof_modelo_final.tar -p SHA256SUMS.txt
@@ -212,6 +213,15 @@ sudo docker build -t cerise26_pose:latest -f docker/Dockerfile docker/
 mkdir -p ~/cerise2026/hf_cache
 sudo docker run --rm -v ~/cerise2026/pose:/workspace/pose -v ~/cerise2026/hf_cache:/root/.cache/huggingface \
   cerise26_pose:latest python /workspace/pose/scripts/baixar_pesos_da.py vitl
+```
+
+Se você já seguiu o roteiro do modelo de pose com o clone em `~/cerise2026/pose`, pule o passo 1: o repositório, os Releases extraídos, a pasta `dados/final/` da sua conversão, a imagem `cerise26_pose:latest` e o cache `~/cerise2026/hf_cache` já existem. Falta só o `READY.json`: copie `resultados/READY.json` para usar o modelo final do Release ou, para usar o seu modelo, copie o pacote exportado para `inferencia/modelo/pose_servo6dof.pt` e gere o arquivo a partir da sua avaliação:
+
+```bash
+cd ~/cerise2026/pose
+cp runs/pacote/pose_servo6dof.pt inferencia/modelo/pose_servo6dof.pt
+python3 scripts/escrever_ready.py --saida READY.json \
+  --metricas runs/repro_full_transfer/aval/metricas_teste.json
 ```
 
 2. Suba o servidor na imagem do modelo de pose, com GPU, todas as poses do teste e gravação das medições por quadro:
